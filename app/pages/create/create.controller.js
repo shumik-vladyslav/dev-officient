@@ -93,5 +93,10 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
         $scope.invoiceNewObject = $scope.invoiceTable[id];
         $scope.invoiceTable.splice(id, 1);
     };
+        console.log($.cookie('user'));
 
+    $scope.logOut = function () {
+        // users/<username>/logout
+
+    };
 }

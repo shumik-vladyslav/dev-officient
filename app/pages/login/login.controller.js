@@ -5,6 +5,7 @@ angular
 /** @ngInject */
 function LoginController($scope, $http, $httpParamSerializerJQLike) {
     var vm = this;
+        console.log($( "#checkbox-signup" ))
 
     $scope.submit = function () {
         console.log($scope.username)
@@ -20,10 +21,15 @@ function LoginController($scope, $http, $httpParamSerializerJQLike) {
             responseType: "json",
             data: $httpParamSerializerJQLike({ password: $scope.password }),
         }).success(function (req) {
-            console.log(angular.fromJson(req))
-            if (angular.fromJson(req).userID)
-                window.location.href = 'http://dev.officient.dk/create.html';
-                // window.location.href = 'file:///c%3A/Users/VladyslavShumik/Documents/dev-off/create.html';
+            var user = angular.fromJson(req);
+            console.log(user);
+            $.cookie.json = true;
+            $.cookie('name', 'value');
+                    console.log($.cookie());
+
+            //if (user.userID)
+                //window.location.href = 'http://dev.officient.dk/create.html';
+                 //window.location.href = 'file:///c%3A/Users/VladyslavShumik/Documents/dev-off/create.html';
         });
 
     };
