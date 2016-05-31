@@ -9,13 +9,15 @@
 
     <link rel="shortcut icon" href="assets/images/favicon_1.ico">
 
-    <title>Ubold - Responsive Admin Dashboard Template</title>
+    <title>Officient.dk</title>
 
     <!-- Plugin Css-->
     <link rel="stylesheet" href="assets/plugins/magnific-popup/dist/magnific-popup.css" />
     <link rel="stylesheet" href="assets/plugins/jquery-datatables-editable/datatables.css" />
 
     <link href="assets/plugins/bootstrapvalidator/src/css/bootstrapValidator.css" rel="stylesheet" type="text/css" />
+
+    <link href="assets/plugins/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" type="text/css" />
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
@@ -186,7 +188,8 @@
                                     </a>
                                 </li>
                             </ul>
-
+                    <div class="tab-content"> 
+                        <div class="tab-pane active" id="home-2">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="card-box">
@@ -312,6 +315,213 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="profile-2">
+                                        <!--Basic Toolbar-->
+                        <!--===================================================-->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card-box">
+                                    <div class="button-list">
+                                                <button type="button" class="btn btn-default waves-effect waves-light">Create Invoice</button>
+                                                <button type="button" class="btn btn-default waves-effect waves-light">Upload Invoice</button>
+                                            </div>
+                                    
+                                    <table data-toggle="table"
+                                           data-search="true"
+                                           data-show-refresh="true"
+                                           data-show-toggle="true"
+                                           data-show-columns="true"
+                                           data-sort-name="id"
+                                           data-page-list="[10, 20, 50]"
+                                           data-page-size="8"
+                                           data-pagination="true" data-show-pagination-switch="true" class="table-bordered ">
+                                        <thead>
+                                            <tr>
+                                                <th data-field="id" data-sortable="true" data-formatter="invoiceFormatter">No.</th>
+                                                <th data-field="date" data-sortable="true" data-formatter="dateFormatter">Date</th>
+                                                <th data-field="company" data-sortable="true">Company</th>
+                                                <th data-field="name" data-sortable="true">Type</th>
+                                                <th data-field="status" data-align="center" data-sortable="true" data-formatter="statusFormatter">Status</th>
+                                                <th data-field="amount" data-align="center" data-sortable="true" data-sorter="priceSorter">Amount</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        
+                                        
+                                        <tbody>
+                                            <tr>
+                                                <td>3746</td>
+                                                <td>12 May 2015</td>
+                                                <td>Officient.dk</td>
+                                                <td>Incoming</td>
+                                                <td>Unpaid</td>
+                                                <td>$123.85</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>McDonalds MI</td>
+                                                <td>Incoming</td>
+                                                <td>Paid</td>
+                                                <td>$16.11</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>Get A Car Inc.</td>
+                                                <td>Outgoing</td>
+                                                <td>Shipped</td>
+                                                <td>$4.99</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>Get A Car Inc.</td>
+                                                <td>Outgoing</td>
+                                                <td>Refunded</td>
+                                                <td>$64.25</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>3746</td>
+                                                <td>12 May 2015</td>
+                                                <td>Officient.dk</td>
+                                                <td>Incoming</td>
+                                                <td>Unpaid</td>
+                                                <td>$123.85</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>McDonalds MI</td>
+                                                <td>Incoming</td>
+                                                <td>Paid</td>
+                                                <td>$16.11</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>Get A Car Inc.</td>
+                                                <td>Outgoing</td>
+                                                <td>Shipped</td>
+                                                <td>$4.99</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>Get A Car Inc.</td>
+                                                <td>Outgoing</td>
+                                                <td>Refunded</td>
+                                                <td>$64.25</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>3746</td>
+                                                <td>12 May 2015</td>
+                                                <td>Officient.dk</td>
+                                                <td>Incoming</td>
+                                                <td>Unpaid</td>
+                                                <td>$123.85</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3746</td>
+                                                <td>12 May 2015</td>
+                                                <td>Officient.dk</td>
+                                                <td>Incoming</td>
+                                                <td>Unpaid</td>
+                                                <td>$123.85</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>McDonalds MI</td>
+                                                <td>Incoming</td>
+                                                <td>Paid</td>
+                                                <td>$16.11</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>Get A Car Inc.</td>
+                                                <td>Outgoing</td>
+                                                <td>Shipped</td>
+                                                <td>$4.99</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>Get A Car Inc.</td>
+                                                <td>Outgoing</td>
+                                                <td>Refunded</td>
+                                                <td>$64.25</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>3746</td>
+                                                <td>12 May 2015</td>
+                                                <td>Officient.dk</td>
+                                                <td>Incoming</td>
+                                                <td>Unpaid</td>
+                                                <td>$123.85</td>
+                                            </tr>
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>McDonalds MI</td>
+                                                <td>Incoming</td>
+                                                <td>Paid</td>
+                                                <td>$16.11</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>Get A Car Inc.</td>
+                                                <td>Outgoing</td>
+                                                <td>Shipped</td>
+                                                <td>$4.99</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>1021</td>
+                                                <td>06 Sep 2015</td>
+                                                <td>Get A Car Inc.</td>
+                                                <td>Outgoing</td>
+                                                <td>Refunded</td>
+                                                <td>$64.25</td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td>3746</td>
+                                                <td>12 May 2015</td>
+                                                <td>Officient.dk</td>
+                                                <td>Incoming</td>
+                                                <td>Unpaid</td>
+                                                <td>$123.85</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div> 
+                                    </div> 
+                                    <div class="tab-pane" id="messages-2">
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p> 
+                                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p> 
+                                    </div> 
+                                    <div class="tab-pane" id="settings-2">
+                                        <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>  
+                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p> 
+                                    </div> 
+                                </div> 
 
                             <!-- ============================================================== -->
                             <!-- Start right Content here -->
@@ -616,7 +826,10 @@
     <script src="assets/plugins/tiny-editable/mindmup-editabletable.js"></script>
     <script src="assets/plugins/tiny-editable/numeric-input-example.js"></script>
 
-
+    <script src="assets/plugins/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="assets/pages/jquery.bs-table.js"></script>
+      
+    <script src="assets/pages/datatables.editable.init.js"></script>
 
     <script>
         
