@@ -3,7 +3,7 @@ angular
     .controller('CreateController', CreateController);
 
 /** @ngInject */
-function CreateController($scope, $http, $timeout) {
+function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
     var vm = this;
 
     $scope.invoiceTable = [{
@@ -17,24 +17,24 @@ function CreateController($scope, $http, $timeout) {
     }
     ];
 
-    var url = 'https://secret-bayou-62805.herokuapp.com/companies';
+    var url = 'https://dev.officient.dk/companies';
 
-    $http({
-        method: 'GET',
-        url: url,
-        // headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        // transformRequest: function(obj) {
-        //     var str = [];
-        //     for(var p in obj)
-        //     str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-        //     return str.join("&");
-        // },
-    }).success(function (req) {
-        console.log(req)
-    });
+   $http({
+            method: 'GET',
+            url: url,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            responseType: "json",
+            data: $httpParamSerializerJQLike({ password: $scope.password }),
+        }).success(function (req) {
+            console.log(angular.fromJson(req))
+            $scope.companies = angular.fromJson(req);
+            $scope.companiesSelected = $scope.companies;
+            
+        }).error(function (params) {
+            console.log(params)
+        });
 
-    $scope.companies = [{ "_id": 1, "objecttype": "Officient\\FrontEnd\\Company", "name": "The Big Company", "companyidents": { "CVR": "12321232" }, "primaryemail": "ak@nemportal.dk" }, { "_id": 2, "objecttype": "Officient\\FrontEnd\\Company", "name": "EHFPortal.no A\/S", "companyidents": { "CVR": "NO876543210", "EAN": "5790008886541" }, "primaryemail": "mb@officient.dk" }, { "_id": 3, "objecttype": "Officient\\FrontEnd\\Company", "name": "IBM", "companyidents": { "EAN": "6559874400012" }, "primaryemail": "jb@ehfportal.no" }, { "_id": 4, "objecttype": "Officient\\FrontEnd\\Company", "name": "Company #3", "companyidents": { "CVR": "55446622" }, "primaryemail": "ak@ehfportal.no" }]
-    $scope.companiesSelected = $scope.companies;
+    // $scope.companies = [{ "_id": 1, "objecttype": "Officient\\FrontEnd\\Company", "name": "The Big Company", "companyidents": { "CVR": "12321232" }, "primaryemail": "ak@nemportal.dk" }, { "_id": 2, "objecttype": "Officient\\FrontEnd\\Company", "name": "EHFPortal.no A\/S", "companyidents": { "CVR": "NO876543210", "EAN": "5790008886541" }, "primaryemail": "mb@officient.dk" }, { "_id": 3, "objecttype": "Officient\\FrontEnd\\Company", "name": "IBM", "companyidents": { "EAN": "6559874400012" }, "primaryemail": "jb@ehfportal.no" }, { "_id": 4, "objecttype": "Officient\\FrontEnd\\Company", "name": "Company #3", "companyidents": { "CVR": "55446622" }, "primaryemail": "ak@ehfportal.no" }]
 
     $scope.companySelectShow = false;
 
