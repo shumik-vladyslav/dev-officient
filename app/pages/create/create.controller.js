@@ -7,32 +7,32 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
     var vm = this;
 
     $scope.invoiceTable = [{
-        Description:"Test",
-        Discount:"10%",
-        Id:"1",
-        Price:"100$",
-        Qty:"1 month",
-        Tax:"2%",
-        Total:"100"
+        Description: "Test",
+        Discount: "10%",
+        Id: "1",
+        Price: "100$",
+        Qty: "1 month",
+        Tax: "2%",
+        Total: "100"
     }
     ];
 
     var url = 'https://dev.officient.dk/companies';
 
-   $http({
-            method: 'GET',
-            url: url,
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            responseType: "json",
-            data: $httpParamSerializerJQLike({ password: $scope.password }),
-        }).success(function (req) {
-            console.log(angular.fromJson(req))
-            $scope.companies = angular.fromJson(req);
-            $scope.companiesSelected = $scope.companies;
-            
-        }).error(function (params) {
-            console.log(params)
-        });
+    $http({
+        method: 'GET',
+        url: url,
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        responseType: "json",
+        data: $httpParamSerializerJQLike({ password: $scope.password }),
+    }).success(function (req) {
+        console.log(angular.fromJson(req))
+        $scope.companies = angular.fromJson(req);
+        $scope.companiesSelected = $scope.companies;
+
+    }).error(function (params) {
+        console.log(params)
+    });
 
     // $scope.companies = [{ "_id": 1, "objecttype": "Officient\\FrontEnd\\Company", "name": "The Big Company", "companyidents": { "CVR": "12321232" }, "primaryemail": "ak@nemportal.dk" }, { "_id": 2, "objecttype": "Officient\\FrontEnd\\Company", "name": "EHFPortal.no A\/S", "companyidents": { "CVR": "NO876543210", "EAN": "5790008886541" }, "primaryemail": "mb@officient.dk" }, { "_id": 3, "objecttype": "Officient\\FrontEnd\\Company", "name": "IBM", "companyidents": { "EAN": "6559874400012" }, "primaryemail": "jb@ehfportal.no" }, { "_id": 4, "objecttype": "Officient\\FrontEnd\\Company", "name": "Company #3", "companyidents": { "CVR": "55446622" }, "primaryemail": "ak@ehfportal.no" }]
 
@@ -83,20 +83,31 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
         $scope.showInvoiceTable = false;
         $scope.invoiceNewObject = {};
     };
-    
-    $scope.deletedInvoce = function(id){
+
+    $scope.deletedInvoce = function (id) {
         $scope.invoiceTable.splice(id, 1);
     };
-    
-    $scope.editInvoce = function(id){
+
+    $scope.editInvoce = function (id) {
         $scope.showInvoiceTable = true;
         $scope.invoiceNewObject = $scope.invoiceTable[id];
         $scope.invoiceTable.splice(id, 1);
     };
-        console.log($.cookie('user'));
 
     $scope.logOut = function () {
         // users/<username>/logout
+        $.cookie.json = true;
+        var user = $.cookie('user');
+        $http({
+            method: 'POST',
+            url: 'https://dev.officient.dk/users/' + user.loginName + '/logout',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            responseType: "json",
+        }).success(function (req) {
+            window.location.href = 'http://dev.officient.dk/login.html';
+        }).error(function (params) {
+            console.log(params)
+        });
 
     };
 }

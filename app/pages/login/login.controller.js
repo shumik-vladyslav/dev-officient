@@ -23,13 +23,13 @@ function LoginController($scope, $http, $httpParamSerializerJQLike) {
         }).success(function (req) {
             var user = angular.fromJson(req);
             console.log(user);
+            user.loginName = $scope.username;
             $.cookie.json = true;
-            $.cookie('name', 'value');
-                    console.log($.cookie());
+            $.cookie('user', user);
 
-            //if (user.userID)
-                //window.location.href = 'http://dev.officient.dk/create.html';
-                 //window.location.href = 'file:///c%3A/Users/VladyslavShumik/Documents/dev-off/create.html';
+            if (user.userID)
+                window.location.href = 'http://dev.officient.dk/create.html';
+                 //window.location.href = 'http://192.168.1.118:8081/create.html';
         });
 
     };
