@@ -18,20 +18,68 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
     ];
 
     var url = 'https://dev.officient.dk/companies';
+    // $http({
+    //     method: 'POST',
+    //     url: 'https://dev.officient.dk/users/ic/login',
+    //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    //     responseType: "json",
+    //     data: $httpParamSerializerJQLike({ password: 'test123' }),
+    // }).success(function (req) {
+    //     $http({
+    //         method: 'GET',
+    //         url: url,
+    //         // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    //         responseType: "json",
+    //         data: $httpParamSerializerJQLike({ password: $scope.password }),
+    //     }).success(function (req) {
+    //         console.log(angular.fromJson(req))
+    //         $scope.companies = angular.fromJson(req);
+    //         $scope.companiesSelected = $scope.companies;
 
-    $http({
-        method: 'GET',
+    //     }).error(function (params) {
+    //         console.log(params)
+    //     });
+    // });
+    $.ajax({
+        url: "https://dev.officient.dk/users/ic/login",
+        type: "POST",
+        dataType: "xml/html/script/json", // expected format for response
+        contentType: "application/x-www-form-urlencoded", // send as JSON
+        data: $httpParamSerializerJQLike({ password: 'test123' }),
+
+        complete: function () {
+            //called when complete
+            console.log(232)
+                   $.ajax({
         url: url,
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        responseType: "json",
-        data: $httpParamSerializerJQLike({ password: $scope.password }),
-    }).success(function (req) {
-        console.log(angular.fromJson(req))
-        $scope.companies = angular.fromJson(req);
-        $scope.companiesSelected = $scope.companies;
+        type: "GET",
+        dataType: "xml/html/script/json", // expected format for response
+        contentType: "application/x-www-form-urlencoded", // send as JSON
 
-    }).error(function (params) {
-        console.log(params)
+        complete: function () {
+            //called when complete
+        },
+
+        success: function () {
+            //called when successful
+        },
+
+        error: function () {
+            //called when there is an error
+        },
+    });
+        },
+
+        success: function () {
+            //called when successful
+            console.log(23)
+     
+
+        },
+
+        error: function () {
+            //called when there is an error
+        },
     });
 
     // $scope.companies = [{ "_id": 1, "objecttype": "Officient\\FrontEnd\\Company", "name": "The Big Company", "companyidents": { "CVR": "12321232" }, "primaryemail": "ak@nemportal.dk" }, { "_id": 2, "objecttype": "Officient\\FrontEnd\\Company", "name": "EHFPortal.no A\/S", "companyidents": { "CVR": "NO876543210", "EAN": "5790008886541" }, "primaryemail": "mb@officient.dk" }, { "_id": 3, "objecttype": "Officient\\FrontEnd\\Company", "name": "IBM", "companyidents": { "EAN": "6559874400012" }, "primaryemail": "jb@ehfportal.no" }, { "_id": 4, "objecttype": "Officient\\FrontEnd\\Company", "name": "Company #3", "companyidents": { "CVR": "55446622" }, "primaryemail": "ak@ehfportal.no" }]
@@ -104,7 +152,10 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             responseType: "json",
         }).success(function (req) {
+            $.removeCookie('user');
             window.location.href = 'http://dev.officient.dk/login.html';
+            //window.location.href = 'http://192.168.1.118:8080/login.html';
+
         }).error(function (params) {
             console.log(params)
         });

@@ -27,9 +27,9 @@ function LoginController($scope, $http, $httpParamSerializerJQLike) {
             $.cookie.json = true;
             $.cookie('user', user);
 
-            if (user.userID)
+            //if (user.userID)
                 window.location.href = 'http://dev.officient.dk/create.html';
-                 //window.location.href = 'http://192.168.1.118:8081/create.html';
+                //window.location.href = 'http://192.168.1.118:8081/create.html';
         });
 
     };

@@ -11,6 +11,8 @@
 
     <title>Officient.dk</title>
 
+    <link href="assets/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
+
     <!-- Plugin Css-->
     <link rel="stylesheet" href="assets/plugins/magnific-popup/dist/magnific-popup.css" />
     <link rel="stylesheet" href="assets/plugins/jquery-datatables-editable/datatables.css" />
@@ -19,6 +21,7 @@
 
     <link href="assets/plugins/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" type="text/css" />
 
+    <link href="assets/plugins/custombox/dist/custombox.min.css" rel="stylesheet">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
@@ -349,10 +352,192 @@
                                             </tr>
                                         </thead>
                                         
+                        <!-- Custom Modals -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-box">
+                                    
+                                    
+                                    <!-- sample modal content -->
+
+                                    <div id="custom-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true" style="display: none;">
+                                        <div class="modal-dialog" style="width:75%;">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    
+                                                    
+                                                <div class="clearfix">
+                                                    <div class="pull-left">
+                                                        <h4 class="text-right">1021 | 6 Sep 2015 | McDonald's MI</h4>   
+                                                    </div>
+                                            <div class="pull-right">
+                                                <span>In Progress | </span><strong>$16.11 </strong>
+                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                            </div>
+                                                </div>
+                                                </div>
+            
+                                            <div class="modal-body">
+                                                <div class="pull-left m-t-30">
+                                                    <a href="#" class="btn btn-primary waves-effect waves-light" id="sa-params">Send</a>
+                                                    <a href="#" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print"></i> Download PDF</i></a>
+                                                    <a href="#" class="btn btn-primary waves-effect waves-light">Edit</a>
+                                                </div>
+                                                <div class="pull-right m-t-30">
+                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+                                                    <a href="#" class="btn btn-primary waves-effect waves-light">Delete</a>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                
+                                                <hr>
+
+                                                    <div class="pull-left m-t-30">
+                                                            <h2><strong>Invoice Log</strong></h2>
+                                                    </div>
+                                                    <div class="pull-right m-t-30">
+                                                        <p class="m-t-10"><strong>Status: </strong> <span class="label label-pink">Pending</span></p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="pull-left m-t-30">
+                                                            <span>13 May 2016 15:18</span><br>
+                                                            <span>23 May 2016 12:39</span><br>
+                                                    </div>
+                                                    <div class="pull-right m-t-30">
+                                                        <span>Invoice recieved by SDK Consulting Holding</span><br>
+                                                        <span>Invoice for 16.11 EUR is sent to SDK Consulting Holding</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="pull-left m-t-30">
+                                                            <a href="#">See earlier events</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="pull-left m-t-30">
+                                                        <address>
+                                                          <strong>To</strong><br>
+                                                          McDonald's MI<br>
+                                                          186 Spark Lane, Suite 8902<br>
+                                                          Greenwich MI<br>
+                                                          USA<br>
+                                                          </address>
+                                                    </div>
+                                                    <div class="pull-right m-t-30">
+                                                        <p><strong>Invoice Number </strong><br> 123456789</p>
+                                                        <p><strong>Invoice Date </strong><br> 6 Sep 2015 </p>
+                                                        <p><strong> Currency </strong><br> USD</p>
+                                                        <p><strong>Payment due date </strong><br> 15 Mar 2016 </p>
+                                                        <p><strong> Delivery date </strong><br> 17 Mar 2016</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <div class="col-lg-1">
+                                            <h5><b>ID</b></h5>
+                                            <p class="text-muted font-13 m-b-30">
+                                                1
+                                            </p>
+                                            <p class="text-muted font-13 m-b-30">
+                                                2
+                                            </p>
+                                        </div>
+                                        
+                                        <div class="col-lg-2">
+                                            <h5><b>Description</b></h5>
+                                            <p class="text-muted font-13 m-b-30">
+                                                Big Mac
+                                            </p>
+                                            <p class="text-muted font-13 m-b-30">
+                                                Cola Light
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-1">
+                                            <h5><b>Qty</b></h5>
+                                            <p class="text-muted font-13 m-b-30">
+                                                5
+                                            </p>
+                                            <p class="text-muted font-13 m-b-30">
+                                                1
+                                            </p>
+                                        </div>
+                                        
+                                        <div class="col-lg-1">
+                                            <h5><b>Unit</b></h5>
+                                            <p class="text-muted font-13 m-b-30">
+                                                pcs
+                                            </p>
+                                            <p class="text-muted font-13 m-b-30">
+                                                pcs
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <h5><b>Price </b><small> excl. tax</small></h5>
+                                            <p class="text-muted font-13 m-b-30">
+                                                2.54
+                                            </p>
+                                            <p class="text-muted font-13 m-b-30">
+                                                1.68
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <h5><b>Tax %</b></h5>
+                                            <p class="text-muted font-13 m-b-30">
+                                                12%
+                                            </p>
+                                            <p class="text-muted font-13 m-b-30">
+                                                12%
+                                            </p>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <h5><b>Total </b><small> excl. tax</small></h5>
+                                            <p class="text-muted font-13 m-b-30">
+                                                12.70
+                                            </p>
+                                            <p class="text-muted font-13 m-b-30">
+                                                1.68
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="pull-right m-t-30">
+                                                        <p><strong>Subtotal </strong><br> excl. tax</p><span>14.38</span>
+                                                        <hr>
+                                                        <p><h3><strong>Total USD </strong></h3></p><span>16.11</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div><!-- /.modal-content -->
+                                        </div><!-- /.modal-dialog -->
+                                    </div><!-- /.modal -->
+                
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- End row -->
                                         
                                         <tbody>
                                             <tr>
-                                                <td>3746</td>
+                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
                                                 <td>12 May 2015</td>
                                                 <td>Officient.dk</td>
                                                 <td>Incoming</td>
@@ -360,7 +545,7 @@
                                                 <td>$123.85</td>
                                             </tr>
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>McDonalds MI</td>
                                                 <td>Incoming</td>
@@ -369,7 +554,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>Get A Car Inc.</td>
                                                 <td>Outgoing</td>
@@ -378,7 +563,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>Get A Car Inc.</td>
                                                 <td>Outgoing</td>
@@ -387,7 +572,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>3746</td>
+                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
                                                 <td>12 May 2015</td>
                                                 <td>Officient.dk</td>
                                                 <td>Incoming</td>
@@ -395,7 +580,7 @@
                                                 <td>$123.85</td>
                                             </tr>
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>McDonalds MI</td>
                                                 <td>Incoming</td>
@@ -404,7 +589,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>Get A Car Inc.</td>
                                                 <td>Outgoing</td>
@@ -413,7 +598,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>Get A Car Inc.</td>
                                                 <td>Outgoing</td>
@@ -422,7 +607,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>3746</td>
+                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
                                                 <td>12 May 2015</td>
                                                 <td>Officient.dk</td>
                                                 <td>Incoming</td>
@@ -430,7 +615,7 @@
                                                 <td>$123.85</td>
                                             </tr>
                                             <tr>
-                                                <td>3746</td>
+                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
                                                 <td>12 May 2015</td>
                                                 <td>Officient.dk</td>
                                                 <td>Incoming</td>
@@ -438,7 +623,7 @@
                                                 <td>$123.85</td>
                                             </tr>
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>McDonalds MI</td>
                                                 <td>Incoming</td>
@@ -447,7 +632,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>Get A Car Inc.</td>
                                                 <td>Outgoing</td>
@@ -456,7 +641,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>Get A Car Inc.</td>
                                                 <td>Outgoing</td>
@@ -465,7 +650,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>3746</td>
+                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
                                                 <td>12 May 2015</td>
                                                 <td>Officient.dk</td>
                                                 <td>Incoming</td>
@@ -473,7 +658,7 @@
                                                 <td>$123.85</td>
                                             </tr>
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>McDonalds MI</td>
                                                 <td>Incoming</td>
@@ -482,7 +667,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>Get A Car Inc.</td>
                                                 <td>Outgoing</td>
@@ -491,7 +676,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>1021</td>
+                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
                                                 <td>06 Sep 2015</td>
                                                 <td>Get A Car Inc.</td>
                                                 <td>Outgoing</td>
@@ -500,7 +685,7 @@
                                             </tr>
                                             
                                             <tr>
-                                                <td>3746</td>
+                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
                                                 <td>12 May 2015</td>
                                                 <td>Officient.dk</td>
                                                 <td>Incoming</td>
@@ -779,7 +964,7 @@
     </script>
 
     <!-- jQuery  -->
-            <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/detect.js"></script>
     <script src="assets/js/fastclick.js"></script>
@@ -789,7 +974,7 @@
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/jquery.nicescroll.js"></script>
     <script src="assets/js/jquery.scrollTo.min.js"></script>
-    
+
     <script src="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
     <script src="assets/plugins/switchery/dist/switchery.min.js"></script>
     <script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
@@ -819,6 +1004,9 @@
     <script src="assets/js/jquery.core.js"></script>
     <script src="assets/js/jquery.app.js"></script>
 
+    <script src="assets/plugins/custombox/dist/custombox.min.js"></script>
+    <script src="assets/plugins/custombox/dist/legacy.min.js"></script>
+
     <!-- Examples -->
     <script src="assets/plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
     <script src="assets/plugins/jquery-datatables-editable/jquery.dataTables.js"></script>
@@ -843,7 +1031,10 @@
     <script src="assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="assets/plugins/clockpicker/dist/jquery-clockpicker.min.js"></script>
     <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- Sweet-Alert  -->
+    <script src="assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="assets/pages/jquery.sweet-alert.init.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function() {
