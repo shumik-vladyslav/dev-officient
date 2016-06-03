@@ -46,20 +46,20 @@
     //Parameter
     $('#sa-params').click(function(){
         swal({   
-            title: "Are you sure?",   
-            text: "You will not be able to recover this imaginary file!",   
+            title: "Ready?",   
+            text: "Do you want to send your invoice?",   
             type: "warning",   
             showCancelButton: true,   
             confirmButtonColor: "#DD6B55",   
-            confirmButtonText: "Yes, delete it!",   
-            cancelButtonText: "No, cancel plx!",   
+            confirmButtonText: "Send Invoice",   
+            cancelButtonText: "Let Me Check",   
             closeOnConfirm: false,   
             closeOnCancel: false 
         }, function(isConfirm){   
             if (isConfirm) {     
-                swal("Deleted!", "Your imaginary file has been deleted.", "success");   
+                swal("Invoice sent!", "Get your self a cup of coffee, you deserve it", "success");   
             } else {     
-                swal("Cancelled", "Your imaginary file is safe :)", "error");   
+                swal("Cancelled", "Now you can check your invoice and send again", "error");   
             } 
         });
     });

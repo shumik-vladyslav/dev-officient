@@ -1,0 +1,215 @@
+   .pricings {
+        width: 100%;
+        height: 500px;
+    }
+    
+    .head {
+        height: 400px;
+        background: rgb(107, 201, 210);
+        padding-top: 90px;
+    }
+    
+    .head div .first {
+        color: #fff;
+        font-size: 40px;
+    }
+    
+    .head div .first-subscribe {
+        color: #fff;
+        font-size: 20px;
+    }
+    
+    .head div .box {
+        color: #fff;
+        font-size: 20px;
+        background: #36404a;
+        padding: 10px;
+        margin: 30px;
+        margin-top: 60px;
+    }
+    .head div .box a{
+        color: #fff;
+    }
+    .head div .box a:hover{
+        color: #A8E9F5;
+    }
+    
+    .head div .box-second {
+        position: relative;
+        color: #fff;
+        font-size: 20px;
+        background: #36404a;
+        padding: 10px;
+        margin: 30px;
+        margin-top: 30px;
+    }
+    
+    .pricings .pricing-repeat {
+        height: 100%;
+        background: linear-gradient(to bottom, rgb(107, 201, 210) 70%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%, rgb(107, 201, 210) 100%);
+    }
+    
+    .price-button {
+        width: 100%;
+    }
+    
+    .pro {
+        height: 400px;
+        background: rgb(107, 201, 210);
+        color: #fff;
+    }
+    
+    .pro .top {
+        font-size: 35px;
+        margin: 20px;
+    }
+    
+    .pro div div .first {
+        text-align: right;
+    }
+    
+    .pro div div .first .head-pro {
+        font-size: 25px;
+    }
+    
+    .pro div div .first h4 {
+        font-size: 20px;
+    }
+    
+    .pro div div .second .head-pro {
+        font-size: 25px;
+    }
+    
+    .pro div div .second h4 {
+        font-size: 20px;
+    }
+    
+    .pro div div .second {
+        text-align: left;
+    }
+    
+    .why {
+        height: 500px;
+        background: rgb(132, 177, 181);
+        color: #fff;
+    }
+    
+    .why .top {
+        font-size: 35px;
+        margin: 20px;
+    }
+    
+    .why .row {
+        font-size: 25px;
+        margin: 20px;
+    }
+    
+    .why .row div {
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .list {
+        height: 500px;
+        background: rgb(184, 239, 245);
+        color: #fff;
+    }
+    
+    .list .top {
+        font-size: 35px;
+        margin: 20px;
+    }
+    
+    .list .quote {
+        color: black;
+        margin: 20px;
+    }
+    
+    .easy-type {
+        height: 300px;
+        background: rgb(42, 234, 255);
+        color: #fff;
+    }
+    
+    .easy-type .top {
+        font-size: 35px;
+        margin: 20px;
+    }
+    
+    .easy-type div {
+        padding: 10px;
+    }
+    
+    .grov {
+        height: 450px;
+        background: rgb(107, 201, 210);
+        color: #fff;
+    }
+    
+    .grov .top {
+        font-size: 35px;
+        margin: 20px;
+    }
+    
+    .grov div {
+        padding: 10px;
+    }
+    
+    .free {
+        height: 300px;
+        background: rgb(184, 239, 245);
+        color: #fff;
+    }
+    
+    .free .top {
+        font-size: 35px;
+        margin: 20px;
+    }
+    
+    .free div {
+        padding: 10px;
+    }
+    
+    .phone {
+        height: 200px;
+        background: rgb(42, 234, 255);
+        color: #fff;
+    }
+    .phone .top {
+        font-size: 35px;
+        margin: 20px;
+    }
+    blockquote {
+        border-left: 1px solid #bbb;
+        font-style: italic;
+        margin: 1.5em 10px;
+        padding: 0.5em 10px;
+        color: black;
+    }
+    
+    blockquote:before {
+        color: #bbb;
+        content: "\201C";
+        /* Непечатаемый символ слева */
+        font-size: 3em;
+        line-height: 0.1em;
+        margin-right: 0.2em;
+        vertical-align: -.4em;
+    }
+    
+    blockquote:after {
+        color: #bbb;
+        content: "\201D";
+        /* Непечатаемый символ справа */
+        font-size: 3em;
+        line-height: 0.1em;
+        vertical-align: -.45em;
+    }
+    
+    blockquote > p:first-child {
+        display: inline;
+    }
+    
+    .full-body{
+        height: 3610px
+    }
