@@ -12,9 +12,17 @@ function CompanySettingsController($scope, $http) {
 
     $scope.contactNew = {};
 
+    $scope.packageNew = {};
+
+    $scope.paymentNew = {};
+
     $scope.userNewShow = false;
 
     $scope.contactNewShow = false;
+
+    $scope.packageNewShow = false;
+
+    $scope.paymentNewShow = false;
 
     $scope.companyDetails = {
         name: "Officient",
@@ -70,6 +78,48 @@ function CompanySettingsController($scope, $http) {
         }
     ];
 
+    $scope.packages = [
+        {
+            id: 1,
+            name: "package 1",
+            status: "done",
+            type: "cargo",
+        },
+        {
+            id: 2,
+            name: "package 2",
+            status: "wait",
+            type: "cargo",
+        },
+        {
+            id: 3,
+            name: "package 3",
+            status: "done",
+            type: "cargo",
+        }
+    ];
+
+    $scope.payments = [
+        {
+            id: 1,
+            name: "payment 1",
+            status: "done",
+            price: "30$",
+        },
+        {
+            id: 2,
+            name: "payment 2",
+            status: "wait",
+            price: "20$",
+        },
+        {
+            id: 3,
+            name: "payment 3",
+            status: "done",
+            price: "10$",
+        }
+    ];
+
     $scope.userActivity = function (id) {
         for (var key in $scope.users) {
             if ($scope.users.hasOwnProperty(key)) {
@@ -100,6 +150,14 @@ function CompanySettingsController($scope, $http) {
         $scope.contactEditFlag = index;
     };
 
+    $scope.packageEdit = function (id, index) {
+        $scope.packageEditFlag = index;
+    };
+
+    $scope.paymentEdit = function (id, index) {
+        $scope.paymentEditFlag = index;
+    };
+
     $scope.userAdd = function (value) {
         $scope.userNewShow = value;
         if (!value) {
@@ -113,6 +171,22 @@ function CompanySettingsController($scope, $http) {
         if (!value) {
             $scope.contacts.push($scope.contactNew);
             $scope.contactNew = {};
+        }
+    };
+
+    $scope.packageAdd = function (value) {
+        $scope.packageNewShow = value;
+        if (!value) {
+            $scope.packages.push($scope.packageNew);
+            $scope.packageNew = {};
+        }
+    };
+
+    $scope.paymentAdd = function (value) {
+        $scope.paymentNewShow = value;
+        if (!value) {
+            $scope.payments.push($scope.paymentNew);
+            $scope.paymentNew = {};
         }
     };
 
@@ -138,8 +212,35 @@ function CompanySettingsController($scope, $http) {
         }
     };
 
+    $scope.packageRemove = function (id) {
+        for (var key in $scope.packages) {
+            if ($scope.packages.hasOwnProperty(key)) {
+                var element = $scope.packages[key];
+                if (element.id === id) {
+                    $scope.packages.splice($scope.packages.indexOf(element), 1);
+                }
+            }
+        }
+    };
+
+    $scope.paymentRemove = function (id) {
+        for (var key in $scope.payments) {
+            if ($scope.payments.hasOwnProperty(key)) {
+                var element = $scope.payments[key];
+                if (element.id === id) {
+                    $scope.payments.splice($scope.payments.indexOf(element), 1);
+                }
+            }
+        }
+    };
+
     $scope.editDetails = function (value) {
         $scope.hasEditDetails = value;
+    };
+
+    $scope.backToAccount = function () {
+        console.log(23)
+        window.location.href = 'http://dev.officient.dk/create.html';
     };
 
     $(document).ready(function () {

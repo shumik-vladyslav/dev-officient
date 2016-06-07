@@ -197,21 +197,18 @@
                                     <a href="#packages-2" data-toggle="tab" aria-expanded="false">
                                         <span class="visible-xs"><i class="fa fa-cog"></i></span>
                                         <span class="hidden-xs">Packages</span>
-                                        <span class="badge badge-xs badge-danger">3</span>
                                     </a>
                                 </li>
                                 <li class="tab">
                                     <a href="#payment-2" data-toggle="tab" aria-expanded="false">
                                         <span class="visible-xs"><i class="fa fa-cog"></i></span>
                                         <span class="hidden-xs">Payment</span>
-                                        <span class="badge badge-xs badge-danger">1</span>
                                     </a>
                                 </li>
                                 <li class="tab">
-                                    <a href="#settings-2" data-toggle="tab" aria-expanded="false">
+                                    <a ng-click="backToAccount()">
                                         <span class="visible-xs"><i class="fa fa-cog"></i></span>
-                                        <span class="hidden-xs"><h3><strong>Back To Account</strong></h2></span>
-
+                                        <span class="hidden-xs"><h4>Back To Account</h4></span>
                                     </a>
                                 </li>
                             </ul>
@@ -513,7 +510,7 @@
                                                         <a href="#" class="btn btn-primary waves-effect waves-light" id="sa-params">Company Info</a>
                                                     </div>
                                                     <div class="pull-right m-t-30">
-                                                        <a href="#" class="btn btn-primary waves-effect waves-light"  data-dismiss="modal" ng-click="contactRemove(contacActivitySelect.id)">Remove</a>
+                                                        <a href="#" class="btn btn-primary waves-effect waves-light" data-dismiss="modal" ng-click="contactRemove(contacActivitySelect.id)">Remove</a>
                                                     </div>
                                                 </div>
 
@@ -551,20 +548,19 @@
                                         <div class="col-sm-12">
                                             <div class="card-box">
                                                 <div class="user-add">
-                                                    <button ng-if='!userNewShow' type="button" class="btn btn-default waves-light" ng-click="userAdd(true)">Add User</button>
-                                                    <button ng-if='userNewShow' type="button" class="btn btn-default waves-light" ng-click="userAdd(false)">Save User</button>
+                                                    <button ng-if='!packageNewShow' type="button" class="btn btn-default waves-light" ng-click="packageAdd(true)">Add Package</button>
+                                                    <button ng-if='packageNewShow' type="button" class="btn btn-default waves-light" ng-click="packageAdd(false)">Save Package</button>
                                                 </div>
                                                 <!--data-toggle="table"-->
-                                                <table id="users" class="table table-striped" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true"
+                                                <table id="packages" class="table table-striped" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true"
                                                     data-sort-name="id" data-page-list="[10, 20, 50]" data-page-size="8" data-pagination="true"
                                                     data-show-pagination-switch="true" class="table-bordered ">
                                                     <thead>
                                                         <tr>
                                                             <th data-field="id" data-sortable="true">No.</th>
-                                                            <th data-field="user.fullName" data-sortable="true">Full Name</th>
-                                                            <th data-field="user.userName" data-sortable="true">User Name</th>
-                                                            <th data-field="user.userType" data-sortable="true">User Type</th>
-                                                            <th data-sortable="false"></th>
+                                                            <th data-field="package.name" data-sortable="true">Package Name</th>
+                                                            <th data-field="package.status" data-sortable="true">Status</th>
+                                                            <th data-field="package.type" data-sortable="true">Type</th>
                                                             <th data-sortable="false"></th>
                                                             <th data-sortable="false"></th>
 
@@ -574,39 +570,39 @@
                                                     <!-- End row -->
 
                                                     <tbody>
-                                                        <tr ng-if='userNewShow'>
-                                                            <td><input type="text" class="form-control" required ng-model="userNew.id"
+                                                        <tr ng-if='packageNewShow'>
+                                                            <td><input type="text" class="form-control" required ng-model="packageNew.id"
                                                                 /></td>
-                                                            <td><input type="text" class="form-control" required ng-model="userNew.fullName"
+                                                            <td><input type="text" class="form-control" required ng-model="packageNew.name"
                                                                 /></td>
-                                                            <td><input type="text" class="form-control" required ng-model="userNew.userName"
+                                                            <td><input type="text" class="form-control" required ng-model="packageNew.status"
                                                                 /></td>
-                                                            <td><input type="text" class="form-control" required ng-model="userNew.userType"
+                                                            <td><input type="text" class="form-control" required ng-model="packageNew.type"
                                                                 /></td>
                                                         </tr>
-                                                        <tr ng-repeat="user in users">
-                                                            <td ng-if='userEditFlag != $index'>{{user.id}}</td>
-                                                            <td ng-if='userEditFlag == $index'><input type="text" class="form-control" required ng-model="user.id"
+                                                        <tr ng-repeat="package in packages">
+                                                            <td ng-if='packageEditFlag != $index'>{{package.id}}</td>
+                                                            <td ng-if='packageEditFlag == $index'><input type="text" class="form-control" required ng-model="package.id"
                                                                 /></td>
-                                                            <td ng-if='userEditFlag != $index'>{{user.fullName}}</td>
-                                                            <td ng-if='userEditFlag == $index'><input type="text" class="form-control" required ng-model="user.fullName"
+                                                            <td ng-if='packageEditFlag != $index'>{{package.name}}</td>
+                                                            <td ng-if='packageEditFlag == $index'><input type="text" class="form-control" required ng-model="package.name"
                                                                 /></td>
-                                                            <td ng-if='userEditFlag != $index'>{{user.userName}}</td>
-                                                            <td ng-if='userEditFlag == $index'><input type="text" class="form-control" required ng-model="user.userName"
+                                                            <td ng-if='packageEditFlag != $index'>{{package.status}}</td>
+                                                            <td ng-if='packageEditFlag == $index'><input type="text" class="form-control" required ng-model="package.status"
                                                                 /></td>
-                                                            <td ng-if='userEditFlag != $index'>{{user.userType}}</td>
-                                                            <td ng-if='userEditFlag == $index'><input type="text" class="form-control" required ng-model="user.userType"
+                                                            <td ng-if='packageEditFlag != $index'>{{package.type}}</td>
+                                                            <td ng-if='packageEditFlag == $index'><input type="text" class="form-control" required ng-model="package.type"
                                                                 /></td>
-                                                            <td>
+                                                            <!--<td>
                                                                 <button tinit type="button" class="btn btn-default waves-effect waves-light" data-toggle="modal" data-target="#custom-width-modal"
                                                                     ng-click="userActivity(user.id)">Activity</button>
-                                                            </td>
-                                                            <td tinit>
-                                                                <button ng-if='userEditFlag != $index' type="button" class="btn btn-default  waves-light" ng-click="userEdit(user.id,$index)">Edit</button>
-                                                                <button ng-if='userEditFlag == $index' type="button" class="btn btn-default  waves-light" ng-click="userEdit(user.id, -1)">Save</button>
+                                                            </td>-->
+                                                            <td>
+                                                                <button ng-if='packageEditFlag != $index' type="button" class="btn btn-default  waves-light" ng-click="packageEdit(package.id,$index)">Edit</button>
+                                                                <button ng-if='packageEditFlag == $index' type="button" class="btn btn-default  waves-light" ng-click="packageEdit(package.id, -1)">Save</button>
                                                             </td>
                                                             <td>
-                                                                <button tinit type="button" class="btn btn-default waves-effect waves-light" ng-click="userRemove(user.id)">Remove</button>
+                                                                <button tinit type="button" class="btn btn-default waves-effect waves-light" ng-click="packageRemove(package.id)">Remove</button>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -685,20 +681,19 @@
                                         <div class="col-sm-12">
                                             <div class="card-box">
                                                 <div class="user-add">
-                                                    <button ng-if='!userNewShow' type="button" class="btn btn-default waves-light" ng-click="userAdd(true)">Add User</button>
-                                                    <button ng-if='userNewShow' type="button" class="btn btn-default waves-light" ng-click="userAdd(false)">Save User</button>
+                                                    <button ng-if='!paymentNewShow' type="button" class="btn btn-default waves-light" ng-click="paymentAdd(true)">Add Payment</button>
+                                                    <button ng-if='paymentNewShow' type="button" class="btn btn-default waves-light" ng-click="paymentAdd(false)">Save Payment</button>
                                                 </div>
                                                 <!--data-toggle="table"-->
-                                                <table id="users" class="table table-striped" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true"
+                                                <table id="payments" class="table table-striped" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true"
                                                     data-sort-name="id" data-page-list="[10, 20, 50]" data-page-size="8" data-pagination="true"
                                                     data-show-pagination-switch="true" class="table-bordered ">
                                                     <thead>
                                                         <tr>
                                                             <th data-field="id" data-sortable="true">No.</th>
-                                                            <th data-field="user.fullName" data-sortable="true">Full Name</th>
-                                                            <th data-field="user.userName" data-sortable="true">User Name</th>
-                                                            <th data-field="user.userType" data-sortable="true">User Type</th>
-                                                            <th data-sortable="false"></th>
+                                                            <th data-field="payment.name" data-sortable="true">Name</th>
+                                                            <th data-field="payment.status" data-sortable="true">Status</th>
+                                                            <th data-field="payment.price" data-sortable="true">Price</th>
                                                             <th data-sortable="false"></th>
                                                             <th data-sortable="false"></th>
 
@@ -708,39 +703,39 @@
                                                     <!-- End row -->
 
                                                     <tbody>
-                                                        <tr ng-if='userNewShow'>
-                                                            <td><input type="text" class="form-control" required ng-model="userNew.id"
+                                                        <tr ng-if='paymentNewShow'>
+                                                            <td><input type="text" class="form-control" required ng-model="paymentNew.id"
                                                                 /></td>
-                                                            <td><input type="text" class="form-control" required ng-model="userNew.fullName"
+                                                            <td><input type="text" class="form-control" required ng-model="paymentNew.name"
                                                                 /></td>
-                                                            <td><input type="text" class="form-control" required ng-model="userNew.userName"
+                                                            <td><input type="text" class="form-control" required ng-model="paymentNew.status"
                                                                 /></td>
-                                                            <td><input type="text" class="form-control" required ng-model="userNew.userType"
+                                                            <td><input type="text" class="form-control" required ng-model="paymentNew.price"
                                                                 /></td>
                                                         </tr>
-                                                        <tr ng-repeat="user in users">
-                                                            <td ng-if='userEditFlag != $index'>{{user.id}}</td>
-                                                            <td ng-if='userEditFlag == $index'><input type="text" class="form-control" required ng-model="user.id"
+                                                        <tr ng-repeat="payment in payments">
+                                                            <td ng-if='paymentEditFlag != $index'>{{payment.id}}</td>
+                                                            <td ng-if='paymentEditFlag == $index'><input type="text" class="form-control" required ng-model="payment.id"
                                                                 /></td>
-                                                            <td ng-if='userEditFlag != $index'>{{user.fullName}}</td>
-                                                            <td ng-if='userEditFlag == $index'><input type="text" class="form-control" required ng-model="user.fullName"
+                                                            <td ng-if='paymentEditFlag != $index'>{{payment.name}}</td>
+                                                            <td ng-if='paymentEditFlag == $index'><input type="text" class="form-control" required ng-model="payment.name"
                                                                 /></td>
-                                                            <td ng-if='userEditFlag != $index'>{{user.userName}}</td>
-                                                            <td ng-if='userEditFlag == $index'><input type="text" class="form-control" required ng-model="user.userName"
+                                                            <td ng-if='paymentEditFlag != $index'>{{payment.status}}</td>
+                                                            <td ng-if='paymentEditFlag == $index'><input type="text" class="form-control" required ng-model="payment.status"
                                                                 /></td>
-                                                            <td ng-if='userEditFlag != $index'>{{user.userType}}</td>
-                                                            <td ng-if='userEditFlag == $index'><input type="text" class="form-control" required ng-model="user.userType"
+                                                            <td ng-if='paymentEditFlag != $index'>{{payment.price}}</td>
+                                                            <td ng-if='paymentEditFlag == $index'><input type="text" class="form-control" required ng-model="payment.price"
                                                                 /></td>
-                                                            <td>
+                                                            <!--<td>
                                                                 <button tinit type="button" class="btn btn-default waves-effect waves-light" data-toggle="modal" data-target="#custom-width-modal"
                                                                     ng-click="userActivity(user.id)">Activity</button>
-                                                            </td>
-                                                            <td tinit>
-                                                                <button ng-if='userEditFlag != $index' type="button" class="btn btn-default  waves-light" ng-click="userEdit(user.id,$index)">Edit</button>
-                                                                <button ng-if='userEditFlag == $index' type="button" class="btn btn-default  waves-light" ng-click="userEdit(user.id, -1)">Save</button>
+                                                            </td>-->
+                                                            <td>
+                                                                <button ng-if='paymentEditFlag != $index' type="button" class="btn btn-default  waves-light" ng-click="paymentEdit(payment.id,$index)">Edit</button>
+                                                                <button ng-if='paymentEditFlag == $index' type="button" class="btn btn-default  waves-light" ng-click="paymentEdit(payment.id, -1)">Save</button>
                                                             </td>
                                                             <td>
-                                                                <button tinit type="button" class="btn btn-default waves-effect waves-light" ng-click="userRemove(user.id)">Remove</button>
+                                                                <button tinit type="button" class="btn btn-default waves-effect waves-light" ng-click="paymentRemove(payment.id)">Remove</button>
                                                             </td>
                                                         </tr>
                                                     </tbody>
