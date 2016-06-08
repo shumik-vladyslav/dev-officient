@@ -33,7 +33,7 @@
     .head div .box a:hover{
         color: #A8E9F5;
     }
-    
+
     .head div .box-second {
         position: relative;
         color: #fff;
@@ -43,7 +43,13 @@
         margin: 30px;
         margin-top: 30px;
     }
-    
+
+    .head div .box-second a{
+        color: #fff;
+    }
+    .head div .box-second a:hover{
+        color: #A8E9F5;
+    }
     .pricings .pricing-repeat {
         height: 100%;
         background: linear-gradient(to bottom, rgb(107, 201, 210) 70%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%, rgb(107, 201, 210) 100%);
