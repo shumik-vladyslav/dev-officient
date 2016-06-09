@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
+    <meta name="author" content="Coderthemes">
+
+    <link rel="shortcut icon" href="assets/images/favicon_1.ico">
+
+    <title>Officient.dk</title>
+
+    <link href="assets/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
+
+    <!-- Plugin Css-->
+    <link rel="stylesheet" href="assets/plugins/magnific-popup/dist/magnific-popup.css" />
+    <link rel="stylesheet" href="assets/plugins/jquery-datatables-editable/datatables.css" />
+
+    <link href="assets/plugins/bootstrapvalidator/src/css/bootstrapValidator.css" rel="stylesheet" type="text/css" />
+
+    <link href="assets/plugins/bootstrap-table/dist/bootstrap-table.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="assets/plugins/custombox/dist/custombox.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <!-- Plugins css-->
+    <link href="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="assets/plugins/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <link href="assets/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/select2/select2.css" rel="stylesheet" type="text/css" />
+    <link href="assets/plugins/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/core.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/index.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/components.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/pages.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
+
+    <!-- HTML5 Shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    <script src="assets/js/modernizr.min.js"></script>
+
+    <!-- Angular Material CSS now available via Google CDN; version 0.9.4 used here -->
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+    <script type="text/javascript" src="./app/app.module.js"></script>
+    <script type="text/javascript" src="./app/pages/billing/billing.controller.js"></script>
+</head>
+
+<style>
+    .full-body-billing {
+        height: 1400px;
+        background: #ebeff2;
+    }
+    
+    .full-body-billing .head-billing {
+        height: 1300px;
+    }
+    
+    .full-body-billing .head-billing md-card {
+        height: 1100px;
+        width: 70%;
+    }
+    
+    .full-body-billing .head-billing .first {
+        font-size: 40px;
+        margin-top: 10px;
+    }
+    
+    .full-body-billing .list {
+        height: 250px;
+    }
+    
+    .full-body-billing .box-pro {
+        padding: 5px;
+        color: #fff;
+        font-size: 15px;
+        background: #36404a;
+        margin: 15px;
+    }
+    
+    .full-body-billing .order-pro {
+        margin: 20px;
+    }
+    .full-body-billing .col-md-12 .m-t-30{
+        margin-top: 0px !important;
+    }
+    .full-body-billing .order-pro .box {
+        color: #fff;
+        font-size: 20px;
+        background: #36404a;
+        padding: 20px;
+        margin: 0;
+        margin-top: 0;
+    }
+    
+    .full-body-billing .order-pro .box a:hover {
+        color: #fff;
+    }
+    
+    .full-body-billing .order-pro .box a {
+        color: #fff;
+    }
+    
+    .contstruct-modal-info {
+        background: #E3FDFF;
+        height: 240px;
+        margin: 20px;
+    }
+    
+    .modal-list div h4 {
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .modal-list div h4 {
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .modal-list div .head-pro {
+        font-size: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .free-trial {
+        background: #e0e0e0;
+        margin: 40px;
+        padding: 20px;
+    }
+    
+    .billing-payment-left h4 {
+        margin-left: 10px;
+        margin-top: 15px;
+    }
+    
+    .billing-payment-right div {
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+</style>
+
+<body ng-app="app" class="full-body-billing">
+
+    <!-- Begin page -->
+    <div id="wrapper" ng-controller="BillingController">
+
+        <!-- Top Bar Start -->
+        <div class="topbar">
+
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <div class="text-center">
+                    <a href="#" class="logo"><!-- <i class="icon-magnet icon-c-logo"></i> --><span><i class="md md-album"></i>fficient.dk</span></a>
+                </div>
+            </div>
+
+            <!-- Button mobile view to collapse sidebar menu -->
+            <div class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="">
+                        <!--<div class="pull-left">
+
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right pull-right">
+
+                            <li class="hidden-xs">
+                                <a href="http://dev.officient.dk/create.html" class="waves-effect waves-light">
+                                    Create Invoice</a>
+                            </li>
+                            <li class="hidden-xs">
+                                <a href="#" class="waves-effect waves-light">
+                                    Contact Us</a>
+                            </li>
+                            <li class="hidden-xs">
+                                <a href="http://dev.officient.dk/login.html" class="waves-effect waves-light">
+                                    Log In</a>
+                            </li>
+
+
+                        </ul>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Bar End -->
+        <div>
+            <section class="head-billing" layout="column" layout-align="center center" flex>
+                <div layout="row" layout-align="center center" flex>
+                    <div class="first">Billing Details</div>
+                </div>
+                <md-card class="card md-whiteframe-12dp">
+                    <md-card-content layout="column" layout-align="center ">
+                        <div layout="row" layout-align="start center">
+                            <h3>Order Overview </h3>
+                        </div>
+                        <br>
+                        <md-divider></md-divider>
+                        <div ng-repeat="item in billing">
+                            <div layout="row" layout-align="space-between center">
+                                <div>
+                                    <h4>{{item.name}}</h4>
+                                </div>
+                                <div>
+                                    <div layout="row" layout-align="center center">
+                                        <h3>{{item.cost}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <md-divider></md-divider>
+                        </div>
+                        <div layout="row" layout-align="space-between center">
+                            <div>
+                                <h4>Billing</h4>
+                            </div>
+                            <div>
+                                <div layout="row" layout-align="center center">
+                                    <select class="form-control select2">
+                                                    <option value="DKK">annual</option>
+                                                    <option value="USD">Select 2</option>
+                                                    <option value="EUR">Select 3</option>
+                                                    <option value="NOK">Select 4</option>
+                                                    <option value="GBP">Select 5</option>
+                                                    <option value="CHF">Select 6</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <md-divider></md-divider>
+                        <div layout="row" layout-align="space-between center">
+                            <div>
+                                <h3>Total</h3>
+                            </div>
+                            <div flex='20'></div>
+                            <div layout="row" layout-align="center center">
+                                <h4>12 X </h4>
+                                <h3>$24.90</h3>
+                            </div>
+                            <div layout="row" layout-align="space-between center">
+
+                                <div layout="row" layout-align="center center">
+                                    <h3>$268.92</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </md-card-content>
+                    <section class="free-trial" layout="column" layout-align="center start">
+                        <h3>30 Days Free Trial</h3>
+                        <h4>You can cancel your subscription free of charge within 30 days.</h4>
+                        <h4>You card will be charged only after 30 days free trial period.</h4>
+                    </section>
+                    <div layout="row" layout-align="start center">
+                        <h3>Payment Details </h3>
+                    </div>
+                    <br>
+                    <md-divider></md-divider>
+                    <section class="billing-payment" layout="row" layout-align="start center">
+
+                        <div class="billing-payment-left" layout="column" layout-align="center start">
+                            <h4>E-mail Address</h4>
+                            <h4>Choose card type</h4>
+                            <h4>Card number</h4>
+                            <h4>Expiry date</h4>
+                            <h4>CVV code</h4>
+                        </div>
+                        <div class="billing-payment-right" layout="column" layout-align="center start">
+                            <div layout="row" layout-align="start center">
+                                <input flex='80' type="text" class="form-control" data-input="false">
+
+                            </div>
+                            <div layout="row" layout-align="start center">
+                                <select flex='100' class="form-control select2">
+                                                    <option value="DKK">annual</option>
+                                                    <option value="USD">Select 2</option>
+                                                    <option value="EUR">Select 3</option>
+                                                    <option value="NOK">Select 4</option>
+                                                    <option value="GBP">Select 5</option>
+                                                    <option value="CHF">Select 6</option>
+                                        </select>
+                            </div>
+                            <div layout="row" layout-align="start center">
+                                <input flex='80' type="text" class="form-control" data-input="false">
+
+                            </div>
+                            <div layout="row" layout-align="start center">
+
+                                <span layout="row" layout-align="start center">
+                                    <select flex='50' name="month" id="month" class="form-control select2">
+                                        <option value="01">January</option>
+                                        <option value="02">February</option>
+                                        <option value="03">March</option>
+                                        <option value="04">April</option>
+                                        <option value="05">May</option>
+                                        <option value="06">June</option>
+                                        <option value="07">July</option>
+                                        <option value="08">August</option>
+                                        <option value="09">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                    <h3>/</h3>
+                                     <select flex='50' id="year" name="year"  class="form-control select2">
+                                    <script>
+                                    var myDate = new Date();
+                                    var year = myDate.getFullYear();
+                                    for(var i = 2000; i < year+1; i++){
+                                        document.write('<option value="'+i+'">'+i+'</option>');
+                                    }
+                                    </script>
+                                    </select>
+                            </span>
+                            </div>
+                            <div layout="row" layout-align="start center">
+                                <input flex='40' type="text" class="form-control" data-input="false">
+
+                            </div>
+
+                        </div>
+                    </section>
+                    <br>
+                    <md-divider></md-divider>
+                    <div layout="row" layout-align="start center">
+                        <div flex='40' class="col-md-12">
+                            <div class="pull-left m-t-30">
+                                <a href="http://dev.officient.dk/constructor.html">Change Order</a>
+                            </div>
+                        </div>
+                        <div class="order-pro" layout="column" layout-align="center center">
+                            <div class="box"><a href="http://dev.officient.dk/thank.html">
+                                    Submit Your Details</a> </div>
+                            <h4>Your will not be charged</h4>
+                        </div>
+                    </div>
+                </md-card>
+            </section>
+
+        </div>
+
+        <footer class="footer">
+            2016 © Officient.dk
+        </footer>
+
+    </div>
+
+    </div>
+    <!-- END wrapper -->
+
+    <script>
+        var resizefunc = [];
+    </script>
+
+    <!-- jQuery  -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/detect.js"></script>
+    <script src="assets/js/fastclick.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/jquery.blockUI.js"></script>
+    <script src="assets/js/waves.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+
+    <script src="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+    <script src="assets/plugins/switchery/dist/switchery.min.js"></script>
+    <script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+    <script type="text/javascript" src="assets/plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
+    <script src="assets/plugins/select2/select2.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/bootstrap-filestyle/src/bootstrap-filestyle.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
+    <script src="assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+
+    <!-- jQuery  -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/detect.js"></script>
+    <script src="assets/js/fastclick.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/jquery.blockUI.js"></script>
+    <script src="assets/js/waves.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+
+
+    <script src="assets/js/jquery.core.js"></script>
+    <script src="assets/js/jquery.app.js"></script>
+
+    <script src="assets/plugins/custombox/dist/custombox.min.js"></script>
+    <script src="assets/plugins/custombox/dist/legacy.min.js"></script>
+
+    <!-- Examples -->
+    <script src="assets/plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+    <script src="assets/plugins/jquery-datatables-editable/jquery.dataTables.js"></script>
+    <script src="assets/plugins/datatables/dataTables.bootstrap.js"></script>
+    <script src="assets/plugins/tiny-editable/mindmup-editabletable.js"></script>
+    <script src="assets/plugins/tiny-editable/numeric-input-example.js"></script>
+
+    <script src="assets/plugins/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="assets/pages/jquery.bs-table.js"></script>
+
+    <script src="assets/pages/datatables.editable.init.js"></script>
+
+
+    <script type="text/javascript" src="assets/plugins/parsleyjs/dist/parsley.min.js"></script>
+    <script src="assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="assets/plugins/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+    <script src="assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="assets/plugins/clockpicker/dist/jquery-clockpicker.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- Sweet-Alert  -->
+    <script src="assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="assets/pages/jquery.sweet-alert.init.js"></script>
+
+
+    <script>
+        jQuery(document).ready(function() {
+
+        // Time Picker
+        $('.timepicker-month').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: '-3d'
+        });
+        $('.timepicker-years').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: '-3d'
+        });
+        })
+        </script>
+
+</body>
+
+</html>
