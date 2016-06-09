@@ -2050,3 +2050,291 @@ body.fixed-left .side-menu.left {
 .companySelect ul li:hover {
   background: aliceblue;
 }
+
+ .details-list .key {
+    font-weight: 600;
+}
+
+.details-list .key-edit {
+    margin: 20px;
+}
+
+.details-list div {
+    padding: 5px;
+}
+
+.user-add button {
+    margin: 20px;
+}
+
+.full-body-billing {
+        height: 1400px;
+        background: #ebeff2;
+    }
+    
+    .full-body-billing .head-billing {
+        height: 1300px;
+    }
+    
+    .full-body-billing .head-billing md-card {
+        height: 1100px;
+        width: 70%;
+    }
+    
+    .full-body-billing .head-billing .first {
+        font-size: 40px;
+        margin-top: 10px;
+    }
+    
+    .full-body-billing .list {
+        height: 250px;
+    }
+    
+    .full-body-billing .box-pro {
+        padding: 5px;
+        color: #fff;
+        font-size: 15px;
+        background: #36404a;
+        margin: 15px;
+    }
+    
+    .full-body-billing .order-pro {
+        margin: 20px;
+    }
+    .full-body-billing .col-md-12 .m-t-30{
+        margin-top: 0px !important;
+    }
+    .full-body-billing .order-pro .box {
+        color: #fff;
+        font-size: 20px;
+        background: #36404a;
+        padding: 20px;
+        margin: 0;
+        margin-top: 0;
+    }
+    
+    .full-body-billing .order-pro .box a:hover {
+        color: #fff;
+    }
+    
+    .full-body-billing .order-pro .box a {
+        color: #fff;
+    }
+    
+    .contstruct-modal-info {
+        background: #E3FDFF;
+        height: 240px;
+        margin: 20px;
+    }
+    
+    .modal-list div h4 {
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .modal-list div h4 {
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .modal-list div .head-pro {
+        font-size: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .free-trial {
+        background: #e0e0e0;
+        margin: 40px;
+        padding: 20px;
+    }
+    
+    .billing-payment-left h4 {
+        margin-left: 10px;
+        margin-top: 15px;
+    }
+    
+    .billing-payment-right div {
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+
+     .full-body-constructor {
+        height: 2210px;
+    }
+    
+    .full-body-constructor .head {
+        height: 1200px;
+    }
+    
+    .full-body-constructor .head md-card {
+        height: 1000px;
+        width: 70%;
+    }
+    
+    .full-body-constructor .list {
+        height: 250px;
+    }
+    
+    .full-body-constructor .box-pro {
+        padding: 5px;
+        color: #fff;
+        font-size: 15px;
+        background: #36404a;
+        margin: 15px;
+    }
+    
+    .full-body-constructor .order-pro {
+        margin-right: 50px;
+    }
+    
+    .full-body-constructor .order-pro .box {
+        color: #fff;
+        font-size: 20px;
+        background: #36404a;
+        padding: 10px;
+        margin: 0;
+        margin-top: 0;
+    }
+    
+    .contstruct-modal-info {
+        background: #E3FDFF;
+        height: 240px;
+        margin: 20px;
+    }
+    
+    .modal-list div h4 {
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .modal-list div h4 {
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .modal-list div .head-pro {
+        font-size: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+
+        .full-body-thank {
+        height: 1400px;
+        background: #ebeff2;
+    }
+    
+    .full-body-thank .head-thank {
+        height: 1300px;
+    }
+    
+    .full-body-thank .head-thank md-card {
+        height: 1100px;
+        width: 70%;
+    }
+    
+    .full-body-thank .head-thank .first {
+        font-size: 40px;
+        margin-top: 10px;
+    }
+    
+    .full-body-thank .list {
+        height: 250px;
+    }
+    
+    .full-body-thank .box-pro {
+        padding: 5px;
+        color: #fff;
+        font-size: 15px;
+        background: #36404a;
+        margin: 15px;
+    }
+    
+    .full-body-thank .order-pro-thank {
+        margin: 20px;
+    }
+    
+    .full-body-thank .col-md-12 .m-t-30 {
+        margin-top: 0px !important;
+    }
+    
+    .full-body-thank .order-pro-thank .box {
+        color: #fff;
+        font-size: 20px;
+        background: #36404a;
+        padding: 20px;
+        margin: 10px;
+        margin-top: 0;
+    }
+    
+    .full-body-thank .order-pro-thank .box a:hover {
+        color: #fff;
+    }
+    
+    .full-body-thank .order-pro-thank .box a {
+        color: #fff;
+    }
+    
+    .contstruct-modal-info {
+        background: #E3FDFF;
+        height: 240px;
+        margin: 20px;
+    }
+    
+    .modal-list div h4 {
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .modal-list div h4 {
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .modal-list div .head-pro {
+        font-size: 20px;
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .free-trial {
+        background: #e0e0e0;
+        margin: 40px;
+        padding: 20px;
+    }
+    
+    .billing-payment-left h4 {
+        margin-left: 10px;
+        margin-top: 15px;
+    }
+    
+    .billing-payment-right div {
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+    
+    .card .tank-card md-card {
+        height: 230px;
+        width: 200px;
+        background: #dcdcdc;
+    }
+    
+    .card .tank-card md-card .box {
+        color: #fff;
+        font-size: 20px;
+        background: #36404a;
+        padding: 10px;
+        margin-top: 0;
+    }
+    
+    .card .tank-card md-card .box a:hover {
+        color: #fff;
+    }
+    
+    .card .tank-card md-card .box a {
+        color: #fff;
+    }
+
+    .payment-details h3{
+          padding-left: 10px;
+    }
