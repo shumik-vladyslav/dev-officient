@@ -54,12 +54,41 @@
 
     <script src="assets/js/modernizr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-    
+
+    <!-- Angular Material CSS now available via Google CDN; version 0.9.4 used here -->
+    <!--<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">-->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>-->
     <script type="text/javascript" src="./app/app.module.js"></script>
     <script type="text/javascript" src="./app/pages/create/create.controller.js"></script>
 </head>
 
+<style>
+    .row-column {
+        column-count: 2;
+        column-gap: 1em;
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+    }
+    
+    .item {
+        display: inline-block;
+    }
+    
+    #drop_zone {
+        border: 2px dashed #bbb;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        padding: 25px;
+        text-align: center;
+        font: 20pt bold 'Vollkorn';
+        color: #bbb;
+    }
+</style>
 
 <body ng-app="app" class="fixed-left">
 
@@ -152,32 +181,32 @@
                         <div class="col-lg-12">
                             <ul class="nav nav-tabs tabs">
                                 <li class="active tab">
-                                    <a href="#home-2" data-toggle="tab" aria-expanded="false">
+                                    <a href="#home-2" data-toggle="tab" aria-expanded="false" ng-click="createSetFalse()">
                                         <span class="visible-xs"><i class="fa fa-home"></i></span>
                                         <span class="hidden-xs">Dashboard</span>
                                     </a>
                                 </li>
                                 <li class="tab">
-                                    <a href="#profile-2" data-toggle="tab" aria-expanded="false">
+                                    <a href="#profile-2" data-toggle="tab" aria-expanded="false" ng-click="createSetFalse()">
                                         <span class="visible-xs"><i class="fa fa-user"></i></span>
                                         <span class="hidden-xs">Invoices</span>
                                     </a>
                                 </li>
                                 <li class="tab">
-                                    <a href="#messages-2" data-toggle="tab" aria-expanded="true">
+                                    <a href="#messages-2" data-toggle="tab" aria-expanded="true" ng-click="createSetFalse()">
                                         <span class="visible-xs"><i class="fa fa-envelope-o"></i></span>
                                         <span class="hidden-xs">Orders</span>
                                     </a>
                                 </li>
                                 <li class="tab">
-                                    <a href="#settings-2" data-toggle="tab" aria-expanded="false">
+                                    <a href="#settings-2" data-toggle="tab" aria-expanded="false" ng-click="createSetFalse()">
                                         <span class="visible-xs"><i class="fa fa-cog"></i></span>
                                         <span class="hidden-xs">Messages</span>
                                         <span class="badge badge-xs badge-danger">3</span>
                                     </a>
                                 </li>
                                 <li class="tab">
-                                    <a href="#settings-2" data-toggle="tab" aria-expanded="false">
+                                    <a href="#settings-2" data-toggle="tab" aria-expanded="false" ng-click="createSetFalse()">
                                         <span class="visible-xs"><i class="fa fa-cog"></i></span>
                                         <span class="hidden-xs">Documents</span>
                                         <span class="badge badge-xs badge-danger">1</span>
@@ -191,117 +220,757 @@
                                     </a>
                                 </li>
                             </ul>
-                    <div class="tab-content"> 
-                        <div class="tab-pane active" id="home-2">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="card-box">
-                                        <h4 class="m-t-0 m-b-30 header-title"><b>Create</b></h4>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <!-- <h5><b>Validation type</b></h5>
-											<p class="text-muted font-13 m-b-30">
-			                                    Your awesome text goes here.
-			                                </p> -->
 
-                                                <form class="form-horizontal group-border-dashed" action="#">
-                                                    <!-- <div class="form-group">
-													<label class="col-sm-3 control-label">Country</label>
-													<div class="col-sm-6">
-														<input type="text" class="form-control" required placeholder="Type something" />
-													</div>
-												</div> -->
 
-                                                    <div class="form-group">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="home-2">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="card-box row-column" layout="row" layout-align="space-around start" layout-wrap>
+                                                <div flex='40' class="item">
+                                                    <h3>Latest Invoices</h3>
+                                                    <table data-toggle="table" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-sort-name="id"
+                                                        data-page-list="[10, 20, 50]" data-page-size="8" data-pagination="true"
+                                                        data-show-pagination-switch="true" class="table-bordered ">
+                                                        <thead>
+                                                            <tr>
+                                                                <!--<th data-field="id" data-sortable="true" data-formatter="invoiceFormatter">No.</th>-->
+                                                                <th data-field="date" data-sortable="true" data-formatter="dateFormatter">Date</th>
+                                                                <th data-field="company" data-sortable="true">Company</th>
+                                                                <th data-field="amount" data-align="center" data-sortable="true" data-sorter="priceSorter">Amount</th>
 
-                                                        <div class="col-sm-6">
-                                                            <label class="col-sm-3 control-label">Country</label>
-                                                            <select class="form-control select2">
-                                            <option value="AF">Afghanistan</option><option value="AX">&Aring;land Islands</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctica</option><option value="AG">Antigua &amp; Barbuda</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AC">Ascension Island</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia</option><option value="BA">Bosnia &amp; Herzegovina</option><option value="BW">Botswana</option><option value="BR">Brazil</option><option value="IO">British Indian Ocean Territory</option><option value="VG">British Virgin Islands</option><option value="BN">Brunei</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="IC">Canary Islands</option><option value="CV">Cape Verde</option><option value="BQ">Caribbean Netherlands</option><option value="KY">Cayman Islands</option><option value="CF">Central African Republic</option><option value="EA">Ceuta &amp; Melilla</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CC">Cocos (Keeling) Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CG">Congo - Brazzaville</option><option value="CD">Congo - Kinshasa</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="CI">C&ocirc;te d&rsquo;Ivoire</option><option value="HR">Croatia</option><option value="CU">Cuba</option><option value="CW">Cura&ccedil;ao</option><option value="CY">Cyprus</option><option value="CZ">Czech Republic</option><option selected value="DK">Denmark</option><option value="DG">Diego Garcia</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="GQ">Equatorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="ET">Ethiopia</option><option value="FK">Falkland Islands</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="TF">French Southern Territories</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GG">Guernsey</option><option value="GN">Guinea</option><option value="GW">Guinea-Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HN">Honduras</option><option value="HK">Hong Kong SAR China</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Iran</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IM">Isle of Man</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JE">Jersey</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="XK">Kosovo</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Laos</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macau SAR China</option><option value="MK">Macedonia</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="ME">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar (Burma)</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="KP">North Korea</option><option value="MP">Northern Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PS">Palestinian Territories</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn Islands</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RE">R&eacute;union</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="RW">Rwanda</option><option value="WS">Samoa</option><option value="SM">San Marino</option><option value="ST">S&atilde;o Tom&eacute; &amp; Pr&iacute;ncipe</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SX">Sint Maarten</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa</option><option value="GS">South Georgia &amp; South Sandwich Islands</option><option value="KR">South Korea</option><option value="SS">South Sudan</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="BL">St. Barth&eacute;lemy</option><option value="SH">St. Helena</option><option value="KN">St. Kitts &amp; Nevis</option><option value="LC">St. Lucia</option><option value="MF">St. Martin</option><option value="PM">St. Pierre &amp; Miquelon</option><option value="VC">St. Vincent &amp; Grenadines</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SJ">Svalbard &amp; Jan Mayen</option><option value="SZ">Swaziland</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syria</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TL">Timor-Leste</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinidad &amp; Tobago</option><option value="TA">Tristan da Cunha</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks &amp; Caicos Islands</option><option value="TV">Tuvalu</option><option value="UM">U.S. Outlying Islands</option><option value="VI">U.S. Virgin Islands</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="UY">Uruguay</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VA">Vatican City</option><option value="VE">Venezuela</option><option value="VN">Vietnam</option><option value="WF">Wallis &amp; Futuna</option><option value="EH">Western Sahara</option><option value="YE">Yemen</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option>
-                                        </select>
-                                                        </div>
-                                                    </div>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <!--<td> <span data-toggle="modal" data-target="#custom-width-modal-dahbord">3746</span></td>-->
+                                                                <td>12 May 2015</td>
+                                                                <td>Officient.dk</td>
+                                                                <td>$123.85</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <!--<td><span data-toggle="modal" data-target="#custom-width-modal-dahbord">1021</span></td>-->
+                                                                <td>06 Sep 2015</td>
+                                                                <td>McDonalds MI</td>
+                                                                <td>$16.11</td>
+                                                            </tr>
 
-                                                    <div class="form-group">
-                                                        <div class="col-sm-6">
-                                                            <label class="col-sm-12 control-label">CVR Number / Company Name</label>
-                                                            <input type="text" class="form-control" required parsley-type="text" placeholder="&#128269;" ng-model="company" ng-blur="companyBlur()"
-                                                                ng-focus="companySelectShow = true" ng-change="companySelectChange()"
-                                                                ng-init="companySelectShow = false" />
-                                                            <div ng-if="companySelectShow" class="companySelect">
-                                                                <ul>
-                                                                    <li ng-click="companySelect(company)" ng-repeat="company in companiesSelected">{{company.name}}</li>
-                                                                </ul>
-                                                            </div>
 
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="form-group">
-                                                        <div class="col-sm-9 m-t-15">
-                                                            <button type="submit" class="btn btn-primary">
-															Add Customer
-														</button>
-                                                            <span>
-															In case you can't find them
-														</span>
-                                                        </div>
-                                                    </div>
-                                                </form>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div flex='40' class="item">
+                                                    <h3>Latest Orders</h3>
+                                                    <table data-toggle="table" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-sort-name="id"
+                                                        data-page-list="[10, 20, 50]" data-page-size="8" data-pagination="true"
+                                                        data-show-pagination-switch="true" class="table-bordered ">
+                                                        <thead>
+                                                            <tr>
+                                                                <!--<th data-field="id" data-sortable="true" data-formatter="invoiceFormatter">No.</th>-->
+                                                                <th data-field="date" data-sortable="true" data-formatter="dateFormatter">Date</th>
+                                                                <th data-field="company" data-sortable="true">Company</th>
+                                                                <th data-field="amount" data-align="center" data-sortable="true" data-sorter="priceSorter">Amount</th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <!--<td> <span data-toggle="modal" data-target="#custom-width-modal-dahbord">3746</span></td>-->
+                                                                <td>12 May 2015</td>
+                                                                <td>AKMA Holding</td>
+                                                                <td>$600.85</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <!--<td><span data-toggle="modal" data-target="#custom-width-modal-dahbord">1021</span></td>-->
+                                                                <td>06 Sep 2015</td>
+                                                                <td>Isic Contracts</td>
+                                                                <td>$45.11</td>
+                                                            </tr>
+
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div flex='40' class="item">
+                                                    <h3>Latest Messages</h3>
+                                                    <table data-toggle="table" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-sort-name="id"
+                                                        data-page-list="[10, 20, 50]" data-page-size="8" data-pagination="true"
+                                                        data-show-pagination-switch="true" class="table-bordered ">
+                                                        <thead>
+                                                            <tr>
+                                                                <!--<th data-field="id" data-sortable="true" data-formatter="invoiceFormatter">No.</th>-->
+                                                                <th data-field="date" data-sortable="true" data-formatter="dateFormatter">Date</th>
+                                                                <th data-field="company" data-sortable="true">Company</th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <!--<td> <span data-toggle="modal" data-target="#custom-width-modal-dahbord">3746</span></td>-->
+                                                                <td>12 May 2015</td>
+                                                                <td>Clara Doorman</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <!--<td><span data-toggle="modal" data-target="#custom-width-modal-dahbord">1021</span></td>-->
+                                                                <td>06 Sep 2015</td>
+                                                                <td>Dr.L. Gilbert</td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div flex='40' class="item">
+                                                    <h3>Latest Documents</h3>
+                                                    <table data-toggle="table" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-sort-name="id"
+                                                        data-page-list="[10, 20, 50]" data-page-size="8" data-pagination="true"
+                                                        data-show-pagination-switch="true" class="table-bordered ">
+                                                        <thead>
+                                                            <tr>
+                                                                <!--<th data-field="id" data-sortable="true" data-formatter="invoiceFormatter">No.</th>-->
+                                                                <th data-field="date" data-sortable="true" data-formatter="dateFormatter">Date</th>
+                                                                <th data-field="company" data-sortable="true">Company</th>
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <!--<td> <span data-toggle="modal" data-target="#custom-width-modal-dahbord">3746</span></td>-->
+                                                                <td>12 May 2015</td>
+                                                                <td>Hillbrook B.V.</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <!--<td><span data-toggle="modal" data-target="#custom-width-modal-dahbord">1021</span></td>-->
+                                                                <td>06 Sep 2015</td>
+                                                                <td>Get A Car Inc.</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="tab-pane" id="profile-2" ng-show='!hasCreate'>
+                                <!--Basic Toolbar-->
+                                <!--===================================================-->
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="card-box">
+                                            <div class="button-list">
+                                                <button type="button" class="btn btn-default waves-effect waves-light" ng-click="createInvoice()">Create Invoice</button>
+                                                <button type="button" class="btn btn-default waves-effect waves-light" data-toggle="modal" data-target="#custom-width-modal-upload">Upload Invoice</button>
                                             </div>
 
-                                            <div class="col-lg-6">
+                                            <table data-toggle="table" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-sort-name="id"
+                                                data-page-list="[10, 20, 50]" data-page-size="8" data-pagination="true" data-show-pagination-switch="true"
+                                                class="table-bordered ">
+                                                <thead>
+                                                    <tr>
+                                                        <th data-field="id" data-sortable="true" data-formatter="invoiceFormatter">No.</th>
+                                                        <th data-field="date" data-sortable="true" data-formatter="dateFormatter">Date</th>
+                                                        <th data-field="company" data-sortable="true">Company</th>
+                                                        <th data-field="name" data-sortable="true">Type</th>
+                                                        <th data-field="status" data-align="center" data-sortable="true" data-formatter="statusFormatter">Status</th>
+                                                        <th data-field="amount" data-align="center" data-sortable="true" data-sorter="priceSorter">Amount</th>
 
-                                                <form class="form-horizontal group-border-dashed" action="#">
+                                                    </tr>
+                                                </thead>
 
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Invoice Number</label>
-                                                        <div class="col-sm-6">
-                                                            <input data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Invoice Date</label>
-                                                        <div class="col-sm-6">
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
-                                                                <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                <!-- Custom Modals -->
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="card-box">
+
+
+                                                            <!-- sample modal content -->
+
+                                                            <div id="custom-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
+                                                                style="display: none;">
+                                                                <div class="modal-dialog" style="width:75%;">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+
+
+                                                                            <div class="clearfix">
+                                                                                <div class="pull-left">
+                                                                                    <h4 class="text-right">1021 | 6 Sep 2015 | McDonald's MI</h4>
+                                                                                </div>
+                                                                                <div class="pull-right">
+                                                                                    <span>In Progress | </span><strong>$16.11 </strong>
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="modal-body">
+                                                                            <div class="pull-left m-t-30">
+                                                                                <a href="#" class="btn btn-primary waves-effect waves-light" id="sa-params">Send</a>
+                                                                                <a href="#" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print"></i> Download PDF</i></a>
+                                                                                <a href="#" class="btn btn-primary waves-effect waves-light">Edit</a>
+                                                                            </div>
+                                                                            <div class="pull-right m-t-30">
+                                                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+                                                                                <a href="#" class="btn btn-primary waves-effect waves-light">Delete</a>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+
+                                                                                <hr>
+
+                                                                                <div class="pull-left m-t-30">
+                                                                                    <h2><strong>Invoice Log</strong></h2>
+                                                                                </div>
+                                                                                <div class="pull-right m-t-30">
+                                                                                    <p class="m-t-10"><strong>Status: </strong> <span class="label label-pink">Pending</span></p>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="pull-left m-t-30">
+                                                                                    <span>13 May 2016 15:18</span><br>
+                                                                                    <span>23 May 2016 12:39</span><br>
+                                                                                </div>
+                                                                                <div class="pull-right m-t-30">
+                                                                                    <span>Invoice recieved by SDK Consulting Holding</span><br>
+                                                                                    <span>Invoice for 16.11 EUR is sent to SDK Consulting Holding</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="pull-left m-t-30">
+                                                                                    <a href="#">See earlier events</a>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="pull-left m-t-30">
+                                                                                    <address>
+                                                                                        <strong>To</strong><br> McDonald's
+                                                                                        MI
+                                                                                        <br> 186 Spark Lane, Suite 8902<br>                                                                                        Greenwich MI<br> USA
+                                                                                        <br>
+                                                                                    </address>
+                                                                                </div>
+                                                                                <div class="pull-right m-t-30">
+                                                                                    <p><strong>Invoice Number </strong><br>                                                                                        123456789</p>
+                                                                                    <p><strong>Invoice Date </strong><br> 6
+                                                                                        Sep 2015 </p>
+                                                                                    <p><strong> Currency </strong><br> USD</p>
+                                                                                    <p><strong>Payment due date </strong><br>                                                                                        15 Mar 2016 </p>
+                                                                                    <p><strong> Delivery date </strong><br>                                                                                        17 Mar 2016</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="card-box">
+                                                                                    <div class="row">
+                                                                                        <div class="col-lg-1">
+                                                                                            <h5><b>ID</b></h5>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                1
+                                                                                            </p>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                2
+                                                                                            </p>
+                                                                                        </div>
+
+                                                                                        <div class="col-lg-2">
+                                                                                            <h5><b>Description</b></h5>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                Big Mac
+                                                                                            </p>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                Cola Light
+                                                                                            </p>
+                                                                                        </div>
+                                                                                        <div class="col-lg-1">
+                                                                                            <h5><b>Qty</b></h5>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                5
+                                                                                            </p>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                1
+                                                                                            </p>
+                                                                                        </div>
+
+                                                                                        <div class="col-lg-1">
+                                                                                            <h5><b>Unit</b></h5>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                pcs
+                                                                                            </p>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                pcs
+                                                                                            </p>
+                                                                                        </div>
+                                                                                        <div class="col-lg-2">
+                                                                                            <h5><b>Price </b><small> excl. tax</small></h5>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                2.54
+                                                                                            </p>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                1.68
+                                                                                            </p>
+                                                                                        </div>
+                                                                                        <div class="col-lg-2">
+                                                                                            <h5><b>Tax %</b></h5>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                12%
+                                                                                            </p>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                12%
+                                                                                            </p>
+                                                                                        </div>
+                                                                                        <div class="col-lg-3">
+                                                                                            <h5><b>Total </b><small> excl. tax</small></h5>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                12.70
+                                                                                            </p>
+                                                                                            <p class="text-muted font-13 m-b-30">
+                                                                                                1.68
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="pull-right m-t-30">
+                                                                                    <p><strong>Subtotal </strong><br> excl.
+                                                                                        tax
+                                                                                    </p><span>14.38</span>
+                                                                                    <hr>
+                                                                                    <p>
+                                                                                        <h3><strong>Total USD </strong></h3>
+                                                                                    </p><span>16.11</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- /.modal-content -->
+                                                                </div>
+                                                                <!-- /.modal-dialog -->
                                                             </div>
-                                                            <!-- input-group -->
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Delivery Date</label>
-                                                        <div class="col-sm-6">
-                                                            <div class="input-group">
-                                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose2">
-                                                                <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                            <!-- /.modal -->
+
+
+
+
+
+                                                            <div id="custom-width-modal-upload" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
+                                                                aria-hidden="true" style="display: none;">
+                                                                <div class="modal-dialog" style="width:75%;">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+
+
+                                                                            <div class="clearfix">
+                                                                                <div class="pull-left">
+                                                                                    <h4 class="text-right">Upload Invoice</h4>
+                                                                                </div>
+                                                                                <div class="pull-right">
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+
+                                                                                <br>
+                                                                                <div class="row">
+                                                                                    <div id="drop_zone">Drop files here</div>
+                                                                                    <output id="list"></output>
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <h4>Alternatively, paste invoice XML below</h4>
+                                                                                <div class=" m-t-30">
+                                                                                    <textarea rows="8" placeholder='Paste invoice XML hare' style="resize: none;width: 100%;"></textarea>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+
+                                                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal-upload-invoice">Upload</button>
+
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                                    </div>
+                                                                    <!-- /.modal-content -->
+                                                                </div>
+                                                                <!-- /.modal-dialog -->
                                                             </div>
-                                                            <!-- input-group -->
+                                                            <!-- /.modal -->
+
+
+                                                            <div id="custom-width-modal-upload-invoice" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
+                                                                aria-hidden="true" style="display: none;">
+                                                                <div class="modal-dialog" style="width:75%;">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+
+
+                                                                            <div class="clearfix">
+                                                                                <div class="pull-left">
+                                                                                    <h4 class="text-right">Upload Invoice</h4>
+                                                                                </div>
+                                                                                <div class="pull-right">
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+
+                                                                                <br>
+                                                                                <h4>Invoice uploaded. <div>We found 3 errors.</div> You can continue with it but we belive you should fix it. Otherwise you will get no cookies. Fix it now.</h4>
+                                                                                <div>1. 'From' field missing</div>
+                                                                                <div>We do not know whom to send this invoice to. You need to fix it.</div>
+                                                                                <div>2. Currency is not set</div>
+                                                                                <div>We do not know which currency we shold use for this invoice.</div>
+                                                                                <div>3. Something wierd happenong</div>
+                                                                                <div>We can`t explain it very well but we feel you shouldn`t proceed with this invoice. Ever. Trust us, we are professionals. Better get yourself a beer.</div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+
+                                                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Upload</button>
+
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                                    </div>
+                                                                    <!-- /.modal-content -->
+                                                                </div>
+                                                                <!-- /.modal-dialog -->
+                                                            </div>
+                                                            <!-- /.modal -->
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Order Ref.</label>
-                                                        <div class="col-sm-6">
-                                                            <input data-parsley-type="number" type="text" class="form-control" />
+                                                </div>
+
+                                                <!-- End row -->
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td> <span data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
+                                                        <td>12 May 2015</td>
+                                                        <td>Officient.dk</td>
+                                                        <td>Incoming</td>
+                                                        <td>Unpaid</td>
+                                                        <td>$123.85</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>McDonalds MI</td>
+                                                        <td>Incoming</td>
+                                                        <td>Paid</td>
+                                                        <td>$16.11</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>Get A Car Inc.</td>
+                                                        <td>Outgoing</td>
+                                                        <td>Shipped</td>
+                                                        <td>$4.99</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>Get A Car Inc.</td>
+                                                        <td>Outgoing</td>
+                                                        <td>Refunded</td>
+                                                        <td>$64.25</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td> <span data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
+                                                        <td>12 May 2015</td>
+                                                        <td>Officient.dk</td>
+                                                        <td>Incoming</td>
+                                                        <td>Unpaid</td>
+                                                        <td>$123.85</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>McDonalds MI</td>
+                                                        <td>Incoming</td>
+                                                        <td>Paid</td>
+                                                        <td>$16.11</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>Get A Car Inc.</td>
+                                                        <td>Outgoing</td>
+                                                        <td>Shipped</td>
+                                                        <td>$4.99</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>Get A Car Inc.</td>
+                                                        <td>Outgoing</td>
+                                                        <td>Refunded</td>
+                                                        <td>$64.25</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td> <span data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
+                                                        <td>12 May 2015</td>
+                                                        <td>Officient.dk</td>
+                                                        <td>Incoming</td>
+                                                        <td>Unpaid</td>
+                                                        <td>$123.85</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td> <span data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
+                                                        <td>12 May 2015</td>
+                                                        <td>Officient.dk</td>
+                                                        <td>Incoming</td>
+                                                        <td>Unpaid</td>
+                                                        <td>$123.85</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>McDonalds MI</td>
+                                                        <td>Incoming</td>
+                                                        <td>Paid</td>
+                                                        <td>$16.11</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>Get A Car Inc.</td>
+                                                        <td>Outgoing</td>
+                                                        <td>Shipped</td>
+                                                        <td>$4.99</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>Get A Car Inc.</td>
+                                                        <td>Outgoing</td>
+                                                        <td>Refunded</td>
+                                                        <td>$64.25</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td> <span data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
+                                                        <td>12 May 2015</td>
+                                                        <td>Officient.dk</td>
+                                                        <td>Incoming</td>
+                                                        <td>Unpaid</td>
+                                                        <td>$123.85</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>McDonalds MI</td>
+                                                        <td>Incoming</td>
+                                                        <td>Paid</td>
+                                                        <td>$16.11</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>Get A Car Inc.</td>
+                                                        <td>Outgoing</td>
+                                                        <td>Shipped</td>
+                                                        <td>$4.99</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><span data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
+                                                        <td>06 Sep 2015</td>
+                                                        <td>Get A Car Inc.</td>
+                                                        <td>Outgoing</td>
+                                                        <td>Refunded</td>
+                                                        <td>$64.25</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td> <span data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
+                                                        <td>12 May 2015</td>
+                                                        <td>Officient.dk</td>
+                                                        <td>Incoming</td>
+                                                        <td>Unpaid</td>
+                                                        <td>$123.85</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="messages-2">
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                                    ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+                                    consequat massa quis enim.</p>
+                                <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus
+                                    ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+                                    Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+                                    tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
+                            </div>
+                            <div class="tab-pane" id="settings-2">
+                                <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus
+                                    ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
+                                    Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+                                    tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                                    Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                                    ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
+                                    consequat massa quis enim.</p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="tab-content" ng-if='hasCreate'>
+                            <div class="tab-pane active">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="card-box">
+                                            <h4 class="m-t-0 m-b-30 header-title"><b>Create</b></h4>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+
+                                                    <form class="form-horizontal group-border-dashed" action="#">
+                                                        <div class="form-group">
+
+                                                            <div class="col-sm-6">
+                                                                <label class="col-sm-3 control-label">Country</label>
+                                                                <select class="form-control select2">
+                                            <option value="AF">Afghanistan</option><option value="AX">&Aring;land Islands</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctica</option><option value="AG">Antigua &amp; Barbuda</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AC">Ascension Island</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia</option><option value="BA">Bosnia &amp; Herzegovina</option><option value="BW">Botswana</option><option value="BR">Brazil</option><option value="IO">British Indian Ocean Territory</option><option value="VG">British Virgin Islands</option><option value="BN">Brunei</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="IC">Canary Islands</option><option value="CV">Cape Verde</option><option value="BQ">Caribbean Netherlands</option><option value="KY">Cayman Islands</option><option value="CF">Central African Republic</option><option value="EA">Ceuta &amp; Melilla</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CC">Cocos (Keeling) Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CG">Congo - Brazzaville</option><option value="CD">Congo - Kinshasa</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="CI">C&ocirc;te d&rsquo;Ivoire</option><option value="HR">Croatia</option><option value="CU">Cuba</option><option value="CW">Cura&ccedil;ao</option><option value="CY">Cyprus</option><option value="CZ">Czech Republic</option><option selected value="DK">Denmark</option><option value="DG">Diego Garcia</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="GQ">Equatorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="ET">Ethiopia</option><option value="FK">Falkland Islands</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="TF">French Southern Territories</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GG">Guernsey</option><option value="GN">Guinea</option><option value="GW">Guinea-Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HN">Honduras</option><option value="HK">Hong Kong SAR China</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Iran</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IM">Isle of Man</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JE">Jersey</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="XK">Kosovo</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Laos</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macau SAR China</option><option value="MK">Macedonia</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="ME">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar (Burma)</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="KP">North Korea</option><option value="MP">Northern Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PS">Palestinian Territories</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn Islands</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RE">R&eacute;union</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="RW">Rwanda</option><option value="WS">Samoa</option><option value="SM">San Marino</option><option value="ST">S&atilde;o Tom&eacute; &amp; Pr&iacute;ncipe</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SX">Sint Maarten</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa</option><option value="GS">South Georgia &amp; South Sandwich Islands</option><option value="KR">South Korea</option><option value="SS">South Sudan</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="BL">St. Barth&eacute;lemy</option><option value="SH">St. Helena</option><option value="KN">St. Kitts &amp; Nevis</option><option value="LC">St. Lucia</option><option value="MF">St. Martin</option><option value="PM">St. Pierre &amp; Miquelon</option><option value="VC">St. Vincent &amp; Grenadines</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SJ">Svalbard &amp; Jan Mayen</option><option value="SZ">Swaziland</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syria</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TL">Timor-Leste</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinidad &amp; Tobago</option><option value="TA">Tristan da Cunha</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks &amp; Caicos Islands</option><option value="TV">Tuvalu</option><option value="UM">U.S. Outlying Islands</option><option value="VI">U.S. Virgin Islands</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="UY">Uruguay</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VA">Vatican City</option><option value="VE">Venezuela</option><option value="VN">Vietnam</option><option value="WF">Wallis &amp; Futuna</option><option value="EH">Western Sahara</option><option value="YE">Yemen</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option>
+                                        </select>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Customer Ref.</label>
-                                                        <div class="col-sm-6">
-                                                            <input data-parsley-type="number" type="text" class="form-control" />
+
+                                                        <div class="form-group">
+                                                            <div class="col-sm-6">
+                                                                <label class="col-sm-12 control-label">CVR Number / Company Name</label>
+                                                                <input type="text" class="form-control" required parsley-type="text" placeholder="&#128269;" ng-model="company" ng-blur="companyBlur()"
+                                                                    ng-focus="companySelectShow = true" ng-change="companySelectChange()"
+                                                                    ng-init="companySelectShow = false" />
+                                                                <div ng-if="companySelectShow" class="companySelect">
+                                                                    <ul>
+                                                                        <li ng-click="companySelect(company)" ng-repeat="company in companiesSelected">{{company.name}}</li>
+                                                                    </ul>
+                                                                </div>
+
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Account Number</label>
-                                                        <div class="col-sm-6">
-                                                            <input data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
+
+                                                        <div class="form-group">
+                                                            <div class="col-sm-9 m-t-15">
+                                                                <button type="submit" class="btn btn-primary">
+															Add Customer
+														</button>
+                                                                <span>
+															In case you can't find them
+														</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-sm-3 control-label">Country</label>
-                                                        <div class="col-sm-6">
-                                                            <select class="form-control select2">
+                                                    </form>
+                                                </div>
+
+                                                <div class="col-lg-6">
+
+                                                    <form class="form-horizontal group-border-dashed" action="#">
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label">Invoice Number</label>
+                                                            <div class="col-sm-6">
+                                                                <input data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label">Invoice Date</label>
+                                                            <div class="col-sm-6">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
+                                                                    <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                                </div>
+                                                                <!-- input-group -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label">Delivery Date</label>
+                                                            <div class="col-sm-6">
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose2">
+                                                                    <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                                </div>
+                                                                <!-- input-group -->
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label">Order Ref.</label>
+                                                            <div class="col-sm-6">
+                                                                <input data-parsley-type="number" type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label">Customer Ref.</label>
+                                                            <div class="col-sm-6">
+                                                                <input data-parsley-type="number" type="text" class="form-control" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label">Account Number</label>
+                                                            <div class="col-sm-6">
+                                                                <input data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label">Country</label>
+                                                            <div class="col-sm-6">
+                                                                <select class="form-control select2">
                                             <option value="DKK">DKK</option>
                                                     <option value="USD">USD</option>
                                                     <option value="EUR">EUR</option>
@@ -309,569 +978,200 @@
                                                     <option value="GBP">GBP</option>
                                                     <option value="CHF">CHF</option>
                                         </select>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                </form>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane" id="profile-2">
-                                        <!--Basic Toolbar-->
-                        <!--===================================================-->
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card-box">
-                                    <div class="button-list">
-                                                <button type="button" class="btn btn-default waves-effect waves-light">Create Invoice</button>
-                                                <button type="button" class="btn btn-default waves-effect waves-light">Upload Invoice</button>
-                                            </div>
-                                    
-                                    <table data-toggle="table"
-                                           data-search="true"
-                                           data-show-refresh="true"
-                                           data-show-toggle="true"
-                                           data-show-columns="true"
-                                           data-sort-name="id"
-                                           data-page-list="[10, 20, 50]"
-                                           data-page-size="8"
-                                           data-pagination="true" data-show-pagination-switch="true" class="table-bordered ">
-                                        <thead>
-                                            <tr>
-                                                <th data-field="id" data-sortable="true" data-formatter="invoiceFormatter">No.</th>
-                                                <th data-field="date" data-sortable="true" data-formatter="dateFormatter">Date</th>
-                                                <th data-field="company" data-sortable="true">Company</th>
-                                                <th data-field="name" data-sortable="true">Type</th>
-                                                <th data-field="status" data-align="center" data-sortable="true" data-formatter="statusFormatter">Status</th>
-                                                <th data-field="amount" data-align="center" data-sortable="true" data-sorter="priceSorter">Amount</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        
-                        <!-- Custom Modals -->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="card-box">
-                                    
-                                    
-                                    <!-- sample modal content -->
 
-                                    <div id="custom-width-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true" style="display: none;">
-                                        <div class="modal-dialog" style="width:75%;">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    
-                                                    
-                                                <div class="clearfix">
-                                                    <div class="pull-left">
-                                                        <h4 class="text-right">1021 | 6 Sep 2015 | McDonald's MI</h4>   
-                                                    </div>
-                                            <div class="pull-right">
-                                                <span>In Progress | </span><strong>$16.11 </strong>
-                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                            </div>
-                                                </div>
-                                                </div>
-            
-                                            <div class="modal-body">
-                                                <div class="pull-left m-t-30">
-                                                    <a href="#" class="btn btn-primary waves-effect waves-light" id="sa-params">Send</a>
-                                                    <a href="#" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print"></i> Download PDF</i></a>
-                                                    <a href="#" class="btn btn-primary waves-effect waves-light">Edit</a>
-                                                </div>
-                                                <div class="pull-right m-t-30">
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
-                                                    <a href="#" class="btn btn-primary waves-effect waves-light">Delete</a>
-                                                </div>
-                                            </div>
 
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                
-                                                <hr>
 
-                                                    <div class="pull-left m-t-30">
-                                                            <h2><strong>Invoice Log</strong></h2>
-                                                    </div>
-                                                    <div class="pull-right m-t-30">
-                                                        <p class="m-t-10"><strong>Status: </strong> <span class="label label-pink">Pending</span></p>
-                                                    </div>
-                                                </div>
 
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="pull-left m-t-30">
-                                                            <span>13 May 2016 15:18</span><br>
-                                                            <span>23 May 2016 12:39</span><br>
-                                                    </div>
-                                                    <div class="pull-right m-t-30">
-                                                        <span>Invoice recieved by SDK Consulting Holding</span><br>
-                                                        <span>Invoice for 16.11 EUR is sent to SDK Consulting Holding</span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <div class="pull-left m-t-30">
-                                                            <a href="#">See earlier events</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="pull-left m-t-30">
-                                                        <address>
-                                                          <strong>To</strong><br>
-                                                          McDonald's MI<br>
-                                                          186 Spark Lane, Suite 8902<br>
-                                                          Greenwich MI<br>
-                                                          USA<br>
-                                                          </address>
-                                                    </div>
-                                                    <div class="pull-right m-t-30">
-                                                        <p><strong>Invoice Number </strong><br> 123456789</p>
-                                                        <p><strong>Invoice Date </strong><br> 6 Sep 2015 </p>
-                                                        <p><strong> Currency </strong><br> USD</p>
-                                                        <p><strong>Payment due date </strong><br> 15 Mar 2016 </p>
-                                                        <p><strong> Delivery date </strong><br> 17 Mar 2016</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card-box">
-                                    <div class="row">
-                                        <div class="col-lg-1">
-                                            <h5><b>ID</b></h5>
-                                            <p class="text-muted font-13 m-b-30">
-                                                1
-                                            </p>
-                                            <p class="text-muted font-13 m-b-30">
-                                                2
-                                            </p>
-                                        </div>
-                                        
-                                        <div class="col-lg-2">
-                                            <h5><b>Description</b></h5>
-                                            <p class="text-muted font-13 m-b-30">
-                                                Big Mac
-                                            </p>
-                                            <p class="text-muted font-13 m-b-30">
-                                                Cola Light
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-1">
-                                            <h5><b>Qty</b></h5>
-                                            <p class="text-muted font-13 m-b-30">
-                                                5
-                                            </p>
-                                            <p class="text-muted font-13 m-b-30">
-                                                1
-                                            </p>
-                                        </div>
-                                        
-                                        <div class="col-lg-1">
-                                            <h5><b>Unit</b></h5>
-                                            <p class="text-muted font-13 m-b-30">
-                                                pcs
-                                            </p>
-                                            <p class="text-muted font-13 m-b-30">
-                                                pcs
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <h5><b>Price </b><small> excl. tax</small></h5>
-                                            <p class="text-muted font-13 m-b-30">
-                                                2.54
-                                            </p>
-                                            <p class="text-muted font-13 m-b-30">
-                                                1.68
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <h5><b>Tax %</b></h5>
-                                            <p class="text-muted font-13 m-b-30">
-                                                12%
-                                            </p>
-                                            <p class="text-muted font-13 m-b-30">
-                                                12%
-                                            </p>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <h5><b>Total </b><small> excl. tax</small></h5>
-                                            <p class="text-muted font-13 m-b-30">
-                                                12.70
-                                            </p>
-                                            <p class="text-muted font-13 m-b-30">
-                                                1.68
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="pull-right m-t-30">
-                                                        <p><strong>Subtotal </strong><br> excl. tax</p><span>14.38</span>
-                                                        <hr>
-                                                        <p><h3><strong>Total USD </strong></h3></p><span>16.11</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            </div><!-- /.modal-content -->
-                                        </div><!-- /.modal-dialog -->
-                                    </div><!-- /.modal -->
-                
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- End row -->
-                                        
-                                        <tbody>
-                                            <tr>
-                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
-                                                <td>12 May 2015</td>
-                                                <td>Officient.dk</td>
-                                                <td>Incoming</td>
-                                                <td>Unpaid</td>
-                                                <td>$123.85</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>McDonalds MI</td>
-                                                <td>Incoming</td>
-                                                <td>Paid</td>
-                                                <td>$16.11</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>Get A Car Inc.</td>
-                                                <td>Outgoing</td>
-                                                <td>Shipped</td>
-                                                <td>$4.99</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>Get A Car Inc.</td>
-                                                <td>Outgoing</td>
-                                                <td>Refunded</td>
-                                                <td>$64.25</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
-                                                <td>12 May 2015</td>
-                                                <td>Officient.dk</td>
-                                                <td>Incoming</td>
-                                                <td>Unpaid</td>
-                                                <td>$123.85</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>McDonalds MI</td>
-                                                <td>Incoming</td>
-                                                <td>Paid</td>
-                                                <td>$16.11</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>Get A Car Inc.</td>
-                                                <td>Outgoing</td>
-                                                <td>Shipped</td>
-                                                <td>$4.99</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>Get A Car Inc.</td>
-                                                <td>Outgoing</td>
-                                                <td>Refunded</td>
-                                                <td>$64.25</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
-                                                <td>12 May 2015</td>
-                                                <td>Officient.dk</td>
-                                                <td>Incoming</td>
-                                                <td>Unpaid</td>
-                                                <td>$123.85</td>
-                                            </tr>
-                                            <tr>
-                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
-                                                <td>12 May 2015</td>
-                                                <td>Officient.dk</td>
-                                                <td>Incoming</td>
-                                                <td>Unpaid</td>
-                                                <td>$123.85</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>McDonalds MI</td>
-                                                <td>Incoming</td>
-                                                <td>Paid</td>
-                                                <td>$16.11</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>Get A Car Inc.</td>
-                                                <td>Outgoing</td>
-                                                <td>Shipped</td>
-                                                <td>$4.99</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>Get A Car Inc.</td>
-                                                <td>Outgoing</td>
-                                                <td>Refunded</td>
-                                                <td>$64.25</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
-                                                <td>12 May 2015</td>
-                                                <td>Officient.dk</td>
-                                                <td>Incoming</td>
-                                                <td>Unpaid</td>
-                                                <td>$123.85</td>
-                                            </tr>
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>McDonalds MI</td>
-                                                <td>Incoming</td>
-                                                <td>Paid</td>
-                                                <td>$16.11</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>Get A Car Inc.</td>
-                                                <td>Outgoing</td>
-                                                <td>Shipped</td>
-                                                <td>$4.99</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td><span  data-toggle="modal" data-target="#custom-width-modal">1021</span></td>
-                                                <td>06 Sep 2015</td>
-                                                <td>Get A Car Inc.</td>
-                                                <td>Outgoing</td>
-                                                <td>Refunded</td>
-                                                <td>$64.25</td>
-                                            </tr>
-                                            
-                                            <tr>
-                                                <td> <span  data-toggle="modal" data-target="#custom-width-modal">3746</span></td>
-                                                <td>12 May 2015</td>
-                                                <td>Officient.dk</td>
-                                                <td>Incoming</td>
-                                                <td>Unpaid</td>
-                                                <td>$123.85</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div> 
-                                    </div> 
-                                    <div class="tab-pane" id="messages-2">
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p> 
-                                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p> 
-                                    </div> 
-                                    <div class="tab-pane" id="settings-2">
-                                        <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>  
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p> 
-                                    </div> 
-                                </div> 
-
-                            <!-- ============================================================== -->
-                            <!-- Start right Content here -->
-                            <!-- ============================================================== -->
-                            <div class="panel">
-
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="m-b-30">
-                                                <button id="addToTable" ng-click="showInvoiceTable = true" class="btn btn-default waves-effect waves-light">Add Item <i class="fa fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="">
-                                        <table class="table table-striped" id="datatable-editable">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Description</th>
-                                                    <th>Qty</th>
-                                                    <th>Unit</th>
-                                                    <th>Price
-                                                        <h6><small>per unit excl. tax</small></h6></th>
-                                                    <th>Discount</th>
-                                                    <th>Tax %</th>
-                                                    <th>Total
-                                                        <h6><small>excl. tax</small></h6></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="gradeX" ng-show="showInvoiceTable">
-                                                    <td><input ng-model="invoiceNewObject.Id" data-parsley-type="number" type="text" class="form-control" required/></td>
-                                                    <td><input ng-model="invoiceNewObject.Description" data-parsley-type="number" type="text" class="form-control" required/></td>
-                                                    <td><input ng-model="invoiceNewObject.Qty" data-parsley-type="number" type="text" class="form-control" required/></td>
-                                                    <td class="actions">
-                                                        <a href="#" class="save-row" ng-click="invoiceAddToTable()"><i class="fa fa-save"></i></a>
-                                                        <a href="#" class="cancel-row" ng-click="showInvoiceTable = false"><i class="fa fa-times"></i></a>
-                                                    </td>
-                                                    <td><input ng-model="invoiceNewObject.Price" data-parsley-type="number" type="text" class="form-control" required/></td>
-                                                    <td><input ng-model="invoiceNewObject.Discount" data-parsley-type="number" type="text" class="form-control" required/></td>
-                                                    <td><input ng-model="invoiceNewObject.Tax" data-parsley-type="number" type="text" class="form-control" required/></td>
-                                                    <td><input ng-model="invoiceNewObject.Total" data-parsley-type="number" type="text" class="form-control" required/></td>
-
-                                                </tr>
-                                                <tr class="gradeX" ng-repeat="item in invoiceTable">
-                                                    <td>{{item.Id}}</td>
-                                                    <td>{{item.Description}}</td>
-                                                    <td>{{item.Qty}}</td>
-                                                    <td class="actions">
-                                                        <a href="#" class="on-default edit-row" ng-click="editInvoce($index)"><i class="fa fa-pencil"></i></a>
-                                                        <a href="#" class="on-default remove-row" ng-click="deletedInvoce($index)"><i class="fa fa-trash-o"></i></a>
-                                                    </td>
-                                                    <td>{{item.Price}}</td>
-                                                    <td>{{item.Discount}}</td>
-                                                    <td>{{item.Tax}}</td>
-                                                    <td>{{item.Total}}</td>
-
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end: page -->
-
-                        </div>
-                        <!-- end Panel -->
 
                         <!-- ============================================================== -->
                         <!-- Start right Content here -->
                         <!-- ============================================================== -->
+                        <div class="panel" ng-if='hasCreate'>
 
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card-box">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <form class="form-horizontal group-border-dashed" action="#">
-                                                <div class="form-group">
-
-                                                </div>
-                                            </form>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="m-b-30">
+                                            <button id="addToTable" ng-click="showInvoiceTable = true" class="btn btn-default waves-effect waves-light">Add Item <i class="fa fa-plus"></i></button>
                                         </div>
-                                        <div class="row" style="border-radius: 0px;">
-                                            <div class="col-md-3 col-md-offset-9">
-                                                <p class="text-right"><b>Discout</b> 0.00</p>
-                                                <p class="text-right"><b>Subtotal </b> 0.00</p>
-                                                <p class="text-right"><b>Tax</b> 0.00</p>
-                                                <hr>
-                                                <h3 class="text-right"><b>Total USD</b> 0.00</h3>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="hidden-print">
-                                            <div class="pull-right">
-                                                <a href="#" class="btn btn-primary waves-effect waves-light">Submit</a>
-                                            </div>
-                                        </div>
-                                        </form>
                                     </div>
+                                </div>
+
+                                <div class="">
+                                    <table class="table table-striped" id="datatable-editable">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Description</th>
+                                                <th>Qty</th>
+                                                <th>Unit</th>
+                                                <th>Price
+                                                    <h6><small>per unit excl. tax</small></h6>
+                                                </th>
+                                                <th>Discount</th>
+                                                <th>Tax %</th>
+                                                <th>Total
+                                                    <h6><small>excl. tax</small></h6>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="gradeX" ng-show="showInvoiceTable">
+                                                <td><input ng-model="invoiceNewObject.Id" data-parsley-type="number" type="text"
+                                                        class="form-control" required/></td>
+                                                <td><input ng-model="invoiceNewObject.Description" data-parsley-type="number"
+                                                        type="text" class="form-control" required/></td>
+                                                <td><input ng-model="invoiceNewObject.Qty" data-parsley-type="number" type="text"
+                                                        class="form-control" required/></td>
+                                                <td class="actions">
+                                                    <a href="#" class="save-row" ng-click="invoiceAddToTable()"><i class="fa fa-save"></i></a>
+                                                    <a href="#" class="cancel-row" ng-click="showInvoiceTable = false"><i class="fa fa-times"></i></a>
+                                                </td>
+                                                <td><input ng-model="invoiceNewObject.Price" data-parsley-type="number" type="text"
+                                                        class="form-control" required/></td>
+                                                <td><input ng-model="invoiceNewObject.Discount" data-parsley-type="number" type="text"
+                                                        class="form-control" required/></td>
+                                                <td><input ng-model="invoiceNewObject.Tax" data-parsley-type="number" type="text"
+                                                        class="form-control" required/></td>
+                                                <td><input ng-model="invoiceNewObject.Total" data-parsley-type="number" type="text"
+                                                        class="form-control" required/></td>
+
+                                            </tr>
+                                            <tr class="gradeX" ng-repeat="item in invoiceTable">
+                                                <td>{{item.Id}}</td>
+                                                <td>{{item.Description}}</td>
+                                                <td>{{item.Qty}}</td>
+                                                <td class="actions">
+                                                    <a href="#" class="on-default edit-row" ng-click="editInvoce($index)"><i class="fa fa-pencil"></i></a>
+                                                    <a href="#" class="on-default remove-row" ng-click="deletedInvoce($index)"><i class="fa fa-trash-o"></i></a>
+                                                </td>
+                                                <td>{{item.Price}}</td>
+                                                <td>{{item.Discount}}</td>
+                                                <td>{{item.Tax}}</td>
+                                                <td>{{item.Total}}</td>
+
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <!-- end: page -->
 
-                    <div class="row">
+                    </div>
+                    <!-- end Panel -->
+
+                    <!-- ============================================================== -->
+                    <!-- Start right Content here -->
+                    <!-- ============================================================== -->
+
+
+
+
+
+
+                    <div class="row" ng-if='hasCreate'>
                         <div class="col-sm-12">
                             <div class="card-box">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <!-- <h5><b>Validation type</b></h5>
+                                        <form class="form-horizontal group-border-dashed" action="#">
+                                            <div class="form-group">
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="row" style="border-radius: 0px;">
+                                        <div class="col-md-3 col-md-offset-9">
+                                            <p class="text-right"><b>Discout</b> 0.00</p>
+                                            <p class="text-right"><b>Subtotal </b> 0.00</p>
+                                            <p class="text-right"><b>Tax</b> 0.00</p>
+                                            <hr>
+                                            <h3 class="text-right"><b>Total USD</b> 0.00</h3>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="hidden-print">
+                                        <div class="pull-right">
+                                            <a href="#" class="btn btn-primary waves-effect waves-light">Submit</a>
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" ng-if='hasCreate'>
+                    <div class="col-sm-12">
+                        <div class="card-box">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <!-- <h5><b>Validation type</b></h5>
                       <p class="text-muted font-13 m-b-30">
                                           Your awesome text goes here.
                                       </p> -->
 
-                                        <form class="form-horizontal group-border-dashed" action="#">
-                                            <!-- <div class="form-group">
+                                    <form class="form-horizontal group-border-dashed" action="#">
+                                        <!-- <div class="form-group">
                           <label class="col-sm-3 control-label">Country</label>
                           <div class="col-sm-6">
                             <input type="text" class="form-control" required placeholder="Type something" />
                           </div>
                         </div> -->
 
-                                            <div class="col-sm-12">
+                                        <div class="col-sm-12">
 
-
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Notes</label>
-                                                    <div class="col-md-10">
-                                                        <textarea class="form-control" rows="5"></textarea>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-md-2 control-label">Files</label>
-                                                    <input type="file" class="filestyle" data-input="false">
-                                                </div>
-
-
-                                            </div>
-
-
-                                        </form>
-                                    </div>
-
-                                    <div class="col-lg-6">
-
-                                        <form class="form-horizontal group-border-dashed" action="#">
 
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label">Payment Date</label>
-                                                <div class="col-sm-6">
-                                                    <div class="input-group">
-                                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose3">
-                                                        <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
-                                                    </div>
-                                                    <!-- input-group -->
+                                                <label class="col-md-2 control-label">Notes</label>
+                                                <div class="col-md-10">
+                                                    <textarea class="form-control" rows="5"></textarea>
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="col-md-2 control-label">Files</label>
+                                                <input type="file" class="filestyle" data-input="false">
+                                            </div>
 
-                                            <label class="col-sm-3 control-label">Payment Method</label>
+
+                                        </div>
+
+
+                                    </form>
+                                </div>
+
+                                <div class="col-lg-6">
+
+                                    <form class="form-horizontal group-border-dashed" action="#">
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Payment Date</label>
                                             <div class="col-sm-6">
-                                                <select class="form-control select2">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose3">
+                                                    <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                </div>
+                                                <!-- input-group -->
+                                            </div>
+                                        </div>
+
+                                        <label class="col-sm-3 control-label">Payment Method</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control select2">
                                                     <option value="DKK">Select 1</option>
                                                     <option value="USD">Select 2</option>
                                                     <option value="EUR">Select 3</option>
@@ -879,52 +1179,52 @@
                                                     <option value="GBP">Select 5</option>
                                                     <option value="CHF">Select 6</option>
                                         </select>
-                                            </div>
-                                    </div>
-                                    <!-- Row start -->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="card-box">
-                                                <div class="row">
-                                                    <div class="col-sm-6">
+                                        </div>
+                                </div>
+                                <!-- Row start -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card-box">
+                                            <div class="row">
+                                                <div class="col-sm-6">
 
-                                                        <div class="button-list">
-                                                            <button type="button" class="btn btn-default waves-effect waves-light">Send</button>
-                                                            <button type="button" class="btn btn-default waves-effect waves-light">Preview</button>
-                                                            <button type="button" class="btn btn-default waves-effect waves-light">Delete</button>
-                                                        </div>
+                                                    <div class="button-list">
+                                                        <button type="button" class="btn btn-default waves-effect waves-light" ng-click="createInvoice()">Send</button>
+                                                        <button type="button" class="btn btn-default waves-effect waves-light">Preview</button>
+                                                        <button type="button" class="btn btn-default waves-effect waves-light">Delete</button>
                                                     </div>
-
-
                                                 </div>
+
+
                                             </div>
                                         </div>
-
                                     </div>
-                                    <!-- End of Row -->
-                                </div>
-                            </div>
 
-                            </form>
+                                </div>
+                                <!-- End of Row -->
+                            </div>
                         </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
 
 
 
-        <!-- </div> -->
-        <!-- container -->
+    <!-- </div> -->
+    <!-- container -->
 
-        <!-- </div> -->
-        <!-- content -->
+    <!-- </div> -->
+    <!-- content -->
 
-        <footer class="footer">
-            2016 © Officient.dk
-        </footer>
+    <footer class="footer">
+        2016 © Officient.dk
+    </footer>
 
     </div>
     <!-- ============================================================== -->
@@ -1016,7 +1316,7 @@
 
     <script src="assets/plugins/bootstrap-table/dist/bootstrap-table.min.js"></script>
     <script src="assets/pages/jquery.bs-table.js"></script>
-      
+
     <script src="assets/pages/datatables.editable.init.js"></script>
 
     <script>
@@ -1031,7 +1331,7 @@
     <script src="assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="assets/plugins/clockpicker/dist/jquery-clockpicker.min.js"></script>
     <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <!-- Sweet-Alert  -->
     <script src="assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
     <script src="assets/pages/jquery.sweet-alert.init.js"></script>
@@ -1181,7 +1481,35 @@
         
       });
     </script>
+    <script>
+    function handleFileSelect(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
 
+    var files = evt.dataTransfer.files; // FileList object.
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+    output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+            f.size, ' bytes, last modified: ',
+            f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+            '</li>');
+    }
+    document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
+    }
+
+    function handleDragOver(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+    }
+
+    // Setup the dnd listeners.
+    var dropZone = document.getElementById('drop_zone');
+    dropZone.addEventListener('dragover', handleDragOver, false);
+    dropZone.addEventListener('drop', handleFileSelect, false);
+                                                                        </script>
 
     <script src="assets/pages/datatables.editable.init.js"></script>
 </body>

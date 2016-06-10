@@ -17,6 +17,9 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
     }
     ];
 
+    $scope.hasCreate = false;
+
+
     var url = 'https://dev.officient.dk/companies';
     // $http({
     //     method: 'POST',
@@ -50,30 +53,30 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
         complete: function () {
             //called when complete
             console.log(232)
-                   $.ajax({
-        url: url,
-        type: "GET",
-        dataType: "xml/html/script/json", // expected format for response
-        contentType: "application/x-www-form-urlencoded", // send as JSON
+            $.ajax({
+                url: url,
+                type: "GET",
+                dataType: "xml/html/script/json", // expected format for response
+                contentType: "application/x-www-form-urlencoded", // send as JSON
 
-        complete: function () {
-            //called when complete
-        },
+                complete: function () {
+                    //called when complete
+                },
 
-        success: function () {
-            //called when successful
-        },
+                success: function () {
+                    //called when successful
+                },
 
-        error: function () {
-            //called when there is an error
-        },
-    });
+                error: function () {
+                    //called when there is an error
+                },
+            });
         },
 
         success: function () {
             //called when successful
             console.log(23)
-     
+
 
         },
 
@@ -89,6 +92,15 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
     $scope.companySelect = function (company) {
         $scope.company = company.name;
         $scope.companySelectShow = false;
+    };
+
+
+    $scope.createInvoice = function () {
+        $scope.hasCreate = !$scope.hasCreate;
+    };
+
+    $scope.createSetFalse = function () {
+        $scope.hasCreate = false;
     };
 
     $scope.companyBlur = function () {
