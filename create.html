@@ -90,7 +90,7 @@
     }
     
     .modal-list .div-inline div {
-        display: inline-block
+        display: inline-block;
     }
     
     .modal-list .div-inline .weight {
@@ -108,6 +108,28 @@
     .modal-list .list {
         color: black;
         font-weight: 800;
+    }
+    
+    .invoice-ok div div {
+        display: inline-block;
+        margin-right: 40px;
+    }
+    
+    .invoice-ok div h4 {
+        display: inline-block;
+    }
+    
+    .invoice-ok .weight {
+        font-weight: 800;
+        color: black;
+    }
+    
+    .invoice-buy .pro h3 {
+        display: inline-block;
+    }
+    
+    .invoice-buy .pro div {
+        display: inline-block;
     }
 </style>
 
@@ -384,7 +406,7 @@
                                         <div class="card-box">
                                             <div class="button-list">
                                                 <button type="button" class="btn btn-default waves-effect waves-light" ng-click="createInvoice()">Create Invoice</button>
-                                                <button type="button" class="btn btn-default waves-effect waves-light" data-toggle="modal" data-target="#custom-width-modal-upload-ok">Upload Invoice</button>
+                                                <button type="button" class="btn btn-default waves-effect waves-light" data-toggle="modal" data-target="#custom-width-modal-upload-buy">Upload Invoice</button>
                                             </div>
 
                                             <table data-toggle="table" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-sort-name="id"
@@ -664,19 +686,24 @@
                                                                         </div>
 
                                                                         <div class="row">
-                                                                            <div>
-                                                                                Invoice uploaded. No mistakes found. You can preview the invoice or add it to you invoice list to send, edit or something else.
-                                                                            </div>
-                                                                            <div class="col-md-12 modal-list">
 
+                                                                            <div class="col-md-12 invoice-ok">
+                                                                                <h4>
+                                                                                Invoice uploaded. No mistakes found. You can preview the invoice or add it to you invoice list to send, edit or something else.
+                                                                            </h4>
                                                                                 <br>
-                                                                                <h4 class="div-inline"><div>Invoice uploaded. </div><div class="weight">We found 3 errors.</div> <div>You can continue with it but we belive you should fix it.</div><div> Otherwise you will get no cookies.</div><div> Fix it now.</div></h4>
-                                                                                <div class="list">1. 'From' field missing</div>
-                                                                                <h4>We do not know whom to send this invoice to. You need to fix it.</h4>
-                                                                                <div class="list">2. Currency is not set</div>
-                                                                                <h4>We do not know which currency we shold use for this invoice.</h4>
-                                                                                <div class="list">3. Something wierd happenong</div>
-                                                                                <h4>We can`t explain it very well but we feel you shouldn`t proceed with this invoice. Ever. Trust us, we are professionals. Better get yourself a beer.</h4>
+                                                                                <div>
+                                                                                    <div class="weight">From</div>
+                                                                                    <h4>AMS Design Servicese</h4></div>
+                                                                                <div>
+                                                                                    <div class="weight">To</div>
+                                                                                    <h4>McDonalds MI</h4></div>
+                                                                                <div>
+                                                                                    <div class="weight">Date</div>
+                                                                                    <h4>6 Sep 2015</h4></div>
+                                                                                <div>
+                                                                                    <div class="weight">Amount</div>
+                                                                                    <h4>16.11 EUR</h4></div>
                                                                             </div>
 
                                                                         </div>
@@ -696,6 +723,66 @@
                                                                                 <div class="pull-right m-t-30">
                                                                                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="XMLSourceSwap()">Preview Invoice</button>
                                                                                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="createInvoice()">Add to Invoices</button>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                                    </div>
+                                                                    <!-- /.modal-content -->
+                                                                </div>
+                                                                <!-- /.modal-dialog -->
+                                                            </div>
+
+                                                            <div id="custom-width-modal-upload-buy" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
+                                                                aria-hidden="true" style="display: none;">
+                                                                <div class="modal-dialog" style="width:75%;">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+
+
+                                                                            <div class="clearfix">
+                                                                                <div class="pull-left">
+                                                                                    <h4 class="text-right">Upload Invoice</h4>
+                                                                                </div>
+                                                                                <div class="pull-right">
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+
+                                                                            <div class="col-md-12 invoice-buy">
+                                                                                <div class="pro">
+                                                                                    <h3>Invoice Importer</h3>
+                                                                                    <div class="box-pro">PRO </div>
+                                                                                </div>
+                                                                                <br>
+                                                                                <h4>Automatic fill from PDF, XLS, TXT and other formats. Great choise for small and big business.</h4>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <hr>
+
+                                                                        <div class="row">
+
+                                                                            <div class="modal-body">
+                                                                                <div class="pull-left m-t-30">
+                                                                                    <div class="pull-left m-t-30" layout="row" layout-align="center center" flex>
+                                                                                        <a href="#" data-dismiss="modal">Not now</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="pull-right m-t-30">
+                                                                                    <div style="        display: inline-block;
+">
+                                                                                        <h3 style=" display: inline-block;">$4.95</h3>
+                                                                                        <div style=" display: inline-block;">/mo</div>
+                                                                                    </div>
+                                                                                    <button style="        display: inline-block;
+" type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="createInvoice()">Buy Now</button>
 
                                                                                 </div>
                                                                             </div>

@@ -2250,6 +2250,14 @@ body.fixed-left .side-menu.left {
         margin: 15px;
     }
     
+     .fixed-left .box-pro {
+        padding: 5px;
+        color: #fff;
+        font-size: 15px;
+        background: #36404a;
+        margin: 15px;
+    }
+    
     .full-body-thank .order-pro-thank {
         margin: 20px;
     }
