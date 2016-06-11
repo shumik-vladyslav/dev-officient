@@ -88,6 +88,27 @@
         font: 20pt bold 'Vollkorn';
         color: #bbb;
     }
+    
+    .modal-list .div-inline div {
+        display: inline-block
+    }
+    
+    .modal-list .div-inline .weight {
+        font-weight: 800;
+    }
+    
+    .modal-list {
+        margin: 10px;
+    }
+    
+    .modal-list h4 {
+        margin-bottom: 20px;
+    }
+    
+    .modal-list .list {
+        color: black;
+        font-weight: 800;
+    }
 </style>
 
 <body ng-app="app" class="fixed-left">
@@ -363,7 +384,7 @@
                                         <div class="card-box">
                                             <div class="button-list">
                                                 <button type="button" class="btn btn-default waves-effect waves-light" ng-click="createInvoice()">Create Invoice</button>
-                                                <button type="button" class="btn btn-default waves-effect waves-light" data-toggle="modal" data-target="#custom-width-modal-upload">Upload Invoice</button>
+                                                <button type="button" class="btn btn-default waves-effect waves-light" data-toggle="modal" data-target="#custom-width-modal-upload-ok">Upload Invoice</button>
                                             </div>
 
                                             <table data-toggle="table" data-search="true" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-sort-name="id"
@@ -570,7 +591,7 @@
 
 
 
-                                                            <div id="custom-width-modal-upload" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
+                                                            <div id="custom-width-modal-upload-error" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
                                                                 aria-hidden="true" style="display: none;">
                                                                 <div class="modal-dialog" style="width:75%;">
                                                                     <div class="modal-content">
@@ -625,7 +646,68 @@
                                                                 <!-- /.modal-dialog -->
                                                             </div>
                                                             <!-- /.modal -->
+                                                            <div id="custom-width-modal-upload-ok" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
+                                                                aria-hidden="true" style="display: none;">
+                                                                <div class="modal-dialog" style="width:75%;">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
 
+
+                                                                            <div class="clearfix">
+                                                                                <div class="pull-left">
+                                                                                    <h4 class="text-right">Upload Invoice</h4>
+                                                                                </div>
+                                                                                <div class="pull-right">
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div>
+                                                                                Invoice uploaded. No mistakes found. You can preview the invoice or add it to you invoice list to send, edit or something else.
+                                                                            </div>
+                                                                            <div class="col-md-12 modal-list">
+
+                                                                                <br>
+                                                                                <h4 class="div-inline"><div>Invoice uploaded. </div><div class="weight">We found 3 errors.</div> <div>You can continue with it but we belive you should fix it.</div><div> Otherwise you will get no cookies.</div><div> Fix it now.</div></h4>
+                                                                                <div class="list">1. 'From' field missing</div>
+                                                                                <h4>We do not know whom to send this invoice to. You need to fix it.</h4>
+                                                                                <div class="list">2. Currency is not set</div>
+                                                                                <h4>We do not know which currency we shold use for this invoice.</h4>
+                                                                                <div class="list">3. Something wierd happenong</div>
+                                                                                <h4>We can`t explain it very well but we feel you shouldn`t proceed with this invoice. Ever. Trust us, we are professionals. Better get yourself a beer.</h4>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <hr>
+                                                                        <div class="row">
+
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+
+
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="pull-left m-t-30">
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+                                                                                </div>
+                                                                                <div class="pull-right m-t-30">
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="XMLSourceSwap()">Preview Invoice</button>
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="createInvoice()">Add to Invoices</button>
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+
+
+                                                                    </div>
+                                                                    <!-- /.modal-content -->
+                                                                </div>
+                                                                <!-- /.modal-dialog -->
+                                                            </div>
 
                                                             <div id="custom-width-modal-upload-invoice" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
                                                                 aria-hidden="true" style="display: none;">
@@ -645,16 +727,16 @@
                                                                         </div>
 
                                                                         <div class="row">
-                                                                            <div class="col-md-12">
+                                                                            <div class="col-md-12 modal-list">
 
                                                                                 <br>
-                                                                                <h4>Invoice uploaded. <div>We found 3 errors.</div> You can continue with it but we belive you should fix it. Otherwise you will get no cookies. Fix it now.</h4>
-                                                                                <div>1. 'From' field missing</div>
-                                                                                <div>We do not know whom to send this invoice to. You need to fix it.</div>
-                                                                                <div>2. Currency is not set</div>
-                                                                                <div>We do not know which currency we shold use for this invoice.</div>
-                                                                                <div>3. Something wierd happenong</div>
-                                                                                <div>We can`t explain it very well but we feel you shouldn`t proceed with this invoice. Ever. Trust us, we are professionals. Better get yourself a beer.</div>
+                                                                                <h4 class="div-inline"><div>Invoice uploaded. </div><div class="weight">We found 3 errors.</div> <div>You can continue with it but we belive you should fix it.</div><div> Otherwise you will get no cookies.</div><div> Fix it now.</div></h4>
+                                                                                <div class="list">1. 'From' field missing</div>
+                                                                                <h4>We do not know whom to send this invoice to. You need to fix it.</h4>
+                                                                                <div class="list">2. Currency is not set</div>
+                                                                                <h4>We do not know which currency we shold use for this invoice.</h4>
+                                                                                <div class="list">3. Something wierd happenong</div>
+                                                                                <h4>We can`t explain it very well but we feel you shouldn`t proceed with this invoice. Ever. Trust us, we are professionals. Better get yourself a beer.</h4>
                                                                             </div>
 
                                                                         </div>
@@ -665,8 +747,17 @@
                                                                         <div class="row">
                                                                             <div class="col-md-12">
 
-                                                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Upload</button>
 
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <div class="pull-left m-t-30">
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cancel</button>
+                                                                                </div>
+                                                                                <div class="pull-right m-t-30">
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="XMLSourceSwap()">Advanced More</button>
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="createInvoice()">Edit Invoice</button>
+
+                                                                                </div>
                                                                             </div>
                                                                         </div>
 
@@ -871,7 +962,7 @@
 
 
 
-                        <div class="tab-content" ng-if='hasCreate'>
+                        <div class="tab-content" ng-if='hasCreate && !hasXMLSource'>
                             <div class="tab-pane active">
                                 <div class="row">
                                     <div class="col-sm-12">
@@ -997,7 +1088,7 @@
                         <!-- ============================================================== -->
                         <!-- Start right Content here -->
                         <!-- ============================================================== -->
-                        <div class="panel" ng-if='hasCreate'>
+                        <div class="panel" ng-if='hasCreate && !hasXMLSource'>
 
                             <div class="panel-body">
                                 <div class="row">
@@ -1082,7 +1173,7 @@
 
 
 
-                    <div class="row" ng-if='hasCreate'>
+                    <div class="row" ng-if='hasCreate && !hasXMLSource'>
                         <div class="col-sm-12">
                             <div class="card-box">
                                 <div class="row">
@@ -1115,7 +1206,7 @@
                     </div>
                 </div>
 
-                <div class="row" ng-if='hasCreate'>
+                <div class="row" ng-if='hasCreate && !hasXMLSource'>
                     <div class="col-sm-12">
                         <div class="card-box">
                             <div class="row">
@@ -1208,6 +1299,82 @@
                         </form>
                     </div>
                 </div>
+
+                <!---->
+                <div class="tab-content" ng-if='hasCreate && hasXMLSource'>
+                    <div class="tab-pane active">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="card-box">
+                                    <div class="modal-body">
+                                        <div class="pull-left m-t-30">
+                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Error Message</button>
+                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">XML Source</button>
+                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Invoice Preview</button>
+                                        </div>
+                                        <div class="pull-right m-t-30">
+                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Exit</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class=" m-t-30">
+                                                <textarea rows="15" placeholder='Paste invoice XML hare' style="resize: none;width: 100%;">
+<?xml version="1.0"?>
+<!-- Copyright (c) Microsoft Corporation.  All rights reserved. -->
+<!-- Generic stylesheet for viewing XML -->
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/TR/WD-xsl">
+  <!-- This template will always be executed, even if this stylesheet is not run on the document root -->
+  <xsl:template>
+    <DIV STYLE="font-family:Courier; font-size:10pt; margin-bottom:2em">
+      <!-- Scoped templates are used so they don't interfere with the "kick-off" template. -->
+      <xsl:apply-templates select=".">
+        <xsl:template><xsl:apply-templates/></xsl:template>
+
+        <xsl:template match="*">
+          <DIV STYLE="margin-left:1em; color:gray">
+            &lt;<xsl:node-name/><xsl:apply-templates select="@*"/>/&gt;
+          </DIV>
+        </xsl:template>
+
+        <xsl:template match="*[node()]">
+          <DIV STYLE="margin-left:1em">
+            <SPAN STYLE="color:gray">&lt;<xsl:node-name/><xsl:apply-templates select="@*"/>&gt;</SPAN><xsl:apply-templates select="node()"/><SPAN STYLE="color:gray">&lt;/<xsl:node-name/>&gt;</SPAN>
+          </DIV>
+        </xsl:template>
+
+        <xsl:template match="@*">
+          <SPAN STYLE="color:navy"> <xsl:node-name/>="<SPAN STYLE="color:black"><xsl:value-of/></SPAN>"</SPAN>
+        </xsl:template>
+
+        <xsl:template match="pi()">
+          <DIV STYLE="margin-left:1em; color:maroon">&lt;?<xsl:node-name/><xsl:apply-templates select="@*"/>?&gt;</DIV>
+        </xsl:template>
+
+        <xsl:template match="cdata()"><pre>&lt;![CDATA[<xsl:value-of/>]]&gt;</pre></xsl:template>
+
+        <xsl:template match="textNode()"><xsl:value-of/></xsl:template>
+      </xsl:apply-templates>
+    </DIV>
+  </xsl:template>
+</xsl:stylesheet>
+
+                                                </textarea>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="pull-left m-t-30">
+                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="createSetFalse()">Save Changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -1320,8 +1487,7 @@
     <script src="assets/pages/datatables.editable.init.js"></script>
 
     <script>
-        
-         $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
+        $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
     </script>
 
 
@@ -1482,7 +1648,7 @@
       });
     </script>
     <script>
-    function handleFileSelect(evt) {
+        function handleFileSelect(evt) {
     evt.stopPropagation();
     evt.preventDefault();
 
@@ -1509,7 +1675,7 @@
     var dropZone = document.getElementById('drop_zone');
     dropZone.addEventListener('dragover', handleDragOver, false);
     dropZone.addEventListener('drop', handleFileSelect, false);
-                                                                        </script>
+    </script>
 
     <script src="assets/pages/datatables.editable.init.js"></script>
 </body>
