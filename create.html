@@ -131,6 +131,37 @@
     .invoice-buy .pro div {
         display: inline-block;
     }
+    
+    .tab-pane .pro-left {
+        -webkit-flex: 1 1 40%;
+        -ms-flex: 1 1 40%;
+        flex: 1 1 40%;
+        max-width: 40%;
+        max-height: 100%;
+        box-sizing: border-box;
+    }
+    
+    .tab-pane .pro-left .size-pro {
+        display: flex;
+    }
+    
+    .tab-pane .center {
+        padding-top: 70px;
+        padding-left: 110px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+    }
+    
+     .tab-pane .center-modal {
+        display: flex;
+        align-items: center;
+        align-content: center;
+    }
+    
+    .tab-pane .tab-right {
+        margin-top: -30px;
+    }
 </style>
 
 <body ng-app="app" class="fixed-left">
@@ -256,7 +287,7 @@
                                     </a>
                                 </li>
                                 <li class="tab">
-                                    <a href="#settings-2" data-toggle="tab" aria-expanded="false">
+                                    <a href="#pro" data-toggle="tab" aria-expanded="false">
                                         <span class="visible-xs"><i class="fa fa-cog"></i></span>
                                         <span class="hidden-xs"><h3><strong>PRO</strong></h2></span>
 
@@ -1045,110 +1076,602 @@
                                     ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
                                     consequat massa quis enim.</p>
                             </div>
-                        </div>
+                            <div class="tab-pane" id="pro">
+                                <div class="card-box">
+                                    <div>
+                                        <div flex='40' class="pull-left pro-left">
+                                            <div class="size-pro">
+                                                <h3>Invoice Importer</h3>
+                                                <div class="box-pro">PRO </div>
+                                            </div>
+                                            <h4 class="m-t-30">Automatic fill from PDF, XLS, TXT and other formats. Great choise for small and big business.</h4>
+                                            <div class="col-md-12">
+                                                <div class="pull-left m-t-30">
+                                                    <a href="#" data-toggle="modal" data-target="#invoice-importer-modal">More information</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+
+                                            <div class="center" ng-if="!bundleFlags.importer">
+                                                <img src="http://iconspot.ru/files/296813.png" style="width: 46px;">
+
+                                                <h3>Added</h3>
+                                            </div>
+                                            <button type="button" class="btn btn-default " ng-if="bundleFlags.importer" ng-click="bundleSwap('importer', false)">Remove</button>
+                                        </div>
+                                        <!--<div class="pull-right tab-right"> <button type="button" class="btn btn-default " ng-if="!bundleFlags.importer" ng-click="bundleSwap('importer', true)">Add to Bundle</button>
+                                            <div layout="row" layout-align="center center" ng-if="bundleFlags.importer">
+                                                <h3>$4.95</h3>/mo</div>
+                                        </div>-->
+                                    </div>
+                                    <!-- Start content -->
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!-- sample modal content -->
+
+                                                <div id="invoice-importer-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
+                                                    aria-hidden="true" style="display: none;">
+                                                    <div class="modal-dialog" style="width:75%;">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+
+
+                                                                <div class="clearfix">
+                                                                    <div class="pull-right">
+                                                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <section class="contstruct-modal-info" layout="column" layout-align="center center">
+                                                                    <div flex='40' class="pro-left">
+                                                                        <div class="size-pro">
+                                                                            <h3>Invoice Importer</h3>
+                                                                            <div class="box-pro">PRO </div>
+                                                                        </div>
+                                                                        <h4>Automatic fill from PDF, XLS, TXT and other formats. Great choise
+                                                                for small and big business.</h4>
+
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="center-modal" ng-if="!bundleFlags.importer">
+                                                                            <h3>$4.95</h3>/mo</div>
+                                                                        <button type="button" class="btn btn-default " ng-if="bundleFlags.importer" ng-click="bundleSwap('importer', false)">Remove</button>
+                                                                    </div>
+                                                                    <div> <button type="button" class="btn btn-default " ng-if="!bundleFlags.importer"
+                                                                            ng-click="bundleSwap('importer', true)">Add to Bundle</button>
+                                                                        <div layout="row" layout-align="center center" ng-if="bundleFlags.importer">
+                                                                            <h3>$4.95</h3>/mo</div>
+                                                                    </div>
+                                                                    <div flex>
+                                                                        <div class="pull-left m-t-30" layout="row" layout-align="center center" flex>
+                                                                            <a href="#" data-dismiss="modal">Not now</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                                <section>
+                                                                    <div layout="column" layout-align="center ">
+                                                                        <div class="modal-list" layout="row" layout-align="space-between center">
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
+                                                                                        style="width: 100px;"></div>
+                                                                                <div class="head-pro">Important Facts</div>
+                                                                                <h4>Invoice Importer helps you. Really helps you a lot. Belive
+                                                                        us, we know it.</h4>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
+                                                                                        style="width: 100px;"></div>
+
+                                                                                <div class="head-pro">Only $4,95 per month</div>
+                                                                                <h4>Think about it, it`s even less than a big latte at Starbucks.
+                                                                        A month. 30 days. Yes!</h4>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
+                                                                                        style="width: 100px;"></div>
+
+                                                                                <div class="head-pro">You Gonna Love It</div>
+                                                                                <h4>Or we quarantee 100% moneyback. Because we are proud
+                                                                        of our products.</h4>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+                                                <!-- /.modal -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <md-divider></md-divider>
+                                    <div>
+                                        <div flex='40' class="pull-left pro-left">
+                                            <div class="size-pro">
+                                                <h3>Invoice Firewall</h3>
+                                                <div class="box-pro">PRO </div>
+                                            </div>
+                                            <h4>Don`t worry about security. Invoice Firewall will make sure all your data is absolutelu safe.</h4>
+                                            <div class="col-md-12">
+                                                <div class="pull-left m-t-30">
+                                                    <a href="#" data-toggle="modal" data-target="#invoice-firewall-modal">More information</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="center" ng-if="!bundleFlags.firewall">
+                                                <h3>$6.95</h3>/mo</div>
+                                            <button type="button" class="btn btn-default " ng-if="bundleFlags.firewall" ng-click="bundleSwap('firewall', false)">Remove</button>
+                                        </div>
+                                        <div class="pull-right tab-right"> <button type="button" class="btn btn-default " ng-if="!bundleFlags.firewall" ng-click="bundleSwap('firewall', true)">Add to Bundle</button>
+                                            <div layout="row" layout-align="center center" ng-if="bundleFlags.firewall">
+                                                <h3>$6.95</h3>/mo</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Start content -->
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!-- sample modal content -->
+
+                                                <div id="invoice-firewall-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel"
+                                                    aria-hidden="true" style="display: none;">
+                                                    <div class="modal-dialog" style="width:75%;">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+
+
+                                                                <div class="clearfix">
+                                                                    <div class="pull-right">
+                                                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <section class="contstruct-modal-info" layout="column" layout-align="center center">
+                                                                    <div flex='40'>
+                                                                        <div layout="row" layout-align="center center" flex>
+                                                                            <h3>Invoice Firewall</h3>
+                                                                            <div class="box-pro">PRO </div>
+                                                                        </div>
+                                                                        <h4>Don`t worry about security. Invoice Firewall will make sure all
+                                                                your data is absolutelu safe.</h4>
+
+                                                                    </div>
+                                                                    <div>
+                                                                        <div layout="row" layout-align="center center" ng-if="!bundleFlags.firewall">
+                                                                            <h3>$6.95</h3>/mo</div>
+                                                                        <button type="button" class="btn btn-default " ng-if="bundleFlags.firewall" ng-click="bundleSwap('firewall', false)">Remove</button>
+                                                                    </div>
+                                                                    <div> <button type="button" class="btn btn-default " ng-if="!bundleFlags.firewall"
+                                                                            ng-click="bundleSwap('firewall', true)">Add to Bundle</button>
+                                                                        <div layout="row" layout-align="center center" ng-if="bundleFlags.firewall">
+                                                                            <h3>$6.95</h3>/mo</div>
+                                                                    </div>
+                                                                    <div flex>
+                                                                        <div class="pull-left m-t-30" layout="row" layout-align="center center" flex>
+                                                                            <a href="#" data-dismiss="modal">Not now</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                                <section>
+                                                                    <div layout="column" layout-align="center ">
+                                                                        <div class="modal-list" layout="row" layout-align="space-between center">
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
+                                                                                        style="width: 100px;"></div>
+                                                                                <div class="head-pro">Important Facts</div>
+                                                                                <h4>Invoice Importer helps you. Really helps you a lot. Belive
+                                                                        us, we know it.</h4>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
+                                                                                        style="width: 100px;"></div>
+
+                                                                                <div class="head-pro">Only $4,95 per month</div>
+                                                                                <h4>Think about it, it`s even less than a big latte at Starbucks.
+                                                                        A month. 30 days. Yes!</h4>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
+                                                                                        style="width: 100px;"></div>
+
+                                                                                <div class="head-pro">You Gonna Love It</div>
+                                                                                <h4>Or we quarantee 100% moneyback. Because we are proud
+                                                                        of our products.</h4>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+                                                <!-- /.modal -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <md-divider></md-divider>
+                                    <div layout="row" layout-align="space-between center">
+                                        <div flex='40' class="pull-left pro-left">
+                                            <div class="size-pro">
+                                                <h3>Your Logo</h3>
+                                                <div class="box-pro">PRO </div>
+                                            </div>
+                                            <h4>Your logo instead of Officient logo. Everybody wants thet. Literally everybody. This is a
+                                    must-have!
+                                </h4>
+                                            <div class="col-md-12">
+                                                <div class="pull-left m-t-30">
+                                                    <a href="#" data-toggle="modal" data-target="#your-logo-modal">More information</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="center" ng-if="!bundleFlags.logo">
+                                                <h3>$19.95</h3>/forever</div>
+                                            <button type="button" class="btn btn-default " ng-if="bundleFlags.logo" ng-click="bundleSwap('logo', false)">Remove</button>
+                                        </div>
+                                        <div class="pull-right tab-right"> <button type="button" class="btn btn-default " ng-if="!bundleFlags.logo" ng-click="bundleSwap('logo', true)">Add to Bundle</button>
+                                            <div layout="row" layout-align="center center" ng-if="bundleFlags.logo">
+                                                <h3>$19.95</h3>/forever</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Start content -->
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!-- sample modal content -->
+
+                                                <div id="your-logo-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
+                                                    style="display: none;">
+                                                    <div class="modal-dialog" style="width:75%;">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+
+
+                                                                <div class="clearfix">
+                                                                    <div class="pull-right">
+                                                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <section class="contstruct-modal-info" layout="column" layout-align="center center">
+                                                                    <div flex='40'>
+                                                                        <div layout="row" layout-align="center center" flex>
+                                                                            <h3>Your Logo</h3>
+                                                                            <div class="box-pro">PRO </div>
+                                                                        </div>
+                                                                        <h4>Your logo instead of Officient logo. Everybody wants thet. Literally
+                                                                everybody. This is a must-have!
+                                                            </h4>
+
+                                                                    </div>
+                                                                    <div>
+                                                                        <div layout="row" layout-align="center center" ng-if="!bundleFlags.logo">
+                                                                            <h3>$19.95</h3>/forever</div>
+                                                                        <button style="margin-left: 40px;" type="button" class="btn btn-default " ng-if="bundleFlags.logo" ng-click="bundleSwap('logo', false)">Remove</button>
+                                                                    </div>
+                                                                    <div> <button type="button" class="btn btn-default " ng-if="!bundleFlags.logo"
+                                                                            ng-click="bundleSwap('logo', true)">Add to Bundle</button>
+                                                                        <div layout="row" layout-align="center center" ng-if="bundleFlags.logo">
+                                                                            <h3>$19.95</h3>/forever</div>
+                                                                    </div>
+                                                                    <div flex>
+                                                                        <div class="pull-left m-t-30" layout="row" layout-align="center center" flex>
+                                                                            <a href="#" data-dismiss="modal">Not now</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                                <section>
+                                                                    <div layout="column" layout-align="center ">
+                                                                        <div class="modal-list" layout="row" layout-align="space-between center">
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
+                                                                                        style="width: 100px;"></div>
+                                                                                <div class="head-pro">Important Facts</div>
+                                                                                <h4>Invoice Importer helps you. Really helps you a lot. Belive
+                                                                        us, we know it.</h4>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
+                                                                                        style="width: 100px;"></div>
+
+                                                                                <div class="head-pro">Only $4,95 per month</div>
+                                                                                <h4>Think about it, it`s even less than a big latte at Starbucks.
+                                                                        A month. 30 days. Yes!</h4>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
+                                                                                        style="width: 100px;"></div>
+
+                                                                                <div class="head-pro">You Gonna Love It</div>
+                                                                                <h4>Or we quarantee 100% moneyback. Because we are proud
+                                                                        of our products.</h4>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+                                                <!-- /.modal -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <md-divider></md-divider>
+                                    <div layout="row" layout-align="space-between center">
+                                        <div flex='40' class="pull-left pro-left">
+                                            <div class="size-pro">
+                                                <h3>Easy Type</h3>
+                                                <div class="box-pro">PRO </div>
+                                            </div>
+                                            <h4>Never again you will need to type your invoices. With EasyType you can clone invoices.</h4>
+                                            <div class="col-md-12">
+                                                <div class="pull-left m-t-30">
+                                                    <a href="#" data-toggle="modal" data-target="#easy-type-modal">More information</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="center" ng-if="!bundleFlags.type">
+                                                <h3>$6.95</h3>/mo</div>
+                                            <button type="button" class="btn btn-default " ng-if="bundleFlags.type" ng-click="bundleSwap('type', false)">Remove</button>
+                                        </div>
+                                        <div class="pull-right tab-right"> <button type="button" class="btn btn-default " ng-if="!bundleFlags.type" ng-click="bundleSwap('type', true)">Add to Bundle</button>
+                                            <div layout="row" layout-align="center center" ng-if="bundleFlags.type">
+                                                <h3>$6.95</h3>/mo</div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Start content -->
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!-- sample modal content -->
+
+                                                <div id="easy-type-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="easy-type-modalLabel" aria-hidden="true"
+                                                    style="display: none;">
+                                                    <div class="modal-dialog" style="width:75%;">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+
+
+                                                                <div class="clearfix">
+                                                                    <div class="pull-right">
+                                                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <section class="contstruct-modal-info" layout="column" layout-align="center center">
+                                                                    <div flex='40'>
+                                                                        <div layout="row" layout-align="center center" flex>
+                                                                            <h3>Easy Type</h3>
+                                                                            <div class="box-pro">PRO </div>
+                                                                        </div>
+                                                                        <h4>Never again you will need to type your invoices. With EasyType
+                                                                you can clone invoices.
+                                                            </h4>
+
+                                                                    </div>
+                                                                    <div>
+                                                                        <div layout="row" layout-align="center center" ng-if="!bundleFlags.type">
+                                                                            <h3>$6.95</h3>/mo</div>
+                                                                        <button type="button" class="btn btn-default " ng-if="bundleFlags.type" ng-click="bundleSwap('type', false)">Remove</button>
+                                                                    </div>
+                                                                    <div> <button type="button" class="btn btn-default " ng-if="!bundleFlags.type"
+                                                                            ng-click="bundleSwap('type', true)">Add to Bundle</button>
+                                                                        <div layout="row" layout-align="center center" ng-if="bundleFlags.type">
+                                                                            <h3>$6.95</h3>/mo</div>
+                                                                    </div>
+                                                                    <div flex>
+                                                                        <div class="pull-left m-t-30" layout="row" layout-align="center center" flex>
+                                                                            <a href="#" data-dismiss="modal">Not now</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                                <section>
+                                                                    <div layout="column" layout-align="center ">
+                                                                        <div class="modal-list" layout="row" layout-align="space-between center">
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
+                                                                                        style="width: 100px;"></div>
+                                                                                <div class="head-pro">Important Facts</div>
+                                                                                <h4>Invoice Importer helps you. Really helps you a lot. Belive
+                                                                        us, we know it.</h4>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
+                                                                                        style="width: 100px;"></div>
+
+                                                                                <div class="head-pro">Only $4,95 per month</div>
+                                                                                <h4>Think about it, it`s even less than a big latte at Starbucks.
+                                                                        A month. 30 days. Yes!</h4>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
+                                                                                        style="width: 100px;"></div>
+
+                                                                                <div class="head-pro">You Gonna Love It</div>
+                                                                                <h4>Or we quarantee 100% moneyback. Because we are proud
+                                                                        of our products.</h4>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+                                                <!-- /.modal -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div layout="row" layout-align="space-between center">
+                                        <div flex='40' class="pull-left pro-left">
+                                            <div class="size-pro">
+                                                <h3>Officient App</h3>
+                                                <div class="box-pro">PRO </div>
+                                            </div>
+                                            <h4>Super easy integration via Windows Application. Now you don`t need to visit website anymore.</h4>
+                                            <div class="col-md-12">
+                                                <div class="pull-left m-t-30">
+                                                    <a href="#" data-toggle="modal" data-target="#easy-type-modal">More information</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="center" ng-if="!bundleFlags.type">
+                                                <img src="http://iconspot.ru/files/296813.png" style="width: 46px;">
+
+                                                <h3>Added</h3>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right tab-right">
+                                            <button type="button" class="btn btn-default " ng-if="!bundleFlags.type" ng-click="bundleSwap('type', true)">Download App</button>
+                                            <button type="button" class="btn btn-default " ng-if="!bundleFlags.type" ng-click="bundleSwap('type', true)">Configure App</button>
+
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <md-divider></md-divider>
+                                    </div>
+                                </div>
+                            </div>
 
 
 
-                        <div class="tab-content" ng-if='hasCreate && !hasXMLSource'>
-                            <div class="tab-pane active">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="card-box">
-                                            <h4 class="m-t-0 m-b-30 header-title"><b>Create</b></h4>
-                                            <div class="row">
-                                                <div class="col-lg-6">
+                            <div class="tab-content" ng-if='hasCreate && !hasXMLSource'>
+                                <div class="tab-pane active">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="card-box">
+                                                <h4 class="m-t-0 m-b-30 header-title"><b>Create</b></h4>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
 
-                                                    <form class="form-horizontal group-border-dashed" action="#">
-                                                        <div class="form-group">
+                                                        <form class="form-horizontal group-border-dashed" action="#">
+                                                            <div class="form-group">
 
-                                                            <div class="col-sm-6">
-                                                                <label class="col-sm-3 control-label">Country</label>
-                                                                <select class="form-control select2">
+                                                                <div class="col-sm-6">
+                                                                    <label class="col-sm-3 control-label">Country</label>
+                                                                    <select class="form-control select2">
                                             <option value="AF">Afghanistan</option><option value="AX">&Aring;land Islands</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctica</option><option value="AG">Antigua &amp; Barbuda</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AC">Ascension Island</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia</option><option value="BA">Bosnia &amp; Herzegovina</option><option value="BW">Botswana</option><option value="BR">Brazil</option><option value="IO">British Indian Ocean Territory</option><option value="VG">British Virgin Islands</option><option value="BN">Brunei</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="IC">Canary Islands</option><option value="CV">Cape Verde</option><option value="BQ">Caribbean Netherlands</option><option value="KY">Cayman Islands</option><option value="CF">Central African Republic</option><option value="EA">Ceuta &amp; Melilla</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CC">Cocos (Keeling) Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CG">Congo - Brazzaville</option><option value="CD">Congo - Kinshasa</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="CI">C&ocirc;te d&rsquo;Ivoire</option><option value="HR">Croatia</option><option value="CU">Cuba</option><option value="CW">Cura&ccedil;ao</option><option value="CY">Cyprus</option><option value="CZ">Czech Republic</option><option selected value="DK">Denmark</option><option value="DG">Diego Garcia</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="GQ">Equatorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="ET">Ethiopia</option><option value="FK">Falkland Islands</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="TF">French Southern Territories</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GG">Guernsey</option><option value="GN">Guinea</option><option value="GW">Guinea-Bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HN">Honduras</option><option value="HK">Hong Kong SAR China</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Iran</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IM">Isle of Man</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JE">Jersey</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="XK">Kosovo</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Laos</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macau SAR China</option><option value="MK">Macedonia</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia</option><option value="MD">Moldova</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="ME">Montenegro</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar (Burma)</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="KP">North Korea</option><option value="MP">Northern Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PS">Palestinian Territories</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn Islands</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RE">R&eacute;union</option><option value="RO">Romania</option><option value="RU">Russia</option><option value="RW">Rwanda</option><option value="WS">Samoa</option><option value="SM">San Marino</option><option value="ST">S&atilde;o Tom&eacute; &amp; Pr&iacute;ncipe</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="RS">Serbia</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SX">Sint Maarten</option><option value="SK">Slovakia</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa</option><option value="GS">South Georgia &amp; South Sandwich Islands</option><option value="KR">South Korea</option><option value="SS">South Sudan</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="BL">St. Barth&eacute;lemy</option><option value="SH">St. Helena</option><option value="KN">St. Kitts &amp; Nevis</option><option value="LC">St. Lucia</option><option value="MF">St. Martin</option><option value="PM">St. Pierre &amp; Miquelon</option><option value="VC">St. Vincent &amp; Grenadines</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SJ">Svalbard &amp; Jan Mayen</option><option value="SZ">Swaziland</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syria</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania</option><option value="TH">Thailand</option><option value="TL">Timor-Leste</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinidad &amp; Tobago</option><option value="TA">Tristan da Cunha</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks &amp; Caicos Islands</option><option value="TV">Tuvalu</option><option value="UM">U.S. Outlying Islands</option><option value="VI">U.S. Virgin Islands</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="UY">Uruguay</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VA">Vatican City</option><option value="VE">Venezuela</option><option value="VN">Vietnam</option><option value="WF">Wallis &amp; Futuna</option><option value="EH">Western Sahara</option><option value="YE">Yemen</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option>
                                         </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <div class="col-sm-6">
-                                                                <label class="col-sm-12 control-label">CVR Number / Company Name</label>
-                                                                <input type="text" class="form-control" required parsley-type="text" placeholder="&#128269;" ng-model="company" ng-blur="companyBlur()"
-                                                                    ng-focus="companySelectShow = true" ng-change="companySelectChange()"
-                                                                    ng-init="companySelectShow = false" />
-                                                                <div ng-if="companySelectShow" class="companySelect">
-                                                                    <ul>
-                                                                        <li ng-click="companySelect(company)" ng-repeat="company in companiesSelected">{{company.name}}</li>
-                                                                    </ul>
                                                                 </div>
-
                                                             </div>
-                                                        </div>
 
-                                                        <div class="form-group">
-                                                            <div class="col-sm-9 m-t-15">
-                                                                <button type="submit" class="btn btn-primary">
+                                                            <div class="form-group">
+                                                                <div class="col-sm-6">
+                                                                    <label class="col-sm-12 control-label">CVR Number / Company Name</label>
+                                                                    <input type="text" class="form-control" required parsley-type="text" placeholder="&#128269;" ng-model="company" ng-blur="companyBlur()"
+                                                                        ng-focus="companySelectShow = true" ng-change="companySelectChange()"
+                                                                        ng-init="companySelectShow = false" />
+                                                                    <div ng-if="companySelectShow" class="companySelect">
+                                                                        <ul>
+                                                                            <li ng-click="companySelect(company)" ng-repeat="company in companiesSelected">{{company.name}}</li>
+                                                                        </ul>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <div class="col-sm-9 m-t-15">
+                                                                    <button type="submit" class="btn btn-primary">
 															Add Customer
 														</button>
-                                                                <span>
+                                                                    <span>
 															In case you can't find them
 														</span>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-
-                                                <div class="col-lg-6">
-
-                                                    <form class="form-horizontal group-border-dashed" action="#">
-
-                                                        <div class="form-group">
-                                                            <label class="col-sm-3 control-label">Invoice Number</label>
-                                                            <div class="col-sm-6">
-                                                                <input data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-sm-3 control-label">Invoice Date</label>
-                                                            <div class="col-sm-6">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
-                                                                    <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
                                                                 </div>
-                                                                <!-- input-group -->
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-sm-3 control-label">Delivery Date</label>
-                                                            <div class="col-sm-6">
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose2">
-                                                                    <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                        </form>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+
+                                                        <form class="form-horizontal group-border-dashed" action="#">
+
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label">Invoice Number</label>
+                                                                <div class="col-sm-6">
+                                                                    <input data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
                                                                 </div>
-                                                                <!-- input-group -->
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-sm-3 control-label">Order Ref.</label>
-                                                            <div class="col-sm-6">
-                                                                <input data-parsley-type="number" type="text" class="form-control" />
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label">Invoice Date</label>
+                                                                <div class="col-sm-6">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose">
+                                                                        <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                                    </div>
+                                                                    <!-- input-group -->
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-sm-3 control-label">Customer Ref.</label>
-                                                            <div class="col-sm-6">
-                                                                <input data-parsley-type="number" type="text" class="form-control" />
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label">Delivery Date</label>
+                                                                <div class="col-sm-6">
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose2">
+                                                                        <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                                    </div>
+                                                                    <!-- input-group -->
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-sm-3 control-label">Account Number</label>
-                                                            <div class="col-sm-6">
-                                                                <input data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label">Order Ref.</label>
+                                                                <div class="col-sm-6">
+                                                                    <input data-parsley-type="number" type="text" class="form-control" />
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-sm-3 control-label">Country</label>
-                                                            <div class="col-sm-6">
-                                                                <select class="form-control select2">
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label">Customer Ref.</label>
+                                                                <div class="col-sm-6">
+                                                                    <input data-parsley-type="number" type="text" class="form-control" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label">Account Number</label>
+                                                                <div class="col-sm-6">
+                                                                    <input data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label">Country</label>
+                                                                <div class="col-sm-6">
+                                                                    <select class="form-control select2">
                                             <option value="DKK">DKK</option>
                                                     <option value="USD">USD</option>
                                                     <option value="EUR">EUR</option>
@@ -1156,200 +1679,200 @@
                                                     <option value="GBP">GBP</option>
                                                     <option value="CHF">CHF</option>
                                         </select>
+                                                                </div>
                                                             </div>
-                                                        </div>
 
-                                                    </form>
+                                                        </form>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
+
+
+
+                            <!-- ============================================================== -->
+                            <!-- Start right Content here -->
+                            <!-- ============================================================== -->
+                            <div class="panel" ng-if='hasCreate && !hasXMLSource'>
+
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="m-b-30">
+                                                <button id="addToTable" ng-click="showInvoiceTable = true" class="btn btn-default waves-effect waves-light">Add Item <i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="">
+                                        <table class="table table-striped" id="datatable-editable">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Description</th>
+                                                    <th>Qty</th>
+                                                    <th>Unit</th>
+                                                    <th>Price
+                                                        <h6><small>per unit excl. tax</small></h6>
+                                                    </th>
+                                                    <th>Discount</th>
+                                                    <th>Tax %</th>
+                                                    <th>Total
+                                                        <h6><small>excl. tax</small></h6>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="gradeX" ng-show="showInvoiceTable">
+                                                    <td><input ng-model="invoiceNewObject.Id" data-parsley-type="number" type="text"
+                                                            class="form-control" required/></td>
+                                                    <td><input ng-model="invoiceNewObject.Description" data-parsley-type="number"
+                                                            type="text" class="form-control" required/></td>
+                                                    <td><input ng-model="invoiceNewObject.Qty" data-parsley-type="number" type="text"
+                                                            class="form-control" required/></td>
+                                                    <td class="actions">
+                                                        <a href="#" class="save-row" ng-click="invoiceAddToTable()"><i class="fa fa-save"></i></a>
+                                                        <a href="#" class="cancel-row" ng-click="showInvoiceTable = false"><i class="fa fa-times"></i></a>
+                                                    </td>
+                                                    <td><input ng-model="invoiceNewObject.Price" data-parsley-type="number" type="text"
+                                                            class="form-control" required/></td>
+                                                    <td><input ng-model="invoiceNewObject.Discount" data-parsley-type="number"
+                                                            type="text" class="form-control" required/></td>
+                                                    <td><input ng-model="invoiceNewObject.Tax" data-parsley-type="number" type="text"
+                                                            class="form-control" required/></td>
+                                                    <td><input ng-model="invoiceNewObject.Total" data-parsley-type="number" type="text"
+                                                            class="form-control" required/></td>
+
+                                                </tr>
+                                                <tr class="gradeX" ng-repeat="item in invoiceTable">
+                                                    <td>{{item.Id}}</td>
+                                                    <td>{{item.Description}}</td>
+                                                    <td>{{item.Qty}}</td>
+                                                    <td class="actions">
+                                                        <a href="#" class="on-default edit-row" ng-click="editInvoce($index)"><i class="fa fa-pencil"></i></a>
+                                                        <a href="#" class="on-default remove-row" ng-click="deletedInvoce($index)"><i class="fa fa-trash-o"></i></a>
+                                                    </td>
+                                                    <td>{{item.Price}}</td>
+                                                    <td>{{item.Discount}}</td>
+                                                    <td>{{item.Tax}}</td>
+                                                    <td>{{item.Total}}</td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end: page -->
+
                         </div>
-
-
-
-
+                        <!-- end Panel -->
 
                         <!-- ============================================================== -->
                         <!-- Start right Content here -->
                         <!-- ============================================================== -->
-                        <div class="panel" ng-if='hasCreate && !hasXMLSource'>
 
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="m-b-30">
-                                            <button id="addToTable" ng-click="showInvoiceTable = true" class="btn btn-default waves-effect waves-light">Add Item <i class="fa fa-plus"></i></button>
+
+
+
+
+
+                        <div class="row" ng-if='hasCreate && !hasXMLSource'>
+                            <div class="col-sm-12">
+                                <div class="card-box">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <form class="form-horizontal group-border-dashed" action="#">
+                                                <div class="form-group">
+
+                                                </div>
+                                            </form>
                                         </div>
+                                        <div class="row" style="border-radius: 0px;">
+                                            <div class="col-md-3 col-md-offset-9">
+                                                <p class="text-right"><b>Discout</b> 0.00</p>
+                                                <p class="text-right"><b>Subtotal </b> 0.00</p>
+                                                <p class="text-right"><b>Tax</b> 0.00</p>
+                                                <hr>
+                                                <h3 class="text-right"><b>Total USD</b> 0.00</h3>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="hidden-print">
+                                            <div class="pull-right">
+                                                <a href="#" class="btn btn-primary waves-effect waves-light">Submit</a>
+                                            </div>
+                                        </div>
+                                        </form>
                                     </div>
-                                </div>
-
-                                <div class="">
-                                    <table class="table table-striped" id="datatable-editable">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Description</th>
-                                                <th>Qty</th>
-                                                <th>Unit</th>
-                                                <th>Price
-                                                    <h6><small>per unit excl. tax</small></h6>
-                                                </th>
-                                                <th>Discount</th>
-                                                <th>Tax %</th>
-                                                <th>Total
-                                                    <h6><small>excl. tax</small></h6>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="gradeX" ng-show="showInvoiceTable">
-                                                <td><input ng-model="invoiceNewObject.Id" data-parsley-type="number" type="text"
-                                                        class="form-control" required/></td>
-                                                <td><input ng-model="invoiceNewObject.Description" data-parsley-type="number"
-                                                        type="text" class="form-control" required/></td>
-                                                <td><input ng-model="invoiceNewObject.Qty" data-parsley-type="number" type="text"
-                                                        class="form-control" required/></td>
-                                                <td class="actions">
-                                                    <a href="#" class="save-row" ng-click="invoiceAddToTable()"><i class="fa fa-save"></i></a>
-                                                    <a href="#" class="cancel-row" ng-click="showInvoiceTable = false"><i class="fa fa-times"></i></a>
-                                                </td>
-                                                <td><input ng-model="invoiceNewObject.Price" data-parsley-type="number" type="text"
-                                                        class="form-control" required/></td>
-                                                <td><input ng-model="invoiceNewObject.Discount" data-parsley-type="number" type="text"
-                                                        class="form-control" required/></td>
-                                                <td><input ng-model="invoiceNewObject.Tax" data-parsley-type="number" type="text"
-                                                        class="form-control" required/></td>
-                                                <td><input ng-model="invoiceNewObject.Total" data-parsley-type="number" type="text"
-                                                        class="form-control" required/></td>
-
-                                            </tr>
-                                            <tr class="gradeX" ng-repeat="item in invoiceTable">
-                                                <td>{{item.Id}}</td>
-                                                <td>{{item.Description}}</td>
-                                                <td>{{item.Qty}}</td>
-                                                <td class="actions">
-                                                    <a href="#" class="on-default edit-row" ng-click="editInvoce($index)"><i class="fa fa-pencil"></i></a>
-                                                    <a href="#" class="on-default remove-row" ng-click="deletedInvoce($index)"><i class="fa fa-trash-o"></i></a>
-                                                </td>
-                                                <td>{{item.Price}}</td>
-                                                <td>{{item.Discount}}</td>
-                                                <td>{{item.Tax}}</td>
-                                                <td>{{item.Total}}</td>
-
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>
-                        <!-- end: page -->
-
                     </div>
-                    <!-- end Panel -->
-
-                    <!-- ============================================================== -->
-                    <!-- Start right Content here -->
-                    <!-- ============================================================== -->
-
-
-
-
-
 
                     <div class="row" ng-if='hasCreate && !hasXMLSource'>
                         <div class="col-sm-12">
                             <div class="card-box">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <form class="form-horizontal group-border-dashed" action="#">
-                                            <div class="form-group">
-
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="row" style="border-radius: 0px;">
-                                        <div class="col-md-3 col-md-offset-9">
-                                            <p class="text-right"><b>Discout</b> 0.00</p>
-                                            <p class="text-right"><b>Subtotal </b> 0.00</p>
-                                            <p class="text-right"><b>Tax</b> 0.00</p>
-                                            <hr>
-                                            <h3 class="text-right"><b>Total USD</b> 0.00</h3>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="hidden-print">
-                                        <div class="pull-right">
-                                            <a href="#" class="btn btn-primary waves-effect waves-light">Submit</a>
-                                        </div>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" ng-if='hasCreate && !hasXMLSource'>
-                    <div class="col-sm-12">
-                        <div class="card-box">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <!-- <h5><b>Validation type</b></h5>
+                                        <!-- <h5><b>Validation type</b></h5>
                       <p class="text-muted font-13 m-b-30">
                                           Your awesome text goes here.
                                       </p> -->
 
-                                    <form class="form-horizontal group-border-dashed" action="#">
-                                        <!-- <div class="form-group">
+                                        <form class="form-horizontal group-border-dashed" action="#">
+                                            <!-- <div class="form-group">
                           <label class="col-sm-3 control-label">Country</label>
                           <div class="col-sm-6">
                             <input type="text" class="form-control" required placeholder="Type something" />
                           </div>
                         </div> -->
 
-                                        <div class="col-sm-12">
+                                            <div class="col-sm-12">
 
+
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">Notes</label>
+                                                    <div class="col-md-10">
+                                                        <textarea class="form-control" rows="5"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-md-2 control-label">Files</label>
+                                                    <input type="file" class="filestyle" data-input="false">
+                                                </div>
+
+
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+
+                                    <div class="col-lg-6">
+
+                                        <form class="form-horizontal group-border-dashed" action="#">
 
                                             <div class="form-group">
-                                                <label class="col-md-2 control-label">Notes</label>
-                                                <div class="col-md-10">
-                                                    <textarea class="form-control" rows="5"></textarea>
+                                                <label class="col-sm-3 control-label">Payment Date</label>
+                                                <div class="col-sm-6">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose3">
+                                                        <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                    </div>
+                                                    <!-- input-group -->
                                                 </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="col-md-2 control-label">Files</label>
-                                                <input type="file" class="filestyle" data-input="false">
-                                            </div>
 
-
-                                        </div>
-
-
-                                    </form>
-                                </div>
-
-                                <div class="col-lg-6">
-
-                                    <form class="form-horizontal group-border-dashed" action="#">
-
-                                        <div class="form-group">
-                                            <label class="col-sm-3 control-label">Payment Date</label>
+                                            <label class="col-sm-3 control-label">Payment Method</label>
                                             <div class="col-sm-6">
-                                                <div class="input-group">
-                                                    <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose3">
-                                                    <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
-                                                </div>
-                                                <!-- input-group -->
-                                            </div>
-                                        </div>
-
-                                        <label class="col-sm-3 control-label">Payment Method</label>
-                                        <div class="col-sm-6">
-                                            <select class="form-control select2">
+                                                <select class="form-control select2">
                                                     <option value="DKK">Select 1</option>
                                                     <option value="USD">Select 2</option>
                                                     <option value="EUR">Select 3</option>
@@ -1357,56 +1880,56 @@
                                                     <option value="GBP">Select 5</option>
                                                     <option value="CHF">Select 6</option>
                                         </select>
-                                        </div>
-                                </div>
-                                <!-- Row start -->
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="card-box">
-                                            <div class="row">
-                                                <div class="col-sm-6">
-
-                                                    <div class="button-list">
-                                                        <button type="button" class="btn btn-default waves-effect waves-light" ng-click="createInvoice()">Send</button>
-                                                        <button type="button" class="btn btn-default waves-effect waves-light">Preview</button>
-                                                        <button type="button" class="btn btn-default waves-effect waves-light">Delete</button>
-                                                    </div>
-                                                </div>
-
-
                                             </div>
-                                        </div>
                                     </div>
-
-                                </div>
-                                <!-- End of Row -->
-                            </div>
-                        </div>
-
-                        </form>
-                    </div>
-                </div>
-
-                <!---->
-                <div class="tab-content" ng-if='hasCreate && hasXMLSource'>
-                    <div class="tab-pane active">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card-box">
-                                    <div class="modal-body">
-                                        <div class="pull-left m-t-30">
-                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Error Message</button>
-                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">XML Source</button>
-                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Invoice Preview</button>
-                                        </div>
-                                        <div class="pull-right m-t-30">
-                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Exit</button>
-                                        </div>
-                                    </div>
+                                    <!-- Row start -->
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class=" m-t-30">
-                                                <textarea rows="15" placeholder='Paste invoice XML hare' style="resize: none;width: 100%;">
+                                            <div class="card-box">
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+
+                                                        <div class="button-list">
+                                                            <button type="button" class="btn btn-default waves-effect waves-light" ng-click="createInvoice()">Send</button>
+                                                            <button type="button" class="btn btn-default waves-effect waves-light">Preview</button>
+                                                            <button type="button" class="btn btn-default waves-effect waves-light">Delete</button>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- End of Row -->
+                                </div>
+                            </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                    <!---->
+                    <div class="tab-content" ng-if='hasCreate && hasXMLSource'>
+                        <div class="tab-pane active">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card-box">
+                                        <div class="modal-body">
+                                            <div class="pull-left m-t-30">
+                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Error Message</button>
+                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">XML Source</button>
+                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Invoice Preview</button>
+                                            </div>
+                                            <div class="pull-right m-t-30">
+                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Exit</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class=" m-t-30">
+                                                    <textarea rows="15" placeholder='Paste invoice XML hare' style="resize: none;width: 100%;">
 <?xml version="1.0"?>
 <!-- Copyright (c) Microsoft Corporation.  All rights reserved. -->
 <!-- Generic stylesheet for viewing XML -->
@@ -1447,10 +1970,11 @@
 </xsl:stylesheet>
 
                                                 </textarea>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="pull-left m-t-30">
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="createSetFalse()">Save Changes</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <div class="pull-left m-t-30">
+                                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="createSetFalse()">Save Changes</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1459,26 +1983,25 @@
                             </div>
                         </div>
                     </div>
+
+
                 </div>
-
-
             </div>
         </div>
-    </div>
 
 
 
 
 
-    <!-- </div> -->
-    <!-- container -->
+        <!-- </div> -->
+        <!-- container -->
 
-    <!-- </div> -->
-    <!-- content -->
+        <!-- </div> -->
+        <!-- content -->
 
-    <footer class="footer">
-        2016 © Officient.dk
-    </footer>
+        <footer class="footer">
+            2016 © Officient.dk
+        </footer>
 
     </div>
     <!-- ============================================================== -->
