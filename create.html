@@ -66,103 +66,6 @@
     <script type="text/javascript" src="./app/pages/create/create.controller.js"></script>
 </head>
 
-<style>
-    .row-column {
-        column-count: 2;
-        column-gap: 1em;
-        -moz-column-count: 2;
-        -webkit-column-count: 2;
-    }
-    
-    .item {
-        display: inline-block;
-    }
-    
-    #drop_zone {
-        border: 2px dashed #bbb;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-        padding: 25px;
-        text-align: center;
-        font: 20pt bold 'Vollkorn';
-        color: #bbb;
-    }
-    
-    .modal-list .div-inline div {
-        display: inline-block;
-    }
-    
-    .modal-list .div-inline .weight {
-        font-weight: 800;
-    }
-    
-    .modal-list {
-        margin: 10px;
-    }
-    
-    .modal-list h4 {
-        margin-bottom: 20px;
-    }
-    
-    .modal-list .list {
-        color: black;
-        font-weight: 800;
-    }
-    
-    .invoice-ok div div {
-        display: inline-block;
-        margin-right: 40px;
-    }
-    
-    .invoice-ok div h4 {
-        display: inline-block;
-    }
-    
-    .invoice-ok .weight {
-        font-weight: 800;
-        color: black;
-    }
-    
-    .invoice-buy .pro h3 {
-        display: inline-block;
-    }
-    
-    .invoice-buy .pro div {
-        display: inline-block;
-    }
-    
-    .tab-pane .pro-left {
-        -webkit-flex: 1 1 40%;
-        -ms-flex: 1 1 40%;
-        flex: 1 1 40%;
-        max-width: 40%;
-        max-height: 100%;
-        box-sizing: border-box;
-    }
-    
-    .tab-pane .pro-left .size-pro {
-        display: flex;
-    }
-    
-    .tab-pane .center {
-        padding-top: 70px;
-        padding-left: 110px;
-        display: flex;
-        align-items: center;
-        align-content: center;
-    }
-    
-     .tab-pane .center-modal {
-        display: flex;
-        align-items: center;
-        align-content: center;
-    }
-    
-    .tab-pane .tab-right {
-        margin-top: -30px;
-    }
-</style>
 
 <body ng-app="app" class="fixed-left">
 
@@ -720,21 +623,26 @@
 
                                                                             <div class="col-md-12 invoice-ok">
                                                                                 <h4>
-                                                                                Invoice uploaded. No mistakes found. You can preview the invoice or add it to you invoice list to send, edit or something else.
-                                                                            </h4>
+                                                                                    Invoice uploaded. No mistakes found. You can preview the invoice or add it to you invoice list to send, edit or something
+                                                                                    else.
+                                                                                </h4>
                                                                                 <br>
                                                                                 <div>
                                                                                     <div class="weight">From</div>
-                                                                                    <h4>AMS Design Servicese</h4></div>
+                                                                                    <h4>AMS Design Servicese</h4>
+                                                                                </div>
                                                                                 <div>
                                                                                     <div class="weight">To</div>
-                                                                                    <h4>McDonalds MI</h4></div>
+                                                                                    <h4>McDonalds MI</h4>
+                                                                                </div>
                                                                                 <div>
                                                                                     <div class="weight">Date</div>
-                                                                                    <h4>6 Sep 2015</h4></div>
+                                                                                    <h4>6 Sep 2015</h4>
+                                                                                </div>
                                                                                 <div>
                                                                                     <div class="weight">Amount</div>
-                                                                                    <h4>16.11 EUR</h4></div>
+                                                                                    <h4>16.11 EUR</h4>
+                                                                                </div>
                                                                             </div>
 
                                                                         </div>
@@ -753,7 +661,7 @@
                                                                                 </div>
                                                                                 <div class="pull-right m-t-30">
                                                                                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="XMLSourceSwap()">Preview Invoice</button>
-                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="createInvoice()">Add to Invoices</button>
+                                                                                    <button type="button" class="btn btn-default waves-effect"  data-dismiss="modal"  data-toggle="modal" data-target="#custom-width-modal-upload-error">Add to Invoices</button>
 
                                                                                 </div>
                                                                             </div>
@@ -792,7 +700,10 @@
                                                                                     <div class="box-pro">PRO </div>
                                                                                 </div>
                                                                                 <br>
-                                                                                <h4>Automatic fill from PDF, XLS, TXT and other formats. Great choise for small and big business.</h4>
+                                                                                <h4>Automatic fill from PDF, XLS, TXT and other
+                                                                                    formats. Great choise for small and big
+                                                                                    business.
+                                                                                </h4>
                                                                             </div>
 
                                                                         </div>
@@ -807,13 +718,11 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="pull-right m-t-30">
-                                                                                    <div style="        display: inline-block;
-">
+                                                                                    <div style="display: inline-block;">
                                                                                         <h3 style=" display: inline-block;">$4.95</h3>
                                                                                         <div style=" display: inline-block;">/mo</div>
                                                                                     </div>
-                                                                                    <button style="        display: inline-block;
-" type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="createInvoice()">Buy Now</button>
+                                                                                    <button style="display: inline-block;" type="button" class="btn btn-default waves-effect" data-dismiss="modal"  data-toggle="modal" data-target="#custom-width-modal-upload-ok">Buy Now</button>
 
                                                                                 </div>
                                                                             </div>
@@ -848,13 +757,26 @@
                                                                             <div class="col-md-12 modal-list">
 
                                                                                 <br>
-                                                                                <h4 class="div-inline"><div>Invoice uploaded. </div><div class="weight">We found 3 errors.</div> <div>You can continue with it but we belive you should fix it.</div><div> Otherwise you will get no cookies.</div><div> Fix it now.</div></h4>
+                                                                                <h4 class="div-inline">
+                                                                                    <div>Invoice uploaded. </div>
+                                                                                    <div class="weight">We found 3 errors.</div>
+                                                                                    <div>You can continue with it but we belive
+                                                                                        you should fix it.</div>
+                                                                                    <div> Otherwise you will get no cookies.</div>
+                                                                                    <div>
+                                                                                        Fix it now.</div>
+                                                                                </h4>
                                                                                 <div class="list">1. 'From' field missing</div>
-                                                                                <h4>We do not know whom to send this invoice to. You need to fix it.</h4>
+                                                                                <h4>We do not know whom to send this invoice
+                                                                                    to. You need to fix it.</h4>
                                                                                 <div class="list">2. Currency is not set</div>
-                                                                                <h4>We do not know which currency we shold use for this invoice.</h4>
+                                                                                <h4>We do not know which currency we shold use
+                                                                                    for this invoice.</h4>
                                                                                 <div class="list">3. Something wierd happenong</div>
-                                                                                <h4>We can`t explain it very well but we feel you shouldn`t proceed with this invoice. Ever. Trust us, we are professionals. Better get yourself a beer.</h4>
+                                                                                <h4>We can`t explain it very well but we feel
+                                                                                    you shouldn`t proceed with this invoice.
+                                                                                    Ever. Trust us, we are professionals.
+                                                                                    Better get yourself a beer.</h4>
                                                                             </div>
 
                                                                         </div>
@@ -1076,15 +998,65 @@
                                     ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla
                                     consequat massa quis enim.</p>
                             </div>
+
                             <div class="tab-pane" id="pro">
-                                <div class="card-box">
+
+                                <div class="card-box" ng-if='configureApp'>
+                                    <div class="pull-left pro-left">
+                                        <div class="size-pro">
+                                            <a href="#" data-dismiss="modal">PRO Packages</a>
+                                            <h4 style="margin-top: -2px;">- Configure App</h4>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div>
+                                        <h3>Configure App</h3>
+                                        <hr>
+                                        <div class="config-form">
+                                            <h4>FTP Server</h4>
+                                            <div>
+                                                <input type="text" class="form-control" style="margin-left: 2px;">
+                                            </div>
+                                            <h5>
+                                                e.g ftp.officient.dk
+                                            </h5>
+                                        </div>
+                                        <div class="config-form">
+                                            <h4>User Name</h4>
+                                            <div>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="config-form">
+                                            <h4>Password</h4>
+                                            <div>
+                                                <input type="text" class="form-control" style="margin-left: 10px;width: 95%;">
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div>
+                                            <button type="button" class="btn btn-default ">Test Connection</button>
+                                            <button type="button" class="btn btn-default " ng-click="configureAppSwap()">Save Setings</button>
+
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+
+                                </div>
+
+                                <div class="card-box" ng-if='!configureApp'>
                                     <div>
                                         <div flex='40' class="pull-left pro-left">
                                             <div class="size-pro">
                                                 <h3>Invoice Importer</h3>
                                                 <div class="box-pro">PRO </div>
                                             </div>
-                                            <h4 class="m-t-30">Automatic fill from PDF, XLS, TXT and other formats. Great choise for small and big business.</h4>
+                                            <h4 class="m-t-30">Automatic fill from PDF, XLS, TXT and other formats. Great choise for small and
+                                                big business.</h4>
                                             <div class="col-md-12">
                                                 <div class="pull-left m-t-30">
                                                     <a href="#" data-toggle="modal" data-target="#invoice-importer-modal">More information</a>
@@ -1126,14 +1098,14 @@
                                                             </div>
 
                                                             <div class="row">
-                                                                <section class="contstruct-modal-info" layout="column" layout-align="center center">
-                                                                    <div flex='40' class="pro-left">
+                                                                <section class="create-modal-info" layout="column" layout-align="center center">
+                                                                    <div flex='40' class="pro-center">
                                                                         <div class="size-pro">
                                                                             <h3>Invoice Importer</h3>
                                                                             <div class="box-pro">PRO </div>
                                                                         </div>
-                                                                        <h4>Automatic fill from PDF, XLS, TXT and other formats. Great choise
-                                                                for small and big business.</h4>
+                                                                        <h4>Automatic fill from PDF, XLS, TXT and other formats.
+                                                                            Great choise for small and big business.</h4>
 
                                                                     </div>
                                                                     <div>
@@ -1154,29 +1126,31 @@
                                                                 </section>
                                                                 <section>
                                                                     <div layout="column" layout-align="center ">
-                                                                        <div class="modal-list" layout="row" layout-align="space-between center">
+                                                                        <div class="modal-list display-flex" layout="row" layout-align="space-between center">
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
                                                                                         style="width: 100px;"></div>
                                                                                 <div class="head-pro">Important Facts</div>
-                                                                                <h4>Invoice Importer helps you. Really helps you a lot. Belive
-                                                                        us, we know it.</h4>
+                                                                                <h4>Invoice Importer helps you. Really helps
+                                                                                    you a lot. Belive us, we know it.</h4>
                                                                             </div>
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
                                                                                         style="width: 100px;"></div>
 
                                                                                 <div class="head-pro">Only $4,95 per month</div>
-                                                                                <h4>Think about it, it`s even less than a big latte at Starbucks.
-                                                                        A month. 30 days. Yes!</h4>
+                                                                                <h4>Think about it, it`s even less than a big
+                                                                                    latte at Starbucks. A month. 30 days.
+                                                                                    Yes!
+                                                                                </h4>
                                                                             </div>
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
                                                                                         style="width: 100px;"></div>
 
                                                                                 <div class="head-pro">You Gonna Love It</div>
-                                                                                <h4>Or we quarantee 100% moneyback. Because we are proud
-                                                                        of our products.</h4>
+                                                                                <h4>Or we quarantee 100% moneyback. Because we
+                                                                                    are proud of our products.</h4>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1200,7 +1174,8 @@
                                                 <h3>Invoice Firewall</h3>
                                                 <div class="box-pro">PRO </div>
                                             </div>
-                                            <h4>Don`t worry about security. Invoice Firewall will make sure all your data is absolutelu safe.</h4>
+                                            <h4>Don`t worry about security. Invoice Firewall will make sure all your data is
+                                                absolutelu safe.</h4>
                                             <div class="col-md-12">
                                                 <div class="pull-left m-t-30">
                                                     <a href="#" data-toggle="modal" data-target="#invoice-firewall-modal">More information</a>
@@ -1239,18 +1214,18 @@
                                                             </div>
 
                                                             <div class="row">
-                                                                <section class="contstruct-modal-info" layout="column" layout-align="center center">
-                                                                    <div flex='40'>
-                                                                        <div layout="row" layout-align="center center" flex>
+                                                                <section class="create-modal-info" layout="column" layout-align="center center">
+                                                                    <div flex='40' class="pro-center">
+                                                                        <div class="size-pro">
                                                                             <h3>Invoice Firewall</h3>
                                                                             <div class="box-pro">PRO </div>
                                                                         </div>
-                                                                        <h4>Don`t worry about security. Invoice Firewall will make sure all
-                                                                your data is absolutelu safe.</h4>
+                                                                        <h4>Don`t worry about security. Invoice Firewall will
+                                                                            make sure all your data is absolutelu safe.</h4>
 
                                                                     </div>
                                                                     <div>
-                                                                        <div layout="row" layout-align="center center" ng-if="!bundleFlags.firewall">
+                                                                        <div class="center-modal" ng-if="!bundleFlags.firewall">
                                                                             <h3>$6.95</h3>/mo</div>
                                                                         <button type="button" class="btn btn-default " ng-if="bundleFlags.firewall" ng-click="bundleSwap('firewall', false)">Remove</button>
                                                                     </div>
@@ -1267,29 +1242,31 @@
                                                                 </section>
                                                                 <section>
                                                                     <div layout="column" layout-align="center ">
-                                                                        <div class="modal-list" layout="row" layout-align="space-between center">
+                                                                        <div class="modal-list display-flex" layout="row" layout-align="space-between center">
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
                                                                                         style="width: 100px;"></div>
                                                                                 <div class="head-pro">Important Facts</div>
-                                                                                <h4>Invoice Importer helps you. Really helps you a lot. Belive
-                                                                        us, we know it.</h4>
+                                                                                <h4>Invoice Importer helps you. Really helps
+                                                                                    you a lot. Belive us, we know it.</h4>
                                                                             </div>
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
                                                                                         style="width: 100px;"></div>
 
                                                                                 <div class="head-pro">Only $4,95 per month</div>
-                                                                                <h4>Think about it, it`s even less than a big latte at Starbucks.
-                                                                        A month. 30 days. Yes!</h4>
+                                                                                <h4>Think about it, it`s even less than a big
+                                                                                    latte at Starbucks. A month. 30 days.
+                                                                                    Yes!
+                                                                                </h4>
                                                                             </div>
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
                                                                                         style="width: 100px;"></div>
 
                                                                                 <div class="head-pro">You Gonna Love It</div>
-                                                                                <h4>Or we quarantee 100% moneyback. Because we are proud
-                                                                        of our products.</h4>
+                                                                                <h4>Or we quarantee 100% moneyback. Because we
+                                                                                    are proud of our products.</h4>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1313,9 +1290,9 @@
                                                 <h3>Your Logo</h3>
                                                 <div class="box-pro">PRO </div>
                                             </div>
-                                            <h4>Your logo instead of Officient logo. Everybody wants thet. Literally everybody. This is a
-                                    must-have!
-                                </h4>
+                                            <h4>Your logo instead of Officient logo. Everybody wants thet. Literally everybody.
+                                                This is a must-have!
+                                            </h4>
                                             <div class="col-md-12">
                                                 <div class="pull-left m-t-30">
                                                     <a href="#" data-toggle="modal" data-target="#your-logo-modal">More information</a>
@@ -1354,19 +1331,19 @@
                                                             </div>
 
                                                             <div class="row">
-                                                                <section class="contstruct-modal-info" layout="column" layout-align="center center">
-                                                                    <div flex='40'>
-                                                                        <div layout="row" layout-align="center center" flex>
+                                                                <section class="create-modal-info" layout="column" layout-align="center center">
+                                                                    <div flex='40' class="pro-center">
+                                                                        <div class="size-pro">
                                                                             <h3>Your Logo</h3>
                                                                             <div class="box-pro">PRO </div>
                                                                         </div>
-                                                                        <h4>Your logo instead of Officient logo. Everybody wants thet. Literally
-                                                                everybody. This is a must-have!
-                                                            </h4>
+                                                                        <h4>Your logo instead of Officient logo. Everybody wants
+                                                                            thet. Literally everybody. This is a must-have!
+                                                                        </h4>
 
                                                                     </div>
                                                                     <div>
-                                                                        <div layout="row" layout-align="center center" ng-if="!bundleFlags.logo">
+                                                                        <div class="center-modal" ng-if="!bundleFlags.logo">
                                                                             <h3>$19.95</h3>/forever</div>
                                                                         <button style="margin-left: 40px;" type="button" class="btn btn-default " ng-if="bundleFlags.logo" ng-click="bundleSwap('logo', false)">Remove</button>
                                                                     </div>
@@ -1383,29 +1360,31 @@
                                                                 </section>
                                                                 <section>
                                                                     <div layout="column" layout-align="center ">
-                                                                        <div class="modal-list" layout="row" layout-align="space-between center">
+                                                                        <div class="modal-list display-flex" layout="row" layout-align="space-between center">
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
                                                                                         style="width: 100px;"></div>
                                                                                 <div class="head-pro">Important Facts</div>
-                                                                                <h4>Invoice Importer helps you. Really helps you a lot. Belive
-                                                                        us, we know it.</h4>
+                                                                                <h4>Invoice Importer helps you. Really helps
+                                                                                    you a lot. Belive us, we know it.</h4>
                                                                             </div>
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
                                                                                         style="width: 100px;"></div>
 
                                                                                 <div class="head-pro">Only $4,95 per month</div>
-                                                                                <h4>Think about it, it`s even less than a big latte at Starbucks.
-                                                                        A month. 30 days. Yes!</h4>
+                                                                                <h4>Think about it, it`s even less than a big
+                                                                                    latte at Starbucks. A month. 30 days.
+                                                                                    Yes!
+                                                                                </h4>
                                                                             </div>
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
                                                                                         style="width: 100px;"></div>
 
                                                                                 <div class="head-pro">You Gonna Love It</div>
-                                                                                <h4>Or we quarantee 100% moneyback. Because we are proud
-                                                                        of our products.</h4>
+                                                                                <h4>Or we quarantee 100% moneyback. Because we
+                                                                                    are proud of our products.</h4>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1429,7 +1408,9 @@
                                                 <h3>Easy Type</h3>
                                                 <div class="box-pro">PRO </div>
                                             </div>
-                                            <h4>Never again you will need to type your invoices. With EasyType you can clone invoices.</h4>
+                                            <h4>Never again you will need to type your invoices. With EasyType you can clone
+                                                invoices.
+                                            </h4>
                                             <div class="col-md-12">
                                                 <div class="pull-left m-t-30">
                                                     <a href="#" data-toggle="modal" data-target="#easy-type-modal">More information</a>
@@ -1469,26 +1450,30 @@
                                                             </div>
 
                                                             <div class="row">
-                                                                <section class="contstruct-modal-info" layout="column" layout-align="center center">
-                                                                    <div flex='40'>
-                                                                        <div layout="row" layout-align="center center" flex>
+                                                                <section class="create-modal-info" layout="column" layout-align="center center">
+                                                                    <div flex='40' class="pro-center">
+                                                                        <div class="size-pro">
                                                                             <h3>Easy Type</h3>
                                                                             <div class="box-pro">PRO </div>
                                                                         </div>
-                                                                        <h4>Never again you will need to type your invoices. With EasyType
-                                                                you can clone invoices.
-                                                            </h4>
+                                                                        <h4>Never again you will need to type your invoices.
+                                                                            With EasyType you can clone invoices.
+                                                                        </h4>
 
                                                                     </div>
                                                                     <div>
-                                                                        <div layout="row" layout-align="center center" ng-if="!bundleFlags.type">
-                                                                            <h3>$6.95</h3>/mo</div>
+                                                                        <div class="center-modal" ng-if="!bundleFlags.type">
+                                                                            <h3>$6.95</h3>
+                                                                            <div>/mo</div>
+                                                                        </div>
                                                                         <button type="button" class="btn btn-default " ng-if="bundleFlags.type" ng-click="bundleSwap('type', false)">Remove</button>
                                                                     </div>
                                                                     <div> <button type="button" class="btn btn-default " ng-if="!bundleFlags.type"
                                                                             ng-click="bundleSwap('type', true)">Add to Bundle</button>
                                                                         <div layout="row" layout-align="center center" ng-if="bundleFlags.type">
-                                                                            <h3>$6.95</h3>/mo</div>
+                                                                            <h3>$6.95</h3>
+                                                                            <div>/mo</div>
+                                                                        </div>
                                                                     </div>
                                                                     <div flex>
                                                                         <div class="pull-left m-t-30" layout="row" layout-align="center center" flex>
@@ -1498,29 +1483,31 @@
                                                                 </section>
                                                                 <section>
                                                                     <div layout="column" layout-align="center ">
-                                                                        <div class="modal-list" layout="row" layout-align="space-between center">
+                                                                        <div class="modal-list display-flex">
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
                                                                                         style="width: 100px;"></div>
                                                                                 <div class="head-pro">Important Facts</div>
-                                                                                <h4>Invoice Importer helps you. Really helps you a lot. Belive
-                                                                        us, we know it.</h4>
+                                                                                <h4>Invoice Importer helps you. Really helps
+                                                                                    you a lot. Belive us, we know it.</h4>
                                                                             </div>
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
                                                                                         style="width: 100px;"></div>
 
                                                                                 <div class="head-pro">Only $4,95 per month</div>
-                                                                                <h4>Think about it, it`s even less than a big latte at Starbucks.
-                                                                        A month. 30 days. Yes!</h4>
+                                                                                <h4>Think about it, it`s even less than a big
+                                                                                    latte at Starbucks. A month. 30 days.
+                                                                                    Yes!
+                                                                                </h4>
                                                                             </div>
                                                                             <div>
-                                                                                <div layout="row" layout-align="center center"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
                                                                                         style="width: 100px;"></div>
 
                                                                                 <div class="head-pro">You Gonna Love It</div>
-                                                                                <h4>Or we quarantee 100% moneyback. Because we are proud
-                                                                        of our products.</h4>
+                                                                                <h4>Or we quarantee 100% moneyback. Because we
+                                                                                    are proud of our products.</h4>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1543,10 +1530,12 @@
                                                 <h3>Officient App</h3>
                                                 <div class="box-pro">PRO </div>
                                             </div>
-                                            <h4>Super easy integration via Windows Application. Now you don`t need to visit website anymore.</h4>
+                                            <h4>Super easy integration via Windows Application. Now you don`t need to visit website
+                                                anymore.
+                                            </h4>
                                             <div class="col-md-12">
                                                 <div class="pull-left m-t-30">
-                                                    <a href="#" data-toggle="modal" data-target="#easy-type-modal">More information</a>
+                                                    <a href="#" data-toggle="modal" data-target="#app-logo-modal">More information</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1559,13 +1548,104 @@
                                         </div>
                                         <div class="pull-right tab-right">
                                             <button type="button" class="btn btn-default " ng-if="!bundleFlags.type" ng-click="bundleSwap('type', true)">Download App</button>
-                                            <button type="button" class="btn btn-default " ng-if="!bundleFlags.type" ng-click="bundleSwap('type', true)">Configure App</button>
+                                            <button type="button" class="btn btn-default " ng-if="!bundleFlags.type" ng-click="configureAppSwap('type', true)">Configure App</button>
 
                                         </div>
                                         <br>
                                         <br>
                                         <br>
                                         <md-divider></md-divider>
+                                    </div>
+
+
+                                    <!-- Start content -->
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <!-- sample modal content -->
+
+                                                <div id="app-logo-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
+                                                    style="display: none;">
+                                                    <div class="modal-dialog" style="width:75%;">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+
+
+                                                                <div class="clearfix">
+                                                                    <div class="pull-right">
+                                                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <section class="create-modal-info" layout="column" layout-align="center center">
+                                                                    <div flex='40' class="pro-center">
+                                                                        <div class="size-pro">
+                                                                            <h3>Officient App</h3>
+                                                                            <div class="box-pro">PRO </div>
+                                                                        </div>
+                                                                        <h4>Super easy integration via Windows Application. Now
+                                                                            you don`t need to visit website anymore.
+                                                                        </h4>
+
+                                                                    </div>
+                                                                    <div>
+
+                                                                        <button style="margin-bottom: 20px;" type="button" class="btn btn-default " ng-click="bundleSwap('logo', false)">Download App</button>
+                                                                    </div>
+                                                                    <div> <button type="button" class="btn btn-default " ng-if="!bundleFlags.logo"
+                                                                            ng-click="bundleSwap('logo', true)">Configure App</button>
+                                                                        <div layout="row" layout-align="center center" ng-if="bundleFlags.logo">
+                                                                            <h3>$19.95</h3>/forever</div>
+                                                                    </div>
+                                                                    <div flex>
+                                                                        <div class="pull-left m-t-30" layout="row" layout-align="center center" flex>
+                                                                            <a href="#" data-dismiss="modal">Not now</a>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                                <section>
+                                                                    <div layout="column" layout-align="center ">
+                                                                        <div class="modal-list display-flex" layout="row" layout-align="space-between center">
+                                                                            <div>
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_0759.jpg"
+                                                                                        style="width: 100px;"></div>
+                                                                                <div class="head-pro">Important Facts</div>
+                                                                                <h4>Invoice Importer helps you. Really helps
+                                                                                    you a lot. Belive us, we know it.</h4>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds1/IMG_1662.jpg"
+                                                                                        style="width: 100px;"></div>
+
+                                                                                <div class="head-pro">Only $4,95 per month</div>
+                                                                                <h4>Think about it, it`s even less than a big
+                                                                                    latte at Starbucks. A month. 30 days.
+                                                                                    Yes!
+                                                                                </h4>
+                                                                            </div>
+                                                                            <div>
+                                                                                <div class="center-img"><img src="http://hunyadi.info.hu/levente/images/stories/sigplus/birds2/IMG_0792.jpg"
+                                                                                        style="width: 100px;"></div>
+
+                                                                                <div class="head-pro">You Gonna Love It</div>
+                                                                                <h4>Or we quarantee 100% moneyback. Because we
+                                                                                    are proud of our products.</h4>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+                                                <!-- /.modal -->
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -91,6 +91,8 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
 
     $scope.hasXMLSource = false;
 
+    $scope.configureApp = false;
+
     $scope.companySelect = function (company) {
         $scope.company = company.name;
         $scope.companySelectShow = false;
@@ -109,7 +111,11 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
     $scope.XMLSourceSwap = function () {
         $scope.hasCreate = true;
         $scope.hasXMLSource = !$scope.hasXMLSource;
-    }
+    };
+
+    $scope.configureAppSwap = function(){
+        $scope.configureApp = !$scope.configureApp;
+    };
 
     $scope.companyBlur = function () {
         $timeout(function () {
