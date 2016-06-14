@@ -163,7 +163,7 @@
                                     </a>
                                 </li>
                                 <li class="tab">
-                                    <a href="#profile-2" data-toggle="tab" aria-expanded="false" ng-click="createSetFalse()">
+                                    <a id='profileClick' href="#profile-2" data-toggle="tab" aria-expanded="false" ng-click="createSetFalse()">
                                         <span class="visible-xs"><i class="fa fa-user"></i></span>
                                         <span class="hidden-xs">Invoices</span>
                                     </a>
@@ -189,7 +189,7 @@
                                     </a>
                                 </li>
                                 <li class="tab">
-                                    <a href="#pro" data-toggle="tab" aria-expanded="false" ng-click="createSetFalse()">
+                                    <a class='introduction-farm' href="#pro" data-toggle="tab" aria-expanded="false" ng-click="createSetFalse()">
                                         <span class="visible-xs"><i class="fa fa-cog"></i></span>
                                         <span class="hidden-xs"><h3><strong>PRO</strong></h2></span>
 
@@ -338,7 +338,7 @@
                                     <div class="col-sm-12">
                                         <div class="card-box">
                                             <div class="button-list">
-                                                <button type="button" class="btn btn-default waves-effect waves-light" ng-click="createInvoice()">Create Invoice</button>
+                                                <button type="button" class="btn btn-default waves-effect waves-light" ng-click="createInvoice()"  data-intro='Create Invoice'>Create Invoice</button>
                                                 <button type="button" class="btn btn-default waves-effect waves-light" data-toggle="modal" data-target="#custom-width-modal-upload-buy">Upload Invoice</button>
                                             </div>
 
@@ -2241,6 +2241,11 @@
     <script src="assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
     <script src="assets/pages/jquery.sweet-alert.init.js"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/intro.js/2.1.0/introjs.min.css" />
+    <script src="https://cdn.jsdelivr.net/intro.js/2.1.0/intro.min.js"></script>
+
+
+
     <script type="text/javascript">
         $(document).ready(function() {
             
@@ -2249,7 +2254,10 @@
     </script>
     <script>
         jQuery(document).ready(function() {
+            document.getElementById("profileClick").click();
+                      
 
+introJs().start();
         // Time Picker
         jQuery('#timepicker').timepicker({
           defaultTIme : false
@@ -2417,6 +2425,9 @@
     </script>
 
     <script src="assets/pages/datatables.editable.init.js"></script>
+    <style>.introjs-helperNumberLayer{
+        line-height: 9px;
+}</style>
 </body>
 
 </html>
