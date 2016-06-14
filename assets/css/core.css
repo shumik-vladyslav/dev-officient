@@ -2490,3 +2490,18 @@ body.fixed-left .side-menu.left {
     .tab .tab-pro{
       padding: 2px;color: #fff;background: #36404a;font-size: 10px;
     }
+
+    .modal-body-ready h1,
+    h4 {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .modal-row-ready {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .modal-row-ready button {
+        margin: 20px;
+    }

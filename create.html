@@ -66,7 +66,6 @@
     <script type="text/javascript" src="./app/pages/create/create.controller.js"></script>
 </head>
 
-
 <body ng-app="app" class="fixed-left">
 
     <!-- Begin page -->
@@ -661,7 +660,7 @@
                                                                                 </div>
                                                                                 <div class="pull-right m-t-30">
                                                                                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="XMLSourceSwap()">Preview Invoice</button>
-                                                                                    <button type="button" class="btn btn-default waves-effect"  data-dismiss="modal"  data-toggle="modal" data-target="#custom-width-modal-upload-error">Add to Invoices</button>
+                                                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal-upload-error">Add to Invoices</button>
 
                                                                                 </div>
                                                                             </div>
@@ -722,7 +721,8 @@
                                                                                         <h3 style=" display: inline-block;">$4.95</h3>
                                                                                         <div style=" display: inline-block;">/mo</div>
                                                                                     </div>
-                                                                                    <button style="display: inline-block;" type="button" class="btn btn-default waves-effect" data-dismiss="modal"  data-toggle="modal" data-target="#custom-width-modal-upload-ok">Buy Now</button>
+                                                                                    <button style="display: inline-block;" type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal"
+                                                                                        data-target="#custom-width-modal-upload-ok">Buy Now</button>
 
                                                                                 </div>
                                                                             </div>
@@ -1860,7 +1860,56 @@
 
 
 
+                        <!-- Custom Modals -->
 
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- sample modal content -->
+
+                                <div id="modal-ready" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
+                                    style="display: none;">
+                                    <div class="modal-dialog" style="width:75%;">
+                                        <div class="modal-content">
+                                            <div class="modal-body-ready">
+                                                <h1>Ready?</h1>
+                                                <h4>Do you want to send your invoice?</h4>
+                                            </div>
+                                            <div class="modal-row-ready">
+                                                <button type="button" class="btn btn-default waves-effect waves-light">Let Me Check</button>
+                                                <button type="button" class="btn btn-default waves-effect waves-light" data-dismiss="modal" data-toggle="modal" data-target="#modal-invoice-send">Send Invoice</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- sample modal content -->
+
+                                <div id="modal-invoice-send" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
+                                    style="display: none;">
+                                    <div class="modal-dialog" style="width:75%;">
+                                        <div class="modal-content">
+                                            <div class="modal-body-ready">
+                                                <h1>Invoice Sent</h1>
+                                                <h4>Get your self a cup of coffe, you deserve it</h4>
+                                            </div>
+                                            <div class="modal-row-ready">
+                                                <button type="button" class="btn btn-default waves-effect waves-light" data-dismiss="modal">OK</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+                            </div>
+                        </div>
 
 
                         <div class="row" ng-if='hasCreate && !hasXMLSource'>
@@ -1886,7 +1935,7 @@
                                         <hr>
                                         <div class="hidden-print">
                                             <div class="pull-right">
-                                                <a href="#" class="btn btn-primary waves-effect waves-light">Submit</a>
+                                                <a href="#" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#modal-ready">Submit</a>
                                             </div>
                                         </div>
                                         </form>
