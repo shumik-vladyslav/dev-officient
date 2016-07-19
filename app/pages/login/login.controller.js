@@ -22,6 +22,17 @@ function LoginController($scope, $http, $httpParamSerializerJQLike) {
             data: $httpParamSerializerJQLike({ password: $scope.password, email: $scope.username }),
         }).success(function (req) {
             var user = angular.fromJson(req);
+            $http({
+            method: 'GET',
+            url: 'http://dev.officient.dk/lara/public/api/auth/user',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            responseType: "json",
+        }).success(function (req) {
+            var user = angular.fromJson(req);
+            console.log(23);
+            console.log(user);
+           
+        });
             console.log(user);
             user.loginName = $scope.username;
             $.cookie.json = true;
