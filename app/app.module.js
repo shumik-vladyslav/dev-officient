@@ -1,5 +1,5 @@
 var myApp = angular
-    .module('app',[]);
+    .module('app',['ngMaterial']);
   
   myApp.config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;

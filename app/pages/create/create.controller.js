@@ -1,105 +1,162 @@
 angular
-    .module('app', [])
-    .controller('CreateController', CreateController);
+        .module('app', ['ngMaterial'])
+        .controller('CreateController', CreateController);
 
 /** @ngInject */
 function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
     var vm = this;
 
-    $scope.invoiceTable = [{
-        Description: "Test",
-        Discount: "10%",
-        Id: "1",
-        Price: "100$",
-        Qty: "1 month",
-        Tax: "2%",
-        Total: "100"
-    }
+    $scope.invoiceTable = [
+//                 {
+//            description: "Test",
+//            discount: 10,
+//            price: 100,
+//            quantity: "1 month",
+//            tax: 2,
+//            Total: "100"
+//        }
     ];
+    $scope.invoiceChange = function () {
+        $scope.invoiceNewObject.Total = $scope.invoiceNewObject.price * $scope.invoiceNewObject.quantity;
+        if ($scope.invoiceNewObject.discount)
+            $scope.invoiceNewObject.disTotal = (($scope.invoiceNewObject.Total * $scope.invoiceNewObject.discount/100));
+        if ($scope.invoiceNewObject.disTotal){
+            $scope.invoiceNewObject.subTotal = ($scope.invoiceNewObject.Total - $scope.invoiceNewObject.disTotal);
+            $scope.invoiceNewObject.Total = $scope.invoiceNewObject.subTotal;
+        }
+        if ($scope.invoiceNewObject.tax)
+            $scope.invoiceNewObject.taxTotal = ($scope.invoiceNewObject.subTotal * (($scope.invoiceNewObject.tax * 100) / 10000));
+        if ($scope.invoiceNewObject.subTotal || $scope.invoiceNewObject.taxTotal)
+            $scope.invoiceNewObject.Total = $scope.invoiceNewObject.subTotal + $scope.invoiceNewObject.taxTotal;
+        $scope.invoiceNewObject.Total = $scope.invoiceNewObject.Total.toFixed(2);
 
+    }
+    $scope.invoiceSumm = {
+        Discout: 0,
+        Subtotal: 0,
+        Tax: 0,
+        Total: 0,
+        currenciesGetValue: ""
+    }
+    $scope.currenciesGetValue = "";
+    $scope.currenciesGet = function (id) {
+        for (var item in $scope.currencies) {
+            if ($scope.currencies[item].id === +id) {
+                $scope.invoiceSumm.currenciesGetValue = $scope.currencies[item].code;
+            }
+        }
+    }
+    $scope.invoiceNewObject = {
+        description: "",
+        discount: 0,
+        price: 0,
+        quantity: 0,
+        tax: 0,
+        Total: "0",
+        disTotal: 0,
+        subTotal: 0, taxTotal: 0
+    };
+    $scope.invoice = {};
+    $scope.invoice.Invoice = {};
     $scope.hasCreate = false;
-
-
-    var url = 'https://dev.officient.dk/companies';
-    // $http({
-    //     method: 'POST',
-    //     url: 'https://dev.officient.dk/users/ic/login',
-    //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    //     responseType: "json",
-    //     data: $httpParamSerializerJQLike({ password: 'test123' }),
-    // }).success(function (req) {
-    //     $http({
-    //         method: 'GET',
-    //         url: url,
-    //         // headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    //         responseType: "json",
-    //         data: $httpParamSerializerJQLike({ password: $scope.password }),
-    //     }).success(function (req) {
-    //         console.log(angular.fromJson(req))
-    //         $scope.companies = angular.fromJson(req);
-    //         $scope.companiesSelected = $scope.companies;
-
-    //     }).error(function (params) {
-    //         console.log(params)
-    //     });
-    // });
-    $.ajax({
-        url: "https://dev.officient.dk/users/ic/login",
-        type: "POST",
-        dataType: "xml/html/script/json", // expected format for response
-        contentType: "application/x-www-form-urlencoded", // send as JSON
-        data: $httpParamSerializerJQLike({ password: 'test123' }),
-
-        complete: function () {
-            //called when complete
-            console.log(232)
-            $.ajax({
-                url: url,
-                type: "GET",
-                dataType: "xml/html/script/json", // expected format for response
-                contentType: "application/x-www-form-urlencoded", // send as JSON
-
-                complete: function () {
-                    //called when complete
-                },
-
-                success: function () {
-                    //called when successful
-                },
-
-                error: function () {
-                    //called when there is an error
-                },
-            });
-        },
-
-        success: function () {
-            //called when successful
-            console.log(23)
-
-
-        },
-
-        error: function () {
-            //called when there is an error
-        },
+    $scope.invoices = [];
+   
+    $scope.user = JSON.parse($.cookie('user'));
+    console.log($scope.user)
+    var url = 'http://dev.officient.dk/lara/public/api/';
+    $http({
+        method: 'GET',
+        url: url + "lib/companies",
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        responseType: "json"
+    }).success(function (req) {
+        $scope.companies = req;
+        var obj = angular.fromJson(req);
     });
+    function getInvoice() {
+        $http({
+            method: 'GET',
+            url: url + "invoice",
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            responseType: "json"
+        }).success(function (req) {
+            var obj = angular.fromJson(req);
+
+            for (o in obj) {
+                obj[o].invoice_dt = new Date(obj[o].invoice_dt)
+            }
+            $scope.invoices = obj;
+
+        })
+                .error(function(){
+                            window.location.href = 'http://dev.officient.dk/login.html';
+
+                });
+    }
+    $http({
+        method: 'GET',
+        url: url + "lib/currencies",
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        responseType: "json"
+    }).success(function (req) {
+        $scope.currencies = req;
+        var obj = angular.fromJson(req);
+    });
+
+    $http({
+        method: 'GET',
+        url: url + "lib/countries",
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        responseType: "json"
+    }).success(function (req) {
+        $scope.countries = req;
+        var obj = angular.fromJson(req);
+    });
+    getInvoice();
 
     // $scope.companies = [{ "_id": 1, "objecttype": "Officient\\FrontEnd\\Company", "name": "The Big Company", "companyidents": { "CVR": "12321232" }, "primaryemail": "ak@nemportal.dk" }, { "_id": 2, "objecttype": "Officient\\FrontEnd\\Company", "name": "EHFPortal.no A\/S", "companyidents": { "CVR": "NO876543210", "EAN": "5790008886541" }, "primaryemail": "mb@officient.dk" }, { "_id": 3, "objecttype": "Officient\\FrontEnd\\Company", "name": "IBM", "companyidents": { "EAN": "6559874400012" }, "primaryemail": "jb@ehfportal.no" }, { "_id": 4, "objecttype": "Officient\\FrontEnd\\Company", "name": "Company #3", "companyidents": { "CVR": "55446622" }, "primaryemail": "ak@ehfportal.no" }]
 
-    $scope.companySelectShow = false;
+    $scope.invoice.companySelectShow = false;
+
+    $scope.invoice.company = "";
 
     $scope.hasXMLSource = false;
 
     $scope.configureApp = false;
 
     $scope.companySelect = function (company) {
-        $scope.company = company.name;
-        $scope.companySelectShow = false;
+        $scope.invoice.company = company.name;
+        $scope.invoice.Invoice.company_to = company.id;
+        $timeout(function () {
+            $scope.invoice.companySelectShow = false;
+        }, 100);
     };
 
 
     $scope.createInvoice = function () {
+        $scope.invoice.Invoice.invoice_dt = $("#datepicker-autoclose").val();
+        $scope.invoice.Invoice.delivery_dt = $("#datepicker-autoclose2").val();
+        $scope.invoice.InvoiceItem = $scope.invoiceTable;
+        $scope.invoice.InvoiceFile = {};
+        var user = angular.fromJson($.cookie('user'));
+        $scope.invoice.Invoice.company_from = user.created_companies[0].id;
+        console.log($scope.invoice)
+
+        if ($scope.invoice.Invoice.invoice_dt && $scope.invoice.Invoice.delivery_dt) {
+            $http({
+                method: 'POST',
+                url: url + "invoice",
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                responseType: "json",
+                data: $httpParamSerializerJQLike($scope.invoice),
+            }).success(function (req) {
+            });
+        }
+        setTimeout(function () {
+            getInvoice();
+
+        }, 3000)
+
         $scope.hasCreate = !$scope.hasCreate;
     };
 
@@ -113,49 +170,83 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
         $scope.hasXMLSource = !$scope.hasXMLSource;
     };
 
-    $scope.configureAppSwap = function(){
+    $scope.configureAppSwap = function () {
         $scope.configureApp = !$scope.configureApp;
     };
 
     $scope.companyBlur = function () {
         $timeout(function () {
-            $scope.companySelectShow = false;
-        }, 100);
+            $scope.invoice.companySelectShow = false;
+        }, 200);
     };
 
+    $scope.toPDF = function () {
+
+    };
+    
+    $scope.companyFocus = function () {
+        $scope.invoice.companySelectShow = true;
+        $scope.companySelectChange();
+    };
+    
     $scope.companySelectChange = function () {
-        $scope.companySelectShow = true;
-        if (!$scope.company)
-            $scope.company = "";
+        $scope.invoice.companySelectShow = true;
+        if (!$scope.invoice.company)
+            $scope.invoice.company = "";
         var companies = $scope.companies;
         var companiesSelected = [];
         for (var key in companies) {
             if (companies.hasOwnProperty(key)) {
                 var element = companies[key];
-                var companyLower = $scope.company.toLowerCase();
+                var companyLower = $scope.invoice.company.toLowerCase();
                 var nameLower = element.name.toLowerCase();
                 var hasCVR = false;
 
-                if (element.companyidents.CVR) {
-                    var cvrLower = element.companyidents.CVR.toLowerCase();
+                if (element.regno) {
+                    var cvrLower = element.regno.toLowerCase();
                     hasCVR = cvrLower.startsWith(companyLower);
                 }
                 if (nameLower.startsWith(companyLower) || hasCVR) {
                     companiesSelected.push(element);
                 }
-                if (companiesSelected.length || (!companiesSelected.length && $scope.company))
+                if (companiesSelected.length || (!companiesSelected.length && $scope.invoice.company))
                     $scope.companiesSelected = companiesSelected;
                 else
                     $scope.companiesSelected = $scope.companies;
+                if ($scope.invoice.company === "") {
+                    $scope.companiesSelected = $scope.companies;
 
+                }
             }
         }
+
     };
 
     $scope.invoiceAddToTable = function () {
         $scope.invoiceTable.push($scope.invoiceNewObject);
         $scope.showInvoiceTable = false;
-        $scope.invoiceNewObject = {};
+        $scope.invoiceSumm = {
+            Discout: 0,
+            Subtotal: 0,
+            Tax: 0,
+            Total: 0
+        }
+        for (var i = 0; i < $scope.invoiceTable.length; i++) {
+            $scope.invoiceSumm.Subtotal += $scope.invoiceTable[i].subTotal;
+            $scope.invoiceSumm.Discout += $scope.invoiceTable[i].disTotal;
+            $scope.invoiceSumm.Tax += $scope.invoiceTable[i].taxTotal;
+            $scope.invoiceSumm.Total += $scope.invoiceTable[i].Total;
+        }
+        $scope.invoiceNewObject = {
+            description: "",
+            discount: 0,
+            price: 0,
+            quantity: 0,
+            tax: 0,
+            Total: "0",
+            disTotal: 0,
+            subTotal: 0, taxTotal: 0
+        };
     };
 
     $scope.deletedInvoce = function (id) {
@@ -173,18 +264,51 @@ function CreateController($scope, $http, $timeout, $httpParamSerializerJQLike) {
         $.cookie.json = true;
         var user = $.cookie('user');
         $http({
-            method: 'POST',
-            url: 'https://dev.officient.dk/users/' + user.loginName + '/logout',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            method: 'GET',
+            url: 'http://dev.officient.dk/lara/public/api/auth/logout',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             responseType: "json",
         }).success(function (req) {
             $.removeCookie('user');
+
             window.location.href = 'http://dev.officient.dk/login.html';
-            //window.location.href = 'http://192.168.1.118:8080/login.html';
 
         }).error(function (params) {
-            console.log(params)
         });
 
+    };
+    $scope.selectModalObj = {};
+    $scope.selectModal = function (index) {
+
+        $http({
+            method: 'GET',
+            url: 'http://dev.officient.dk/lara/public/api/invoice/' + index,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            responseType: "json",
+        }).success(function (req) {
+            req.delivery_dt = new Date(req.delivery_dt);
+            req.invoice_dt = new Date(req.invoice_dt);
+
+            $scope.selectModalObj = req;
+
+        }).error(function (params) {
+        });
+    }
+
+    $scope.options = {
+        rowSelection: true,
+        multiSelect: true,
+        autoSelect: true,
+        decapitate: false,
+        largeEditDialog: false,
+        boundaryLinks: false,
+        limitSelect: true,
+        pageSelect: true
+    };
+
+    $scope.query = {
+        order: '',
+        limit: 8,
+        page: 1
     };
 }

@@ -54,7 +54,7 @@
 
         <script src="assets/js/modernizr.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-<!--<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">-->
+
         <link rel="stylesheet" href="http://rawgit.com/daniel-nagy/md-data-table/master/dist/md-data-table.css">
         <!-- Angular Material CSS now available via Google CDN; version 0.9.4 used here -->
         <!--<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">-->
@@ -68,9 +68,6 @@
         <script type="text/javascript" src="./app/app.module.js"></script>
 
         <script type="text/javascript" src="./app/pages/create/create.controller.js"></script>
-        <script type="text/javascript" src="//cdn.rawgit.com/MrRio/jsPDF/master/dist/jspdf.min.js"></script> 
-        <script type="text/javascript" src="//cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
-
     </head>
 
     <body ng-app="app" class="fixed-left">
@@ -139,6 +136,7 @@
 
                             <li class="has_sub">
                                 <a href="#" class="waves-effect"><i class="ti-home"></i> <span> Dashboard </span> </a>
+
                             </li>
 
                         </ul>
@@ -361,7 +359,7 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr ng-repeat="invoice in invoices">
-                                                                <td> № <a data-toggle="modal" data-target="#custom-width-modal"  ng-click="selectModal(invoice.id)">{{invoice.order}}</a></td>
+                                                                <td> <span data-toggle="modal" data-target="#custom-width-modal"  ng-click="selectModal(invoice.id)">{{invoice.order}}</span></td>
                                                                 <td>{{invoice.invoice_dt| date:'mediumDate'}}</td>
                                                                 <td ng-if="invoice.from_company.id === user.created_companies[0].id">{{invoice.to_company.name}}</td>                                                                
                                                                 <td ng-if="invoice.from_company.id !== user.created_companies[0].id">{{invoice.from_company.name}}</td>
@@ -406,7 +404,7 @@
                                                                         <div class="modal-body">
                                                                             <div class="pull-left m-t-30">
                                                                                 <a href="#" class="btn btn-primary waves-effect waves-light" id="sa-params">Send</a>
-                                                                                <a href="#" class="btn btn-inverse waves-effect waves-light" id="create_pdf" data-dismiss="modal"><i class="fa fa-print"></i> Download PDF</i></a>
+                                                                                <a href="#" class="btn btn-inverse waves-effect waves-light"><i class="fa fa-print"></i> Download PDF</i></a>
                                                                                 <a href="#" class="btn btn-primary waves-effect waves-light">Edit</a>
                                                                             </div>
                                                                             <div class="pull-right m-t-30">
@@ -414,109 +412,108 @@
                                                                                 <a href="#" class="btn btn-primary waves-effect waves-light">Delete</a>
                                                                             </div>
                                                                         </div>
-                                                                        <div id="custom-width-modal-invoice">
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
 
-                                                                                    <hr>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
 
-                                                                                    <div class="pull-left m-t-30">
-                                                                                        <h2><strong>Invoice Log</strong></h2>
-                                                                                    </div>
-                                                                                    <!--                                                                                <div class="pull-right m-t-30">
-                                                                                                                                                                        <p class="m-t-10"><strong>Status: </strong> <span class="label label-pink">Pending</span></p>
-                                                                                                                                                                    </div>-->
+                                                                                <hr>
+
+                                                                                <div class="pull-left m-t-30">
+                                                                                    <h2><strong>Invoice Log</strong></h2>
                                                                                 </div>
-
+                                                                                <!--                                                                                <div class="pull-right m-t-30">
+                                                                                                                                                                    <p class="m-t-10"><strong>Status: </strong> <span class="label label-pink">Pending</span></p>
+                                                                                                                                                                </div>-->
                                                                             </div>
-                                                                            <hr>
-                                                                            <!--                                                                        <div class="row">
-                                                                                                                                                        <div class="col-md-12">
-                                                                                                                                                            <div class="pull-left m-t-30">
-                                                                                                                                                                <span>13 May 2016 15:18</span><br>
-                                                                                                                                                                <span>23 May 2016 12:39</span><br>
-                                                                                                                                                            </div>
-                                                                                                                                                            <div class="pull-right m-t-30">
-                                                                                                                                                                <span>Invoice recieved by SDK Consulting Holding</span><br>
-                                                                                                                                                                <span>Invoice for 16.11 EUR is sent to SDK Consulting Holding</span>
-                                                                                                                                                            </div>
+
+                                                                        </div>
+                                                                        <hr>
+                                                                        <!--                                                                        <div class="row">
+                                                                                                                                                    <div class="col-md-12">
+                                                                                                                                                        <div class="pull-left m-t-30">
+                                                                                                                                                            <span>13 May 2016 15:18</span><br>
+                                                                                                                                                            <span>23 May 2016 12:39</span><br>
                                                                                                                                                         </div>
-                                                                                                                                                        <div class="col-md-12">
-                                                                                                                                                            <div class="pull-left m-t-30">
-                                                                                                                                                                <a href="#">See earlier events</a>
-                                                                                                                                                            </div>
+                                                                                                                                                        <div class="pull-right m-t-30">
+                                                                                                                                                            <span>Invoice recieved by SDK Consulting Holding</span><br>
+                                                                                                                                                            <span>Invoice for 16.11 EUR is sent to SDK Consulting Holding</span>
                                                                                                                                                         </div>
                                                                                                                                                     </div>
-                                                                                                                                                    <hr>-->
-                                                                            <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    <div class="pull-left m-t-30">
-                                                                                        <address>
-                                                                                            <strong>To</strong><br> {{selectModalObj.from_company.name}}
-                                                                                            <!--                                                                                                   <br> 186 Spark Lane, Suite 8902<br>                                                                                        
-                                                                                                                                                                                               Greenwich MI<br> USA-->
-                                                                                            <br>
-                                                                                        </address>
-                                                                                    </div>
-                                                                                    <div class="pull-right m-t-30">
-                                                                                        <p><strong>Invoice Number </strong><br>{{selectModalObj.number}} </p>
-                                                                                        <p><strong>Invoice Date </strong><br> {{selectModalObj.invoice_dt| date:'mediumDate'}} </p>
-                                                                                        <p><strong> Currency </strong><br> {{selectModalObj.currency.code}}</p>
-                                                                                        <!--                                                                                    <p><strong>Payment due date </strong><br>      15 Mar 2016 </p>-->
-                                                                                        <p><strong> Delivery date </strong><br>{{selectModalObj.invoice_dt| date:'mediumDate'}}</p>
+                                                                                                                                                    <div class="col-md-12">
+                                                                                                                                                        <div class="pull-left m-t-30">
+                                                                                                                                                            <a href="#">See earlier events</a>
+                                                                                                                                                        </div>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                                <hr>-->
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="pull-left m-t-30">
+                                                                                    <address>
+                                                                                        <strong>To</strong><br> {{selectModalObj.from_company.name}}
+                                                                                        <!--                                                                                                   <br> 186 Spark Lane, Suite 8902<br>                                                                                        
+                                                                                                                                                                                           Greenwich MI<br> USA-->
+                                                                                        <br>
+                                                                                    </address>
+                                                                                </div>
+                                                                                <div class="pull-right m-t-30">
+                                                                                    <p><strong>Invoice Number </strong><br>{{selectModalObj.number}} </p>
+                                                                                    <p><strong>Invoice Date </strong><br> {{selectModalObj.invoice_dt| date:'mediumDate'}} </p>
+                                                                                    <p><strong> Currency </strong><br> {{selectModalObj.currency.code}}</p>
+                                                                                    <!--                                                                                    <p><strong>Payment due date </strong><br>      15 Mar 2016 </p>-->
+                                                                                    <p><strong> Delivery date </strong><br>{{selectModalObj.invoice_dt| date:'mediumDate'}}</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="row">
+                                                                            <div class="col-sm-12">
+                                                                                <div class="card-box">
+                                                                                    <div class="">
+                                                                                        <table class="table table-striped">
+                                                                                            <thead>
+                                                                                                <tr>
+                                                                                                    <!--                                                        <th>ID</th>-->
+                                                                                                    <th>Description</th>
+                                                                                                    <th>Qty</th>
+                                                                                                    <th>Price
+                                                                                                        <h6><small>per unit excl. tax</small></h6>
+                                                                                                    </th>
+                                                                                                    <th>Discount</th>
+                                                                                                    <th>Tax %</th>
+                                                                                                    <th>Total
+                                                                                                        <h6><small>excl. tax</small></h6>
+                                                                                                    </th>
+                                                                                                </tr>
+                                                                                            </thead>
+                                                                                            <tbody>
+
+                                                                                                <tr class="gradeX" ng-repeat="item in selectModalObj.items">
+                                                                                                    <!--                                                        <td>{{item.invoice_id}}</td>-->
+                                                                                                    <td>{{item.description}}</td>
+                                                                                                    <td>{{item.quantity}}</td>
+                                                                                                    <td>{{item.price}}</td>
+                                                                                                    <td>{{item.discount}}</td>
+                                                                                                    <td>{{item.tax}}</td>
+                                                                                                    <td>{{item.Total}}</td>
+
+                                                                                                </tr>
+
+                                                                                            </tbody>
+                                                                                        </table>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-
                                                                             <div class="row">
-                                                                                <div class="col-sm-12">
-                                                                                    <div class="card-box">
-                                                                                        <div class="">
-                                                                                            <table class="table table-striped">
-                                                                                                <thead>
-                                                                                                    <tr>
-                                                                                                        <!--                                                        <th>ID</th>-->
-                                                                                                        <th>Description</th>
-                                                                                                        <th>Qty</th>
-                                                                                                        <th>Price
-                                                                                                            <h6><small>per unit excl. tax</small></h6>
-                                                                                                        </th>
-                                                                                                        <th>Discount</th>
-                                                                                                        <th>Tax %</th>
-                                                                                                        <!--                                                                                                    <th>Total
-                                                                                                                                                                                                        <h6><small>excl. tax</small></h6>
-                                                                                                                                                                                                        </th>-->
-                                                                                                    </tr>
-                                                                                                </thead>
-                                                                                                <tbody>
-
-                                                                                                    <tr class="gradeX" ng-repeat="item in selectModalObj.items">
-                                                                                                        <!--                                                        <td>{{item.invoice_id}}</td>-->
-                                                                                                        <td>{{item.description}}</td>
-                                                                                                        <td>{{item.quantity}}</td>
-                                                                                                        <td>{{item.price}}</td>
-                                                                                                        <td>{{item.discount}}</td>
-                                                                                                        <td>{{item.tax}}</td>
-                                                                                                        <!--                                                                                                    <td>{{item.Total}}</td>-->
-
-                                                                                                    </tr>
-
-                                                                                                </tbody>
-                                                                                            </table>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="row">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="pull-right m-t-30">
-                                                                                            <!--                                                                                    <p><strong>Subtotal </strong><br> excl.
-                                                                                                                                                                                    tax
-                                                                                                                                                                                </p><span>{{selectModalObj.currency.code}}</span>
-                                                                                                                                                                                <hr>-->
-                                                                                            <p>
-                                                                                            <h3><strong>Total {{selectModalObj.currency.code}} </strong></h3>
-                                                                                            </p><span>{{selectModalObj.total}}</span>
-                                                                                        </div>
+                                                                                <div class="col-md-12">
+                                                                                    <div class="pull-right m-t-30">
+                                                                                        <!--                                                                                    <p><strong>Subtotal </strong><br> excl.
+                                                                                                                                                                                tax
+                                                                                                                                                                            </p><span>{{selectModalObj.currency.code}}</span>
+                                                                                                                                                                            <hr>-->
+                                                                                        <p>
+                                                                                        <h3><strong>Total {{selectModalObj.currency.code}} </strong></h3>
+                                                                                        </p><span>{{selectModalObj.total}}</span>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -1473,414 +1470,414 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>                                    </div>
+                                    </div>
 
 
 
-                                <div class="tab-content" ng-if='hasCreate && !hasXMLSource'>
-                                    <div class="tab-pane active">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="card-box">
-                                                    <h4 class="m-t-0 m-b-30 header-title"><b>Create</b></h4>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
+                                    <div class="tab-content" ng-if='hasCreate && !hasXMLSource'>
+                                        <div class="tab-pane active">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="card-box">
+                                                        <h4 class="m-t-0 m-b-30 header-title"><b>Create</b></h4>
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
 
-                                                            <form class="form-horizontal group-border-dashed" action="#">
-                                                                <div class="form-group">
+                                                                <form class="form-horizontal group-border-dashed" action="#">
+                                                                    <div class="form-group">
 
-                                                                    <div class="col-sm-6">
-                                                                        <label class="col-sm-3 control-label">Country</label>
-                                                                        <select class="form-control select2" ng-model="invoice.Invoice.country_id">
-                                                                            <option value="{{countrie.id}}" ng-repeat="countrie in countries">{{countrie.name}}</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <div class="col-sm-6">
-                                                                        <label class="col-sm-12 control-label">CVR Number / Company Name</label>
-
-
-                                                                        <input type="text" class="form-control" required parsley-type="text" placeholder="&#128269;" ng-model="invoice.company" ng-blur="companyBlur()"
-                                                                               ng-focus="companyFocus()" ng-change="companySelectChange()"
-                                                                               ng-init="invoice.companySelectShow = false" />
-                                                                        <div ng-if="invoice.companySelectShow" class="companySelect">
-                                                                            <ul>
-                                                                                <li ng-click="companySelect(compani)" ng-repeat="compani in companiesSelected">{{compani.name}}</li>
-                                                                            </ul>
+                                                                        <div class="col-sm-6">
+                                                                            <label class="col-sm-3 control-label">Country</label>
+                                                                            <select class="form-control select2" ng-model="invoice.Invoice.country_id">
+                                                                                <option value="{{countrie.id}}" ng-repeat="countrie in countries">{{countrie.name}}</option>
+                                                                            </select>
                                                                         </div>
-
                                                                     </div>
-                                                                </div>
 
-                                                                <div class="form-group">
-                                                                    <div class="col-sm-9 m-t-15">
-                                                                        <button type="submit" class="btn btn-primary" ng-click="companySelectChange()">
-                                                                            Add Customer
-                                                                        </button>
-                                                                        <span>
-                                                                            In case you can't find them
-                                                                        </span>
-                                                                    </div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-6">
+                                                                            <label class="col-sm-12 control-label">CVR Number / Company Name</label>
 
-                                                        <div class="col-lg-6">
 
-                                                            <form class="form-horizontal group-border-dashed" action="#">
+                                                                            <input type="text" class="form-control" required parsley-type="text" placeholder="&#128269;" ng-model="invoice.company" ng-blur="companyBlur()"
+                                                                                   ng-focus="invoice.companySelectShow = true" ng-change="companySelectChange()"
+                                                                                   ng-init="invoice.companySelectShow = false" />
+                                                                            <div ng-if="invoice.companySelectShow" class="companySelect">
+                                                                                <ul>
+                                                                                    <li ng-click="companySelect(compani)" ng-repeat="compani in companiesSelected">{{compani.name}}</li>
+                                                                                </ul>
+                                                                            </div>
 
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-3 control-label">Invoice Number</label>
-                                                                    <div class="col-sm-6">
-                                                                        <input ng-model="invoice.Invoice.number" data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-3 control-label">Invoice Date</label>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose"  data-provide="datepicker">
-                                                                            <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
                                                                         </div>
-                                                                        <!-- input-group -->
                                                                     </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-3 control-label">Delivery Date</label>
-                                                                    <div class="col-sm-6">
-                                                                        <div class="input-group">
-                                                                            <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose2" data-provide="datepicker">
-                                                                            <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
-                                                                        </div>
-                                                                        <!-- input-group -->
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-3 control-label">Order Ref.</label>
-                                                                    <div class="col-sm-6">
-                                                                        <input ng-model="invoice.Invoice.order" data-parsley-type="number" type="text" class="form-control" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-3 control-label">Customer Ref.</label>
-                                                                    <div class="col-sm-6">
-                                                                        <input ng-model="invoice.Invoice.customer" data-parsley-type="number" type="text" class="form-control" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-3 control-label">Account Number</label>
-                                                                    <div class="col-sm-6">
-                                                                        <input ng-model="invoice.Invoice.account" data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label class="col-sm-3 control-label">Currency</label>
-                                                                    <div class="col-sm-6">
-                                                                        <select class="form-control select2" ng-model="invoice.Invoice.currency_id" ng-change="currenciesGet(invoice.Invoice.currency_id)">
-                                                                            <option value="{{currencie.id}}" ng-repeat="currencie in currencies" >{{currencie.code}}/{{currencie.country.name}}</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
 
-                                                            </form>
+                                                                    <div class="form-group">
+                                                                        <div class="col-sm-9 m-t-15">
+                                                                            <button type="submit" class="btn btn-primary" ng-click="companySelectChange()">
+                                                                                Add Customer
+                                                                            </button>
+                                                                            <span>
+                                                                                In case you can't find them
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+
+                                                            <div class="col-lg-6">
+
+                                                                <form class="form-horizontal group-border-dashed" action="#">
+
+                                                                    <div class="form-group">
+                                                                        <label class="col-sm-3 control-label">Invoice Number</label>
+                                                                        <div class="col-sm-6">
+                                                                            <input ng-model="invoice.Invoice.number" data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="col-sm-3 control-label">Invoice Date</label>
+                                                                        <div class="col-sm-6">
+                                                                            <div class="input-group">
+                                                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose"  data-provide="datepicker">
+                                                                                <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                                            </div>
+                                                                            <!-- input-group -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="col-sm-3 control-label">Delivery Date</label>
+                                                                        <div class="col-sm-6">
+                                                                            <div class="input-group">
+                                                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose2" data-provide="datepicker">
+                                                                                <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                                            </div>
+                                                                            <!-- input-group -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="col-sm-3 control-label">Order Ref.</label>
+                                                                        <div class="col-sm-6">
+                                                                            <input ng-model="invoice.Invoice.order" data-parsley-type="number" type="text" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="col-sm-3 control-label">Customer Ref.</label>
+                                                                        <div class="col-sm-6">
+                                                                            <input ng-model="invoice.Invoice.customer" data-parsley-type="number" type="text" class="form-control" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="col-sm-3 control-label">Account Number</label>
+                                                                        <div class="col-sm-6">
+                                                                            <input ng-model="invoice.Invoice.account" data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label class="col-sm-3 control-label">Currency</label>
+                                                                        <div class="col-sm-6">
+                                                                            <select class="form-control select2" ng-model="invoice.Invoice.currency_id">
+                                                                                <option value="{{currencie.id}}" ng-repeat="currencie in currencies">{{currencie.code}}/{{currencie.country.name}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
+
+
+
+
+                                    <!-- ============================================================== -->
+                                    <!-- Start right Content here -->
+                                    <!-- ============================================================== -->
+                                    <div class="panel" ng-if='hasCreate && !hasXMLSource'>
+
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="m-b-30">
+                                                        <button id="addToTable" ng-click="showInvoiceTable = true" class="btn btn-default waves-effect waves-light">Add Item <i class="fa fa-plus"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="">
+                                                <table class="table table-striped" id="datatable-editable">
+                                                    <thead>
+                                                        <tr>
+                                                            <!--                                                        <th>ID</th>-->
+                                                            <th>Description</th>
+                                                            <th>Qty</th>
+                                                            <th>Unit</th>
+                                                            <th>Price
+                                                                <h6><small>per unit excl. tax</small></h6>
+                                                            </th>
+                                                            <th>Discount</th>
+                                                            <th>Tax %</th>
+                                                            <th>Total
+                                                                <h6><small>excl. tax</small></h6>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="gradeX" ng-show="showInvoiceTable">
+                                                            <!--                                                        <td><input ng-model="invoiceNewObject.invoice_id" data-parsley-type="number" type="text"
+                                                                                                                               class="form-control" required/></td>-->
+                                                            <td><input ng-model="invoiceNewObject.description" data-parsley-type="number"
+                                                                       type="text" class="form-control" required/></td>
+                                                            <td><input ng-model="invoiceNewObject.quantity" data-parsley-type="number" type="text"
+                                                                       class="form-control" required/></td>
+                                                            <td class="actions">
+                                                                <a href="#" class="save-row" ng-click="invoiceAddToTable()"><i class="fa fa-save"></i></a>
+                                                                <a href="#" class="cancel-row" ng-click="showInvoiceTable = false"><i class="fa fa-times"></i></a>
+                                                            </td>
+                                                            <td><input ng-model="invoiceNewObject.price" data-parsley-type="number" type="number"
+                                                                       class="form-control" required/></td>
+                                                            <td><input ng-model="invoiceNewObject.discount" data-parsley-type="number"
+                                                                       type="text" class="form-control" required/></td>
+                                                            <td><input ng-model="invoiceNewObject.tax" data-parsley-type="number" type="number"
+                                                                       class="form-control" required/></td>
+                                                            <td><input ng-model="invoiceNewObject.Total" data-parsley-type="number" type="text"
+                                                                       class="form-control" required/></td>
+
+                                                        </tr>
+                                                        <tr class="gradeX" ng-repeat="item in invoiceTable">
+                                                            <!--                                                        <td>{{item.invoice_id}}</td>-->
+                                                            <td>{{item.description}}</td>
+                                                            <td>{{item.quantity}}</td>
+                                                            <td class="actions">
+                                                                <a href="#" class="on-default edit-row" ng-click="editInvoce($index)"><i class="fa fa-pencil"></i></a>
+                                                                <a href="#" class="on-default remove-row" ng-click="deletedInvoce($index)"><i class="fa fa-trash-o"></i></a>
+                                                            </td>
+                                                            <td>{{item.price}}</td>
+                                                            <td>{{item.discount}}</td>
+                                                            <td>{{item.tax}}</td>
+                                                            <td>{{item.Total}}</td>
+
+                                                        </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end: page -->
+
                                 </div>
-
-
-
-
+                                <!-- end Panel -->
 
                                 <!-- ============================================================== -->
                                 <!-- Start right Content here -->
                                 <!-- ============================================================== -->
-                                <div class="panel" ng-if='hasCreate && !hasXMLSource'>
 
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <div class="m-b-30">
-                                                    <button id="addToTable" ng-click="showInvoiceTable = true" class="btn btn-default waves-effect waves-light">Add Item <i class="fa fa-plus"></i></button>
+
+
+                                <!-- Custom Modals -->
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- sample modal content -->
+
+                                        <div id="modal-ready" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
+                                             style="display: none;">
+                                            <div class="modal-dialog" style="width:75%;">
+                                                <div class="modal-content">
+                                                    <div class="modal-body-ready">
+                                                        <h1>Ready?</h1>
+                                                        <h4>Do you want to send your invoice?</h4>
+                                                    </div>
+                                                    <div class="modal-row-ready">
+                                                        <button type="button" class="btn btn-default waves-effect waves-light">Let Me Check</button>
+                                                        <button type="button" class="btn btn-default waves-effect waves-light" data-dismiss="modal" data-toggle="modal" data-target="#modal-invoice-send">Send Invoice</button>
+                                                    </div>
                                                 </div>
+                                                <!-- /.modal-content -->
                                             </div>
+                                            <!-- /.modal-dialog -->
                                         </div>
+                                        <!-- /.modal -->
+                                    </div>
+                                </div>
 
-                                        <div class="">
-                                            <table class="table table-striped" id="datatable-editable">
-                                                <thead>
-                                                    <tr>
-                                                        <!--                                                        <th>ID</th>-->
-                                                        <th>Description</th>
-                                                        <th>Qty</th>
-                                                        <th>Unit</th>
-                                                        <th>Price
-                                                            <h6><small>per unit excl. tax</small></h6>
-                                                        </th>
-                                                        <th>Discount</th>
-                                                        <th>Tax %</th>
-                                                        <th>Total
-                                                            <h6><small>excl. tax</small></h6>
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr class="gradeX" ng-show="showInvoiceTable">
-                                                        <!--                                                        <td><input ng-model="invoiceNewObject.invoice_id" data-parsley-type="number" type="text"
-                                                                                                                           class="form-control" required/></td>-->
-                                                        <td><input ng-model="invoiceNewObject.description" data-parsley-type="number"
-                                                                   type="text" class="form-control" required/></td>
-                                                        <td><input ng-model="invoiceNewObject.quantity" data-parsley-type="number" type="number"
-                                                                   class="form-control" required ng-change="invoiceChange()"/></td>
-                                                        <td class="actions">
-                                                            <a href="#" class="save-row" ng-click="invoiceAddToTable()"><i class="fa fa-save"></i></a>
-                                                            <a href="#" class="cancel-row" ng-click="showInvoiceTable = false"><i class="fa fa-times"></i></a>
-                                                        </td>
-                                                        <td><input ng-model="invoiceNewObject.price" data-parsley-type="number" type="number"
-                                                                   class="form-control" required ng-change="invoiceChange()"/></td>
-                                                        <td><input ng-model="invoiceNewObject.discount" data-parsley-type="number"
-                                                                   type="number" class="form-control" required ng-change="invoiceChange()"/></td>
-                                                        <td><input ng-model="invoiceNewObject.tax" data-parsley-type="number" type="number"
-                                                                   class="form-control" required ng-change="invoiceChange()"/></td>
-                                                        <td><input ng-model="invoiceNewObject.Total" data-parsley-type="number" type="text"
-                                                                   class="form-control" ng-disabled="true"/></td>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!-- sample modal content -->
 
-                                                    </tr>
-                                                    <tr class="gradeX" ng-repeat="item in invoiceTable">
-                                                        <!--                                                        <td>{{item.invoice_id}}</td>-->
-                                                        <td>{{item.description}}</td>
-                                                        <td>{{item.quantity}}</td>
-                                                        <td class="actions">
-                                                            <a href="#" class="on-default edit-row" ng-click="editInvoce($index)"><i class="fa fa-pencil"></i></a>
-                                                            <a href="#" class="on-default remove-row" ng-click="deletedInvoce($index)"><i class="fa fa-trash-o"></i></a>
-                                                        </td>
-                                                        <td>{{item.price}}</td>
-                                                        <td>{{item.discount}}</td>
-                                                        <td>{{item.tax}}</td>
-                                                        <td>{{item.Total}}</td>
+                                        <div id="modal-invoice-send" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
+                                             style="display: none;">
+                                            <div class="modal-dialog" style="width:75%;">
+                                                <div class="modal-content">
+                                                    <div class="modal-body-ready">
+                                                        <h1>Invoice Sent</h1>
+                                                        <h4>Get your self a cup of coffe, you deserve it</h4>
+                                                    </div>
+                                                    <div class="modal-row-ready">
+                                                        <button type="button" class="btn btn-default waves-effect waves-light" data-dismiss="modal">OK</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal-content -->
+                                            </div>
+                                            <!-- /.modal-dialog -->
+                                        </div>
+                                        <!-- /.modal -->
+                                    </div>
+                                </div>
 
-                                                    </tr>
 
-                                                </tbody>
-                                            </table>
+                                <div class="row" ng-if='hasCreate && !hasXMLSource'>
+                                    <div class="col-sm-12">
+                                        <div class="card-box">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <form class="form-horizontal group-border-dashed" action="#">
+                                                        <div class="form-group">
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="row" style="border-radius: 0px;">
+                                                    <div class="col-md-3 col-md-offset-9">
+                                                        <p class="text-right"><b>Discout</b> 0.00</p>
+                                                        <p class="text-right"><b>Subtotal </b> 0.00</p>
+                                                        <p class="text-right"><b>Tax</b> 0.00</p>
+                                                        <hr>
+                                                        <h3 class="text-right"><b>Total USD</b> 0.00</h3>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="hidden-print">
+                                                    <div class="pull-right">
+                                                        <a href="#" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#modal-ready">Submit</a>
+                                                    </div>
+                                                </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- end: page -->
-
                             </div>
-                            <!-- end Panel -->
-
-                            <!-- ============================================================== -->
-                            <!-- Start right Content here -->
-                            <!-- ============================================================== -->
-
-
-
-                            <!-- Custom Modals -->
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!-- sample modal content -->
-
-                                    <div id="modal-ready" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
-                                         style="display: none;">
-                                        <div class="modal-dialog" style="width:75%;">
-                                            <div class="modal-content">
-                                                <div class="modal-body-ready">
-                                                    <h1>Ready?</h1>
-                                                    <h4>Do you want to send your invoice?</h4>
-                                                </div>
-                                                <div class="modal-row-ready">
-                                                    <button type="button" class="btn btn-default waves-effect waves-light">Let Me Check</button>
-                                                    <button type="button" class="btn btn-default waves-effect waves-light" data-dismiss="modal" data-toggle="modal" data-target="#modal-invoice-send" ng-click="createInvoice()">Send Invoice</button>
-                                                </div>
-                                            </div>
-                                            <!-- /.modal-content -->
-                                        </div>
-                                        <!-- /.modal-dialog -->
-                                    </div>
-                                    <!-- /.modal -->
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <!-- sample modal content -->
-
-                                    <div id="modal-invoice-send" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="custom-width-modalLabel" aria-hidden="true"
-                                         style="display: none;">
-                                        <div class="modal-dialog" style="width:75%;">
-                                            <div class="modal-content">
-                                                <div class="modal-body-ready">
-                                                    <h1>Invoice Sent</h1>
-                                                    <h4>Get your self a cup of coffe, you deserve it</h4>
-                                                </div>
-                                                <div class="modal-row-ready">
-                                                    <button type="button" class="btn btn-default waves-effect waves-light" data-dismiss="modal">OK</button>
-                                                </div>
-                                            </div>
-                                            <!-- /.modal-content -->
-                                        </div>
-                                        <!-- /.modal-dialog -->
-                                    </div>
-                                    <!-- /.modal -->
-                                </div>
-                            </div>
-
 
                             <div class="row" ng-if='hasCreate && !hasXMLSource'>
                                 <div class="col-sm-12">
                                     <div class="card-box">
                                         <div class="row">
                                             <div class="col-lg-6">
+                                                <!-- <h5><b>Validation type</b></h5>
+                              <p class="text-muted font-13 m-b-30">
+                                                  Your awesome text goes here.
+                                              </p> -->
+
                                                 <form class="form-horizontal group-border-dashed" action="#">
-                                                    <div class="form-group">
+                                                    <!-- <div class="form-group">
+                                  <label class="col-sm-3 control-label">Country</label>
+                                  <div class="col-sm-6">
+                                    <input type="text" class="form-control" required placeholder="Type something" />
+                                  </div>
+                                </div> -->
 
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="row" style="border-radius: 0px;">
-                                                <div class="col-md-3 col-md-offset-9">
-                                                    <p class="text-right"><b>Discout</b> {{invoiceSumm.Discout}}</p>
-                                                    <p class="text-right"><b>Subtotal </b>{{invoiceSumm.Subtotal}}</p>
-                                                    <p class="text-right"><b>Tax</b>{{invoiceSumm.Tax}}</p>
-                                                    <hr>
-                                                    <h3 class="text-right"><b>Total {{invoiceSumm.currenciesGetValue}}</b> {{invoiceSumm.Total}}</h3>
-                                                </div>
-                                            </div>
-                                            <hr>
-                                            <!--                                                <div class="hidden-print">
-                                                                                                <div class="pull-right">
-                                                                                                    <a href="#" class="btn btn-primary waves-effect waves-light">Submit</a>
-                                                                                                </div>
-                                                                                            </div>-->
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row" ng-if='hasCreate && !hasXMLSource'>
-                            <div class="col-sm-12">
-                                <div class="card-box">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <!-- <h5><b>Validation type</b></h5>
-                          <p class="text-muted font-13 m-b-30">
-                                              Your awesome text goes here.
-                                          </p> -->
-
-                                            <form class="form-horizontal group-border-dashed" action="#">
-                                                <!-- <div class="form-group">
-                              <label class="col-sm-3 control-label">Country</label>
-                              <div class="col-sm-6">
-                                <input type="text" class="form-control" required placeholder="Type something" />
-                              </div>
-                            </div> -->
-
-                                                <div class="col-sm-12">
+                                                    <div class="col-sm-12">
 
 
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Notes</label>
-                                                        <div class="col-md-10">
-                                                            <textarea class="form-control" rows="5"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="col-md-2 control-label">Files</label>
-                                                        <input type="file" class="filestyle" data-input="false">
-                                                    </div>
-
-
-                                                </div>
-
-
-                                            </form>
-                                        </div>
-
-                                        <div class="col-lg-6">
-
-                                            <form class="form-horizontal group-border-dashed" action="#">
-
-                                                <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Payment Date</label>
-                                                    <div class="col-sm-6">
-                                                        <div class="input-group">
-                                                            <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose3"  data-provide="datepicker" ng-model="invoice.InvoiceFile.payment_dt">
-                                                            <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
-                                                        </div>
-                                                        <!-- input-group -->
-                                                    </div>
-                                                </div>
-
-                                                <label class="col-sm-3 control-label">Payment Method</label>
-                                                <div class="col-sm-6">
-                                                    <select class="form-control select2">
-                                                        <option value="DKK">Select 1</option>
-                                                        <option value="USD">Select 2</option>
-                                                        <option value="EUR">Select 3</option>
-                                                        <option value="NOK">Select 4</option>
-                                                        <option value="GBP">Select 5</option>
-                                                        <option value="CHF">Select 6</option>
-                                                    </select>
-                                                </div>
-                                        </div>
-                                        <!-- Row start -->
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="card-box">
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-
-                                                            <div class="button-list">
-                                                                <button type="button" class="btn btn-default waves-effect waves-light" data-toggle="modal" data-target="#modal-ready">Send</button>
-                                                                <button type="button" class="btn btn-default waves-effect waves-light">Preview</button>
-                                                                <button type="button" class="btn btn-default waves-effect waves-light">Delete</button>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Notes</label>
+                                                            <div class="col-md-10">
+                                                                <textarea class="form-control" rows="5"></textarea>
                                                             </div>
                                                         </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Files</label>
+                                                            <input type="file" class="filestyle" data-input="false">
+                                                        </div>
 
 
                                                     </div>
-                                                </div>
+
+
+                                                </form>
                                             </div>
 
-                                        </div>
-                                        <!-- End of Row -->
-                                    </div>
-                                </div>
+                                            <div class="col-lg-6">
 
-                                </form>
-                            </div>
-                        </div>
+                                                <form class="form-horizontal group-border-dashed" action="#">
 
-                        <!---->
-                        <div class="tab-content" ng-if='hasCreate && hasXMLSource'>
-                            <div class="tab-pane active">
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="card-box">
-                                            <div class="modal-body">
-                                                <div class="pull-left m-t-30">
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Error Message</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">XML Source</button>
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Invoice Preview</button>
-                                                </div>
-                                                <div class="pull-right m-t-30">
-                                                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Exit</button>
-                                                </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Payment Date</label>
+                                                        <div class="col-sm-6">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose3"  data-provide="datepicker" ng-model="invoice.InvoiceFile.payment_dt">
+                                                                <span class="input-group-addon bg-custom b-0 text-white"><i class="icon-calender"></i></span>
+                                                            </div>
+                                                            <!-- input-group -->
+                                                        </div>
+                                                    </div>
+
+                                                    <label class="col-sm-3 control-label">Payment Method</label>
+                                                    <div class="col-sm-6">
+                                                        <select class="form-control select2">
+                                                            <option value="DKK">Select 1</option>
+                                                            <option value="USD">Select 2</option>
+                                                            <option value="EUR">Select 3</option>
+                                                            <option value="NOK">Select 4</option>
+                                                            <option value="GBP">Select 5</option>
+                                                            <option value="CHF">Select 6</option>
+                                                        </select>
+                                                    </div>
                                             </div>
+                                            <!-- Row start -->
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class=" m-t-30">
-                                                        <textarea rows="15" placeholder='Paste invoice XML hare' style="resize: none;width: 100%;">
+                                                    <div class="card-box">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+
+                                                                <div class="button-list">
+                                                                    <button type="button" class="btn btn-default waves-effect waves-light" ng-click="createInvoice()">Send</button>
+                                                                    <button type="button" class="btn btn-default waves-effect waves-light">Preview</button>
+                                                                    <button type="button" class="btn btn-default waves-effect waves-light">Delete</button>
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <!-- End of Row -->
+                                        </div>
+                                    </div>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!---->
+                            <div class="tab-content" ng-if='hasCreate && hasXMLSource'>
+                                <div class="tab-pane active">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="card-box">
+                                                <div class="modal-body">
+                                                    <div class="pull-left m-t-30">
+                                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Error Message</button>
+                                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">XML Source</button>
+                                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Invoice Preview</button>
+                                                    </div>
+                                                    <div class="pull-right m-t-30">
+                                                        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" data-toggle="modal" data-target="#custom-width-modal">Exit</button>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class=" m-t-30">
+                                                            <textarea rows="15" placeholder='Paste invoice XML hare' style="resize: none;width: 100%;">
 <?xml version="1.0"?>
 <!-- Copyright (c) Microsoft Corporation.  All rights reserved. -->
 <!-- Generic stylesheet for viewing XML -->
@@ -1920,11 +1917,12 @@
   </xsl:template>
 </xsl:stylesheet>
 
-                                                        </textarea>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="pull-left m-t-30">
-                                                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="createSetFalse()">Save Changes</button>
+                                                            </textarea>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="pull-left m-t-30">
+                                                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal" ng-click="createSetFalse()">Save Changes</button>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1933,355 +1931,322 @@
                                     </div>
                                 </div>
                             </div>
+
+
                         </div>
-
-
                     </div>
                 </div>
+
+
+
+
+
+                <!-- </div> -->
+                <!-- container -->
+
+                <!-- </div> -->
+                <!-- content -->
+                <footer class="footer">
+                    2016 © Officient.dk
+                </footer>
+
             </div>
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
 
+            <!-- MODAL -->
+            <div id="dialog" class="modal-block mfp-hide">
+                <section class="panel panel-info panel-color">
+                    <header class="panel-heading">
+                        <h2 class="panel-title">Are you sure?</h2>
+                    </header>
+                    <div class="panel-body">
+                        <div class="modal-wrapper">
+                            <div class="modal-text">
+                                <p>Are you sure that you want to delete this row?</p>
+                            </div>
+                        </div>
 
-
-
-
-            <!-- </div> -->
-            <!-- container -->
-
-            <!-- </div> -->
-            <!-- content -->
-            <footer class="footer">
-                2016 © Officient.dk
-            </footer>
-
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Right content here -->
-        <!-- ============================================================== -->
-
-        <!-- MODAL -->
-        <div id="dialog" class="modal-block mfp-hide">
-            <section class="panel panel-info panel-color">
-                <header class="panel-heading">
-                    <h2 class="panel-title">Are you sure?</h2>
-                </header>
-                <div class="panel-body">
-                    <div class="modal-wrapper">
-                        <div class="modal-text">
-                            <p>Are you sure that you want to delete this row?</p>
+                        <div class="row m-t-20">
+                            <div class="col-md-12 text-right">
+                                <button id="dialogConfirm" class="btn btn-primary waves-effect waves-light">Confirm</button>
+                                <button id="dialogCancel" class="btn btn-default waves-effect">Cancel</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="row m-t-20">
-                        <div class="col-md-12 text-right">
-                            <button id="dialogConfirm" class="btn btn-primary waves-effect waves-light">Confirm</button>
-                            <button id="dialogCancel" class="btn btn-default waves-effect">Cancel</button>
-                        </div>
-                    </div>
-                </div>
+                </section>
+            </div>
+            <!-- end Modal -->
 
-            </section>
         </div>
-        <!-- end Modal -->
+        <!-- END wrapper -->
 
-    </div>
-    <!-- END wrapper -->
+        <script>
+            var resizefunc = [];
+        </script>
 
-    <script>
-        var resizefunc = [];
-    </script>
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/detect.js"></script>
+        <script src="assets/js/fastclick.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/jquery.blockUI.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/jquery.nicescroll.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
 
-    <!-- jQuery  -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/detect.js"></script>
-    <script src="assets/js/fastclick.js"></script>
-    <script src="assets/js/jquery.slimscroll.js"></script>
-    <script src="assets/js/jquery.blockUI.js"></script>
-    <script src="assets/js/waves.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
+        <script src="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
+        <script src="assets/plugins/switchery/dist/switchery.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+        <script type="text/javascript" src="assets/plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
+        <script src="assets/plugins/select2/select2.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-filestyle/src/bootstrap-filestyle.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
+        <script src="assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
 
-    <script src="assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
-    <script src="assets/plugins/switchery/dist/switchery.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/multiselect/js/jquery.multi-select.js"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
-    <script src="assets/plugins/select2/select2.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/bootstrap-filestyle/src/bootstrap-filestyle.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+        <script src="assets/js/jquery.core.js"></script>
+        <script src="assets/js/jquery.app.js"></script>
 
-    <script src="assets/js/jquery.core.js"></script>
-    <script src="assets/js/jquery.app.js"></script>
-
-    <!-- jQuery  -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/detect.js"></script>
-    <script src="assets/js/fastclick.js"></script>
-    <script src="assets/js/jquery.slimscroll.js"></script>
-    <script src="assets/js/jquery.blockUI.js"></script>
-    <script src="assets/js/waves.js"></script>
-    <script src="assets/js/wow.min.js"></script>
-    <script src="assets/js/jquery.nicescroll.js"></script>
-    <script src="assets/js/jquery.scrollTo.min.js"></script>
+        <!-- jQuery  -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/detect.js"></script>
+        <script src="assets/js/fastclick.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/jquery.blockUI.js"></script>
+        <script src="assets/js/waves.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/jquery.nicescroll.js"></script>
+        <script src="assets/js/jquery.scrollTo.min.js"></script>
 
 
-    <script src="assets/js/jquery.core.js"></script>
-    <script src="assets/js/jquery.app.js"></script>
+        <script src="assets/js/jquery.core.js"></script>
+        <script src="assets/js/jquery.app.js"></script>
 
-    <script src="assets/plugins/custombox/dist/custombox.min.js"></script>
-    <script src="assets/plugins/custombox/dist/legacy.min.js"></script>
+        <script src="assets/plugins/custombox/dist/custombox.min.js"></script>
+        <script src="assets/plugins/custombox/dist/legacy.min.js"></script>
 
-    <!-- Examples -->
-    <script src="assets/plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-    <script src="assets/plugins/jquery-datatables-editable/jquery.dataTables.js"></script>
-    <script src="assets/plugins/datatables/dataTables.bootstrap.js"></script>
-    <script src="assets/plugins/tiny-editable/mindmup-editabletable.js"></script>
-    <script src="assets/plugins/tiny-editable/numeric-input-example.js"></script>
+        <!-- Examples -->
+        <script src="assets/plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+        <script src="assets/plugins/jquery-datatables-editable/jquery.dataTables.js"></script>
+        <script src="assets/plugins/datatables/dataTables.bootstrap.js"></script>
+        <script src="assets/plugins/tiny-editable/mindmup-editabletable.js"></script>
+        <script src="assets/plugins/tiny-editable/numeric-input-example.js"></script>
 
-    <script src="assets/plugins/bootstrap-table/dist/bootstrap-table.min.js"></script>
-    <script src="assets/pages/jquery.bs-table.js"></script>
+        <script src="assets/plugins/bootstrap-table/dist/bootstrap-table.min.js"></script>
+        <script src="assets/pages/jquery.bs-table.js"></script>
 
-    <script src="assets/pages/datatables.editable.init.js"></script>
+        <script src="assets/pages/datatables.editable.init.js"></script>
 
-    <script>
-        $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
-    </script>
+        <script>
+            $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
+        </script>
 
 
-    <script type="text/javascript" src="assets/plugins/parsleyjs/dist/parsley.min.js"></script>
-    <script src="assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-    <script src="assets/plugins/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
-    <script src="assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="assets/plugins/clockpicker/dist/jquery-clockpicker.min.js"></script>
-    <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <!-- Sweet-Alert  -->
-    <script src="assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="assets/pages/jquery.sweet-alert.init.js"></script>
+        <script type="text/javascript" src="assets/plugins/parsleyjs/dist/parsley.min.js"></script>
+        <script src="assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+        <script src="assets/plugins/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+        <script src="assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <script src="assets/plugins/clockpicker/dist/jquery-clockpicker.min.js"></script>
+        <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+        <!-- Sweet-Alert  -->
+        <script src="assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="assets/pages/jquery.sweet-alert.init.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/intro.js/2.1.0/introjs.min.css" />
-    <script src="https://cdn.jsdelivr.net/intro.js/2.1.0/intro.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/intro.js/2.1.0/introjs.min.css" />
+        <script src="https://cdn.jsdelivr.net/intro.js/2.1.0/intro.min.js"></script>
 
 
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var
-                    form = $('#custom-width-modal-invoice'),
-                    cache_width = form.width(),
-                    a4 = [595.28, 841.89];  // for a4 size paper width and height
-
-            $('#create_pdf').on('click', function () {
-                $('body').scrollTop(0);
-                createPDF();
-            });
-//create pdf
-            function createPDF() {
-                getCanvas().then(function (canvas) {
-                    var
-                            img = canvas.toDataURL("image/png"),
-                            doc = new jsPDF({
-                                unit: 'px',
-                                format: 'a4'
-                            });
-                    doc.addImage(img, 'JPEG', 20, 20);
-                    doc.save('techumber-html-to-pdf.pdf');
-                    form.width(cache_width);
+        <script type="text/javascript">
+            $(document).ready(function () {
+                jQuery('#datepicker-autoclose').datepicker({
+                    autoclose: true,
+                    todayHighlight: true
                 });
-            }
-
-// create canvas object
-            function getCanvas() {
-                form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');
-                return html2canvas(form, {
-                    imageTimeout: 2000,
-                    removeContainer: true
+                jQuery('#datepicker-autoclose2').datepicker({
+                    autoclose: true,
+                    todayHighlight: true
                 });
-            }
-            jQuery('#datepicker-autoclose').datepicker({
-                autoclose: true,
-                todayHighlight: true
+                jQuery('#datepicker-autoclose3').datepicker({
+                    autoclose: true,
+                    todayHighlight: true
+                });
+                $('form').parsley();
             });
-            jQuery('#datepicker-autoclose2').datepicker({
-                autoclose: true,
-                todayHighlight: true
-            });
-            jQuery('#datepicker-autoclose3').datepicker({
-                autoclose: true,
-                todayHighlight: true
-            });
-            $('form').parsley();
-        });
-    </script>
-    <script>
-        jQuery(document).ready(function () {
+        </script>
+        <script>
+            jQuery(document).ready(function () {
 
-            document.getElementById("profileClick").click();
+                document.getElementById("profileClick").click();
 
 
-            introJs().start();
-            // Time Picker
-            jQuery('#timepicker').timepicker({
-                defaultTIme: false
-            });
-            jQuery('#timepicker2').timepicker({
-                showMeridian: false
-            });
-            jQuery('#timepicker3').timepicker({
-                minuteStep: 15
-            });
+                introJs().start();
+                // Time Picker
+                jQuery('#timepicker').timepicker({
+                    defaultTIme: false
+                });
+                jQuery('#timepicker2').timepicker({
+                    showMeridian: false
+                });
+                jQuery('#timepicker3').timepicker({
+                    minuteStep: 15
+                });
 
-            //colorpicker start
-            $('.colorpicker-default').colorpicker({
-                format: 'hex'
-            });
-            $('.colorpicker-rgba').colorpicker();
+                //colorpicker start
+                $('.colorpicker-default').colorpicker({
+                    format: 'hex'
+                });
+                $('.colorpicker-rgba').colorpicker();
 
-            // Date Picker
-            jQuery('#datepicker').datepicker();
+                // Date Picker
+                jQuery('#datepicker').datepicker();
 
-            jQuery('#datepicker-inline').datepicker();
-            jQuery('#datepicker-multiple-date').datepicker({
-                format: "mm/dd/yyyy",
-                clearBtn: true,
-                multidate: true,
-                multidateSeparator: ","
-            });
-            jQuery('#date-range').datepicker({
-                toggleActive: true
-            });
+                jQuery('#datepicker-inline').datepicker();
+                jQuery('#datepicker-multiple-date').datepicker({
+                    format: "mm/dd/yyyy",
+                    clearBtn: true,
+                    multidate: true,
+                    multidateSeparator: ","
+                });
+                jQuery('#date-range').datepicker({
+                    toggleActive: true
+                });
 
-            //Clock Picker
-            $('.clockpicker').clockpicker({
-                donetext: 'Done'
-            });
+                //Clock Picker
+                $('.clockpicker').clockpicker({
+                    donetext: 'Done'
+                });
 
-            $('#single-input').clockpicker({
-                placement: 'bottom',
-                align: 'left',
-                autoclose: true,
-                'default': 'now'
-            });
-            $('#check-minutes').click(function (e) {
-                // Have to stop propagation here
-                e.stopPropagation();
-                $("#single-input").clockpicker('show')
-                        .clockpicker('toggleView', 'minutes');
-            });
+                $('#single-input').clockpicker({
+                    placement: 'bottom',
+                    align: 'left',
+                    autoclose: true,
+                    'default': 'now'
+                });
+                $('#check-minutes').click(function (e) {
+                    // Have to stop propagation here
+                    e.stopPropagation();
+                    $("#single-input").clockpicker('show')
+                            .clockpicker('toggleView', 'minutes');
+                });
 
 
-            //Date range picker
-            $('.input-daterange-datepicker').daterangepicker({
-                buttonClasses: ['btn', 'btn-sm'],
-                applyClass: 'btn-default',
-                cancelClass: 'btn-white'
+                //Date range picker
+                $('.input-daterange-datepicker').daterangepicker({
+                    buttonClasses: ['btn', 'btn-sm'],
+                    applyClass: 'btn-default',
+                    cancelClass: 'btn-white'
+                });
+                $('.input-daterange-timepicker').daterangepicker({
+                    timePicker: true,
+                    format: 'MM/DD/YYYY h:mm A',
+                    timePickerIncrement: 30,
+                    timePicker12Hour: true,
+                    timePickerSeconds: false,
+                    buttonClasses: ['btn', 'btn-sm'],
+                    applyClass: 'btn-default',
+                    cancelClass: 'btn-white'
+                });
+                $('.input-limit-datepicker').daterangepicker({
+                    format: 'MM/DD/YYYY',
+                    minDate: '06/01/2015',
+                    maxDate: '06/30/2015',
+                    buttonClasses: ['btn', 'btn-sm'],
+                    applyClass: 'btn-default',
+                    cancelClass: 'btn-white',
+                    dateLimit: {
+                        days: 6
+                    }
+                });
+
+                $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+                $('#reportrange').daterangepicker({
+                    format: 'MM/DD/YYYY',
+                    startDate: moment().subtract(29, 'days'),
+                    endDate: moment(),
+                    minDate: '01/01/2012',
+                    maxDate: '12/31/2015',
+                    dateLimit: {
+                        days: 60
+                    },
+                    showDropdowns: true,
+                    showWeekNumbers: true,
+                    timePicker: false,
+                    timePickerIncrement: 1,
+                    timePicker12Hour: true,
+                    ranges: {
+                        'Today': [moment(), moment()],
+                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                        'This Month': [moment().startOf('month'), moment().endOf('month')],
+                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    },
+                    opens: 'left',
+                    drops: 'down',
+                    buttonClasses: ['btn', 'btn-sm'],
+                    applyClass: 'btn-default',
+                    cancelClass: 'btn-white',
+                    separator: ' to ',
+                    locale: {
+                        applyLabel: 'Submit',
+                        cancelLabel: 'Cancel',
+                        fromLabel: 'From',
+                        toLabel: 'To',
+                        customRangeLabel: 'Custom',
+                        daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                        monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                        firstDay: 1
+                    }
+                }, function (start, end, label) {
+                    console.log(start.toISOString(), end.toISOString(), label);
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                });
+
             });
-            $('.input-daterange-timepicker').daterangepicker({
-                timePicker: true,
-                format: 'MM/DD/YYYY h:mm A',
-                timePickerIncrement: 30,
-                timePicker12Hour: true,
-                timePickerSeconds: false,
-                buttonClasses: ['btn', 'btn-sm'],
-                applyClass: 'btn-default',
-                cancelClass: 'btn-white'
-            });
-            $('.input-limit-datepicker').daterangepicker({
-                format: 'MM/DD/YYYY',
-                minDate: '06/01/2015',
-                maxDate: '06/30/2015',
-                buttonClasses: ['btn', 'btn-sm'],
-                applyClass: 'btn-default',
-                cancelClass: 'btn-white',
-                dateLimit: {
-                    days: 6
+        </script>
+        <script>
+            function handleFileSelect(evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+
+                var files = evt.dataTransfer.files; // FileList object.
+
+                // files is a FileList of File objects. List some properties.
+                var output = [];
+                for (var i = 0, f; f = files[i]; i++) {
+                    output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                            f.size, ' bytes, last modified: ',
+                            f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
+                            '</li>');
                 }
-            });
-
-            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-
-            $('#reportrange').daterangepicker({
-                format: 'MM/DD/YYYY',
-                startDate: moment().subtract(29, 'days'),
-                endDate: moment(),
-                minDate: '01/01/2012',
-                maxDate: '12/31/2015',
-                dateLimit: {
-                    days: 60
-                },
-                showDropdowns: true,
-                showWeekNumbers: true,
-                timePicker: false,
-                timePickerIncrement: 1,
-                timePicker12Hour: true,
-                ranges: {
-                    'Today': [moment(), moment()],
-                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                },
-                opens: 'left',
-                drops: 'down',
-                buttonClasses: ['btn', 'btn-sm'],
-                applyClass: 'btn-default',
-                cancelClass: 'btn-white',
-                separator: ' to ',
-                locale: {
-                    applyLabel: 'Submit',
-                    cancelLabel: 'Cancel',
-                    fromLabel: 'From',
-                    toLabel: 'To',
-                    customRangeLabel: 'Custom',
-                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                    firstDay: 1
-                }
-            }, function (start, end, label) {
-                console.log(start.toISOString(), end.toISOString(), label);
-                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-            });
-
-        });
-    </script>
-    <script>
-        function handleFileSelect(evt) {
-            evt.stopPropagation();
-            evt.preventDefault();
-
-            var files = evt.dataTransfer.files; // FileList object.
-
-            // files is a FileList of File objects. List some properties.
-            var output = [];
-            for (var i = 0, f; f = files[i]; i++) {
-                output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
-                        f.size, ' bytes, last modified: ',
-                        f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a',
-                        '</li>');
+                document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
             }
-            document.getElementById('list').innerHTML = '<ul>' + output.join('') + '</ul>';
-        }
 
-        function handleDragOver(evt) {
-            evt.stopPropagation();
-            evt.preventDefault();
-            evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
-        }
+            function handleDragOver(evt) {
+                evt.stopPropagation();
+                evt.preventDefault();
+                evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+            }
 
-        // Setup the dnd listeners.
-        var dropZone = document.getElementById('drop_zone');
-        dropZone.addEventListener('dragover', handleDragOver, false);
-        dropZone.addEventListener('drop', handleFileSelect, false);
-    </script>
+            // Setup the dnd listeners.
+            var dropZone = document.getElementById('drop_zone');
+            dropZone.addEventListener('dragover', handleDragOver, false);
+            dropZone.addEventListener('drop', handleFileSelect, false);
+        </script>
 
-    <script src="assets/pages/datatables.editable.init.js"></script>
-    <style>.introjs-helperNumberLayer{
-            line-height: 9px;
-        }</style>
-</body>
+        <script src="assets/pages/datatables.editable.init.js"></script>
+        <style>.introjs-helperNumberLayer{
+                line-height: 9px;
+            }</style>
+    </body>
 
 </html>
