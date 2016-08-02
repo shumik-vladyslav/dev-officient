@@ -7,6 +7,9 @@ File: Pages
 /* =============
    Calendar
 ============= */
+.md-table-pagination{
+    border-top: 0;
+}
 .calendar {
   float: left;
   margin-bottom: 0px;

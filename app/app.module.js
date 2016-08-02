@@ -1,5 +1,5 @@
 var myApp = angular
-    .module('app',['ngMaterial']);
+    .module('app',['ngMaterial', 'md.data.table']);
   
   myApp.config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;

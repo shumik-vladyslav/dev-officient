@@ -3637,9 +3637,9 @@ File: Icons
 .md-system-update-tv:before {
   content: "\f07e";
 }
-.md-tab:before {
+/*.md-tab:before {
   content: "\f07f";
-}
+}*/
 .md-tab-unselected:before {
   content: "\f080";
 }
