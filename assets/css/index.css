@@ -1,221 +1,488 @@
-   .pricings {
-        width: 100%;
-        height: 500px;
-    }
-    
-    .head {
-        height: 400px;
-        background: rgb(107, 201, 210);
-        padding-top: 90px;
-    }
-    
-    .head div .first {
-        color: #fff;
-        font-size: 40px;
-    }
-    
-    .head div .first-subscribe {
-        color: #fff;
-        font-size: 20px;
-    }
-    
-    .head div .box {
-        color: #fff;
-        font-size: 20px;
-        background: #36404a;
-        padding: 10px;
-        margin: 30px;
-        margin-top: 60px;
-    }
-    .head div .box a{
-        color: #fff;
-    }
-    .head div .box a:hover{
-        color: #A8E9F5;
-    }
+.pricings {
+    width: 100%;
+    height: 500px;
+}
 
-    .head div .box-second {
-        position: relative;
-        color: #fff;
-        font-size: 20px;
-        background: #36404a;
-        padding: 10px;
-        margin: 30px;
-        margin-top: 30px;
-    }
+.head {
+    height: 400px;
+    background: rgb(107, 201, 210);
+    padding-top: 90px;
+}
 
-    .head div .box-second a{
-        color: #fff;
-    }
-    .head div .box-second a:hover{
-        color: #A8E9F5;
-    }
-    .pricings .pricing-repeat {
-        height: 100%;
-        background: linear-gradient(to bottom, rgb(107, 201, 210) 70%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%, rgb(107, 201, 210) 100%);
-    }
+.head div .first {
+    color: #fff;
+    font-size: 40px;
+}
+
+.head div .first-subscribe {
+    color: #fff;
+    font-size: 20px;
+}
+
+.head div .box {
+    color: #fff;
+    font-size: 20px;
+    background: #36404a;
+    padding: 10px;
+    margin: 30px;
+    margin-top: 60px;
+}
+.head div .box a{
+    color: #fff;
+}
+.head div .box a:hover{
+    color: #A8E9F5;
+}
+
+.head div .box-second {
+    position: relative;
+    color: #fff;
+    font-size: 20px;
+    background: #36404a;
+    padding: 10px;
+    margin: 30px;
+    margin-top: 30px;
+}
+
+.head div .box-second a{
+    color: #fff;
+}
+.head div .box-second a:hover{
+    color: #A8E9F5;
+}
+.pricings .pricing-repeat {
+    height: 100%;
+    background: linear-gradient(to bottom, rgb(107, 201, 210) 70%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%, rgb(107, 201, 210) 100%);
+}
+
+.price-button {
+    width: 100%;
+}
+
+.pro {
+    height: 400px;
+    background: rgb(107, 201, 210);
+    color: #fff;
+}
+
+.pro .top {
+    font-size: 35px;
+    margin: 20px;
+}
+
+.pro div div .first {
+    text-align: right;
+}
+
+.pro div div .first .head-pro {
+    font-size: 25px;
+}
+
+.pro div div .first h4 {
+    font-size: 20px;
+}
+
+.pro div div .second .head-pro {
+    font-size: 25px;
+}
+
+.pro div div .second h4 {
+    font-size: 20px;
+
+}
+
+.pro div div .second {
+    text-align: left;
+}
+.saving{
+    background: #150f29;
+    height: 700px;
+}
+
+.saving .top-next{
+    font-size: 33px;
+    margin-bottom: 50px;
+    color: #fff;
+    text-align: -webkit-center;
+    max-width: 45%;
+}
+
+.coma:before{
+    margin-left: 70px;
+    color: #f4f8fb;
+    content: "\201C";
+    font-size: 8em;
+    line-height: 0.1em;
+    margin-right: 0.2em;
+    vertical-align: -.4em;
+}
+
+.saving .top {
+    font-size: 50px;
+    margin: 20px;
+    color: #fff;
+}
+
+.saving div div .first {
+    text-align: right;
+    color: #fff;
+}
+
+.saving div div .first .head-pro {
+    font-size: 25px;
+}
+
+.saving div div .first h4 {
+    font-size: 20px;
+    color: #fff;
+
+}
+
+.saving div div .second .head-pro {
+    font-size: 25px;
+}
+
+.saving div div .second h4 {
+    font-size: 20px;
+    color: #fff;
+
+}
+.hard .wrap button{
+    background: #00d59c;
+    color: #ffffff;
+}
+.hard .wrap button span{
+    margin: 30px;
+    text-transform: initial;
+}
+.hard .wrap .md-button:not([disabled]):hover {
+    background-color: #48e4ba;
+}
+.hard .wrap div div div .circl{
+    background: #fff;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.hard .wrap{
+    background: #150f29;
+    height: 550px;
+}
+
+.hard .top {
+    font-size: 50px;
+    margin: 50px;
+    color: #fff;
+}
+
+.hard div div .second-second {
+    text-align: left;
+    color: #fff;
+
+}
+.hard div div .first-second {
+    text-align: right;
+    color: #fff;
+}
+
+.hard div div .first-second h4 {
+    font-size: 30px;
+    color: #fff;
+
+}
+
+.hard div div .second-second h4 {
+    font-size: 30px;
+    color: #fff;
+
+}
+
+
+.hard div div .second-second {
+    text-align: left;
+    color: #fff;
+
+}
+
+.choose{
+    height: 550px;
+    margin-top: 50px;
+    color: #fff;
+}
+
+.choose .wrap{
+    position: absolute;
+    top: 1%;
+    width: 100%;
+}
+
+.choose .wrap .select div img{   
+    margin: 50px;
+    width: 300px;
+}
+
+.back-choise{
+    background: transparent  url(../css/oie_transparent.png) top left no-repeat;
+    color: black;
+    width: 270px;
+    margin: 50px;
+    height: 900px;
+    background-size: contain;
+}
+.back-choise .top-div{
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.back-choise hr{
+    width: 220px;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    margin-top: 5px;
+    border-top: 1px solid #cac5c5;
+}
+
+.back-choise .text{
+    margin: 20px;
+    font-family: rubik regular;
+}
+
+.back-choise div .first-button{
+    background: #337ab7;
+    color: #ffffff;
+}
+.back-choise div .first-button{
+    text-transform: initial;
+}
+.back-choise div .first-button:not([disabled]):hover {
+    background-color: #3f51b8;
+}
+
+.back-choise div .first-button span{
+    font-size: 18px;
+
+}
+.back-choise div .second-button{
+    background: #00d59c;
+    color: #ffffff;
+}
+.back-choise div .second-button{
+    text-transform: initial;
+}
+
+.back-choise div .second-button span{
+    font-size: 23px;
+    font-weight: bolder;
+}
+.back-choise div .second-button:not([disabled]):hover {
+    background-color: #48e4ba;
+}
+
+
+
+.choose div .top {
+    font-size: 50px;
+    margin: 20px;
+    width: 50%;
+    text-align: -webkit-center;
+}
+
+.why {
+    height: 550px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0060c6+50,0060c6+50,0053b5+52 */
+    background: #0060c6; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #0060c6 50%, #0060c6 50%, #0053b5 52%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #0060c6 50%,#0060c6 50%,#0053b5 52%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #0060c6 50%,#0060c6 50%,#0053b5 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0060c6', endColorstr='#0053b5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    color: #fff;
+}
+
+.why .wrap {
     
-    .price-button {
-        width: 100%;
-    }
-    
-    .pro {
-        height: 400px;
-        background: rgb(107, 201, 210);
-        color: #fff;
-    }
-    
-    .pro .top {
-        font-size: 35px;
-        margin: 20px;
-    }
-    
-    .pro div div .first {
-        text-align: right;
-    }
-    
-    .pro div div .first .head-pro {
-        font-size: 25px;
-    }
-    
-    .pro div div .first h4 {
-        font-size: 20px;
-    }
-    
-    .pro div div .second .head-pro {
-        font-size: 25px;
-    }
-    
-    .pro div div .second h4 {
-        font-size: 20px;
-    }
-    
-    .pro div div .second {
-        text-align: left;
-    }
-    
-    .why {
-        height: 500px;
-        background: rgb(132, 177, 181);
-        color: #fff;
-    }
-    
-    .why .top {
-        font-size: 35px;
-        margin: 20px;
-    }
-    
-    .why .row {
-        font-size: 25px;
-        margin: 20px;
-    }
-    
-    .why .row div {
-        margin: 10px;
-        text-align: center;
-    }
-    
-    .list {
-        height: 500px;
-        background: rgb(184, 239, 245);
-        color: #fff;
-    }
-    
-    .list .top {
-        font-size: 35px;
-        margin: 20px;
-    }
-    
-    .list .quote {
-        color: black;
-        margin: 20px;
-    }
-    
-    .easy-type {
-        height: 300px;
-        background: rgb(42, 234, 255);
-        color: #fff;
-    }
-    
-    .easy-type .top {
-        font-size: 35px;
-        margin: 20px;
-    }
-    
-    .easy-type div {
-        padding: 10px;
-    }
-    
-    .grov {
-        height: 450px;
-        background: rgb(107, 201, 210);
-        color: #fff;
-    }
-    
-    .grov .top {
-        font-size: 35px;
-        margin: 20px;
-    }
-    
-    .grov div {
-        padding: 10px;
-    }
-    
-    .free {
-        height: 300px;
-        background: rgb(184, 239, 245);
-        color: #fff;
-    }
-    
-    .free .top {
-        font-size: 35px;
-        margin: 20px;
-    }
-    
-    .free div {
-        padding: 10px;
-    }
-    
-    .phone {
-        height: 200px;
-        background: rgb(42, 234, 255);
-        color: #fff;
-    }
-    .phone .top {
-        font-size: 35px;
-        margin: 20px;
-    }
-    blockquote {
-        border-left: 1px solid #bbb;
-        font-style: italic;
-        margin: 1.5em 10px;
-        padding: 0.5em 10px;
-        color: black;
-    }
-    
-    blockquote:before {
-        color: #bbb;
-        content: "\201C";
-        /* Непечатаемый символ слева */
-        font-size: 3em;
-        line-height: 0.1em;
-        margin-right: 0.2em;
-        vertical-align: -.4em;
-    }
-    
-    blockquote:after {
-        color: #bbb;
-        content: "\201D";
-        /* Непечатаемый символ справа */
-        font-size: 3em;
-        line-height: 0.1em;
-        vertical-align: -.45em;
-    }
-    
-    blockquote > p:first-child {
-        display: inline;
-    }
-    
-    .full-body{
-        height: 3610px
-    }
+}
+
+.why .top {
+    font-size: 50px;
+    margin: 20px;
+    width: 50%;
+    text-align: -webkit-center;
+}
+
+.why .row {
+    font-size: 25px;
+    margin: 20px;
+}
+
+.why .row div {
+    margin: 10px;
+    text-align: center;
+}
+
+.why .row div h4{
+    color: #fff;
+}
+
+.why button{
+    background: #00d59c;
+    color: #ffffff;
+}
+.why button span{
+    margin: 30px;
+    text-transform: initial;
+}
+.why .md-button:not([disabled]):hover {
+    background-color: #48e4ba;
+}
+
+.list {
+    height: 500px;
+    background: rgb(184, 239, 245);
+    color: #fff;
+}
+
+.list .top {
+    font-size: 35px;
+    margin: 20px;
+}
+
+.list .quote {
+    color: black;
+    margin: 20px;
+}
+
+.easy-type {
+    height: 300px;
+    background: rgb(42, 234, 255);
+    color: #fff;
+}
+
+.easy-type .top {
+    font-size: 35px;
+    margin: 20px;
+}
+
+.easy-type div {
+    padding: 10px;
+}
+
+.grov {
+    height: 450px;
+    background: rgb(107, 201, 210);
+    color: #fff;
+}
+
+.grov .top {
+    font-size: 35px;
+    margin: 20px;
+}
+
+.grov div {
+    padding: 10px;
+}
+
+.free {
+    height: 300px;
+    background: rgb(184, 239, 245);
+    color: #fff;
+}
+
+.free .top {
+    font-size: 35px;
+    margin: 20px;
+}
+
+.free div {
+    padding: 10px;
+}
+
+blockquote {
+    border-left: 1px solid #bbb;
+    font-style: italic;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    color: black;
+}
+
+blockquote:before {
+    color: #bbb;
+    content: "\201C";
+    /* Непечатаемый символ слева */
+    font-size: 3em;
+    line-height: 0.1em;
+    margin-right: 0.2em;
+    vertical-align: -.4em;
+}
+
+blockquote:after {
+    color: #bbb;
+    content: "\201D";
+    /* Непечатаемый символ справа */
+    font-size: 3em;
+    line-height: 0.1em;
+    vertical-align: -.45em;
+}
+
+blockquote > p:first-child {
+    display: inline;
+}
+
+.full-body{
+    height: 3610px
+}
+
+.calcul .wrap{
+    height: 400px;
+    width: 700px;
+    background: #151028;
+}
+.calcul .wrap div h4{
+    color: white;
+}
+
+.calcul .wrap div span{
+    color: #00d59c;
+    font-size: 70px;
+    font-weight: 700;
+}
+
+.calcul .wrap button{
+    background: #00d59c;
+    color: #ffffff;
+}
+.calcul .wrap button span{
+    margin: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: initial;
+}
+.calcul .wrap .md-button:not([disabled]):hover {
+    background-color: #48e4ba;
+}
+
+.calcul .wrap div input{
+    padding: 7.5px;
+    border: 0;
+    border-bottom: 2px #e8edf0 solid;
+    box-sizing: border-box;
+    background: #ECECEC;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 150px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 24px;
+    height: 36px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.calcul h1{
+    color: black;
+    position: absolute;
+    top: 72%;
+    left: 30%;
+}

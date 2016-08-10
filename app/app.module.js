@@ -1,8 +1,3 @@
 var myApp = angular
-    .module('app',['ngMaterial', 'md.data.table']);
-  
-  myApp.config(['$httpProvider', function($httpProvider) {
-        $httpProvider.defaults.useXDomain = true;
-        delete $httpProvider.defaults.headers.common['X-Requested-With'];
-    }
-]);
+        .module('app', ['ngMaterial', 'md.data.table', 'flow']);
+

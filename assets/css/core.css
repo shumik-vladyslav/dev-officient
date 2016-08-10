@@ -6,6 +6,80 @@ Author: CoderThemes
 Email: coderthemes@gmail.com
 File: Common
 */
+
+.login-button{
+
+    box-shadow: 0 0 0 1px #015fcd inset!important;
+    color: #015fcd!important;
+}
+.se-options-button{
+    height: 800px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0052aa+51,00459f+52,00459f+52 */
+    background: #0052aa; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #0052aa 51%, #00459f 52%, #00459f 52%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #0052aa 51%,#00459f 52%,#00459f 52%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #0052aa 51%,#00459f 52%,#00459f 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0052aa', endColorstr='#00459f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+.se-options-button h1{
+    font-size: 50px;
+    margin: 20px;
+    color: #fff;
+}
+.se-options-button h3{
+    margin: 20px;
+    color: #fff;
+    font-weight: 700;
+}
+.se-options-button h4{
+    margin: 20px;
+    color: #fff;
+    text-align: -webkit-center;
+}
+.se-options-button button{
+    background: #00d59c;
+    color: #ffffff;
+}
+.se-options-button button span{
+    margin: 30px;
+    text-transform: initial;
+}
+.se-options-button .md-button:not([disabled]):hover {
+    background-color: #48e4ba;
+}
+
+.login-button span{
+    font-weight: bold;
+}
+
+.preInput{
+    position: absolute;
+    left: 60%;
+    line-height: 30px;
+    vertical-align: middle;
+}
+.discSelect{
+    position: absolute;
+    z-index: 111;
+    background: white;
+    width: 15%;
+    left: 55%;
+    border: 1px double #ddd;
+}
+
+.discSelect ul {
+    list-style: none;
+    padding: 10px;
+}
+
+.discSelect ul li {
+    margin: 3px;
+    cursor: pointer;
+}
+
+.discSelect ul li:hover {
+    background: aliceblue;
+}
 body {
     background: #ebeff2;
     font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -98,19 +172,67 @@ md-tabs.md-dynamic-height md-tab-content.md-active{
     height: 100%;
     width: 100%; 
 }
-md-tabs-canvas{
-    left: 7%;
+
+md-tabs .md-tab.content-5{
+    width: 100px;
+    height: 55px;
+    left: 200px;
+    top: 13px;
+    margin: 0;
+    padding: 10px;
+    background: white;
 }
+md-tabs .md-tab.content-5 span{
+    background: #005fc5;
+    padding: 4px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: white;
+    font-size: 14px;
+}
+
+md-tabs .md-tab.md-active.content-5{
+    width: 100px;
+    height: 55px;
+    left: 239px;
+    top: 13px;
+    margin: 0;
+    padding: 10px;
+    background: white;
+}
+md-tabs .md-tab.md-active.content-5 span{
+    background: #005fc5;
+    padding: 4px;
+    padding-left: 25px;
+    padding-right: 25px;
+    color: white;
+    font-size: 14px;
+}
+
+md-tabs .md-tab{
+    background: black;
+    margin: 5px;
+}
+
 md-tabs .md-tab.md-active {
     font-weight: 700; 
     color: #5fbeaa;
     font-size: 20px;
+    background: #005fc5;
+}
+md-tabs md-ink-bar{
+    background: #005fc5;
+}
 
+md-tabs .md-tab.md-active span{
+    color: #ffffff;
 }
 md-tabs .md-tab span{
     font-size: 20px;
-    color: #5fbeaa;
+    color: #afacac;
+    text-transform: capitalize;
 }
+
 md-pagination-wrapper {
     width:auto !important;
 }
@@ -848,7 +970,6 @@ textarea.form-control {
     color: #5fbeaa !important;
 }
 .tab-content {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     color: #777777;
 }
 .nav.nav-tabs > li:last-of-type a {
@@ -1125,7 +1246,7 @@ File: Topbar,Left-sidebar,Right-sidebar
     display: none;
 }
 .navbar-default {
-    background-color: #36404a;
+    background-color: #ffffff;
     border-radius: 0px;
     border: none;
     margin-bottom: 0px;
@@ -1145,7 +1266,7 @@ File: Topbar,Left-sidebar,Right-sidebar
     right: 7px;
 }
 .nav > li > a {
-    color: #ffffff !important;
+    color: black !important;
     line-height: 60px;
     padding: 0px 15px;
     position: relative;
@@ -2528,4 +2649,119 @@ h4 {
 
 .modal-row-ready button {
     margin: 20px;
+}
+.phone-choose{
+    height: 700px;
+    background: #151028;
+    color: #fff;
+}
+
+.phone-choose .top {
+    font-size: 35px;
+    margin: 20px;
+}
+
+.phone-choose .h1 {
+    color: #fff;
+}
+
+.phone-choose .h4 {
+    color: #fff;
+
+}
+
+.phone-choose div a{
+    color:#fff;
+}
+
+.phone {
+    height: 500px;
+    background: #151028;
+    color: #fff;
+}
+.phone .top {
+    font-size: 35px;
+    margin: 20px;
+}
+
+.phone .h1 {
+    color: #fff;
+}
+
+.phone .h4 {
+    color: #fff;
+
+}
+
+.phone div a{
+    color:#fff;
+}
+
+hr{
+    border-top: 3px solid #eee;
+}
+.total div b{
+    margin: 10px;
+}
+.total div span{
+    margin: 10px;
+}
+md-content{
+    overflow: hidden;
+}
+md-content md-tabs md-tabs-wrapper{
+    background: #ced3f1;
+}
+.message-number-messages{
+    position: absolute;
+    background: #5fbeaa;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    left: 581px;
+    top: -1px;
+}
+.message-number-documents{
+    position: absolute;
+    background: #5fbeaa;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    left: 754px;
+    top: -1px;
+}
+
+.crate-input input{
+    margin: 3px;
+}
+.crate-input label{
+    margin: 12px
+}
+
+md-tabs-content-wrapper{
+    padding: 20px;
+}
+
+.crate-input select{
+    margin: 3px;
+}
+
+.black-button{
+    background: #383333;
+    color: white;
+}
+.green-button{
+    background: #5fbeaa;
+    color: white;
+}
+
+.green-button:not([disabled]):hover {
+    background-color: #318674;
+}
+
+.black-button:not([disabled]):hover {
+    background-color: black;
+}
+body{
+    padding-right:0 !important;
 }
