@@ -75,27 +75,80 @@
         <div id="wrapper" style="background: #ced3f1;" ng-controller="CreateController">
 
             <!-- Top Bar Start -->
-            <div class="topbar">
+            <!--            <div class="topbar">
+            
+                             LOGO 
+                            <div class="topbar-left">
+                                <div class="text-center">
+                                    <a href="index.html" class="logo"><span>  <img src="assets/images/logo2.png"  height="35"  alt="logo"></img></span></a>
+                                </div>
+                            </div>
+            
+                             Button mobile view to collapse sidebar menu 
+                            <div class="navbar navbar-default" role="navigation">
+                                <div class="container">
+                                    <div class="">
+                                        <div class="pull-left">
+                                            <button class="button-menu-mobile open-left">
+                                                <i class="ion-navicon"></i>
+                                            </button>
+                                            <span class="clearfix"></span>
+                                        </div>
+            
+                                        <ul class="nav navbar-nav navbar-right pull-right">
+            
+                                            <li class="hidden-xs">
+                                                <a href="create.html" class="waves-effect waves-light">
+                                                    AMS Design Services</a>
+                                            </li>
+                                            <li class="hidden-xs">
+                                                <a href="companysettings.html" class="waves-effect waves-light">
+                                                    Company Settings</a>
+                                            </li>
+                                            <li class="hidden-xs" style='margin-top: 5px;'>
+            
+                                            <md-button ng-click='logOut()'class='login-button'>Log Out</md-button>
+                                            </li>
+                                            <li class="hidden-xs">
+                                                <a href="#" id="btn-fullscreen" class="waves-effect waves-light">
+                                                    <i class="icon-size-fullscreen"></i></a>
+                                            </li>
+            
+                                        </ul>
+                                    </div>
+                                    /.nav-collapse 
+                                </div>
+                            </div>
+                        </div>-->
+            <!-- Top Bar Start -->
+            <div class="topbar" style="background: white;" layout="row" layout-align="start center"
+                 layout-align-xs="space-between center" 
+                 layout-align-md="space-between center"
+                 layout-lg="space-between center">
 
                 <!-- LOGO -->
                 <div class="topbar-left">
                     <div class="text-center">
-                        <a href="index.html" class="logo"><span>  <img src="assets/images/logo2.png"  height="35"  alt="logo"></img></span></a>
+                        <a href="#" class="logo"><!-- <i class="icon-magnet icon-c-logo"></i> -->
+                            <!--<span><i class="md md-album"></i>fficient.dk</span>-->
+
+                            <img src="assets/images/logo2.png"  height="35"  alt="logo"></img>
+                        </a>
                     </div>
                 </div>
-
+                <div hide-xs hide-sm hide-md flex-lg="35" flex-xl="50"></div>
                 <!-- Button mobile view to collapse sidebar menu -->
                 <div class="navbar navbar-default" role="navigation">
                     <div class="container">
                         <div class="">
                             <div class="pull-left">
-                                <button class="button-menu-mobile open-left">
-                                    <i class="ion-navicon"></i>
-                                </button>
+
                                 <span class="clearfix"></span>
                             </div>
 
-                            <ul class="nav navbar-nav navbar-right pull-right">
+
+
+                            <ul hide-xs hide-sm class="nav navbar-nav navbar-right pull-right" >
 
                                 <li class="hidden-xs">
                                     <a href="create.html" class="waves-effect waves-light">
@@ -108,6 +161,7 @@
                                 <li class="hidden-xs" style='margin-top: 5px;'>
 
                                 <md-button ng-click='logOut()'class='login-button'>Log Out</md-button>
+
                                 </li>
                                 <li class="hidden-xs">
                                     <a href="#" id="btn-fullscreen" class="waves-effect waves-light">
@@ -115,6 +169,14 @@
                                 </li>
 
                             </ul>
+                            <div hide-gt-xs show-sm show-xs class="menu-icon">
+                                <md-button ng-click="toggleRight()"
+                                           ng-hide="isOpenRight()"
+                                           class="md-primary">
+                                    <i class="material-icons">menu</i>
+                                </md-button>
+
+                            </div>
                         </div>
                         <!--/.nav-collapse -->
                     </div>
@@ -134,7 +196,30 @@
 
 
             <div ng-cloak style="background: #ced3f1"  layout="column" layout-align="center center">
-                <md-content style="width: 80%;">
+
+                <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right">
+
+                    <md-content ng-controller="RightCtrl" layout-padding>
+                        <div class="nav-right" layout="column" layout-align="start start"
+                             >
+                            <hr>
+                            <md-toolbar class="md-theme-light">
+                                <h1 class="md-toolbar-tools" style="color: white">Menu</h1>
+                            </md-toolbar>
+                            <a flex href="create.html" class="waves-effect waves-light">
+                                AMS Design Services</a>
+                            <a flex href="companysettings.html" class="waves-effect waves-light">
+                                Company Settings</a>
+
+                            <md-button ng-click='logOut()'class='login-button'>Log Out</md-button>
+
+                            <md-button flex ng-click="close()" class="md-primary">
+                                Close
+                            </md-button>
+                        </div>
+                    </md-content>
+                </md-sidenav>
+                <md-content class="md-wrap-content">
                     <md-tabs md-dynamic-height md-border-bottom style="width: 100%; ">
                         <md-tab label="Create invoice" ng-click="createSetFalse()">
                             <md-content class="md-padding">
@@ -146,10 +231,10 @@
                                                 <div class="col-sm-12">
                                                     <div>
                                                         <div class="row">
-                                                            <div class="col-lg-6" layout="row" layout-align="space-between">
+                                                            <div class="col-lg-6" layout="row" layout-align="space-between"  layout-xs="column" layout-align-xs="center" layout-sm="column" layout-align-sm="center stretch">
 
-                                                                <form flex="80" class="form-horizontal group-border-dashed" action="#">
-                                                                    <div class="form-group">
+                                                                <form flex="80" flex-sm="100" class="form-horizontal group-border-dashed" action="#" layout-sm="column" layout-align-sm="center stretch">
+                                                                    <div class="form-group"   layout-sm="column" layout-align-sm="center">
 
                                                                         <div class="col-sm-8">
                                                                             <label class="col-sm-2 control-label">Type</label>
@@ -160,7 +245,7 @@
 
                                                                     </div>
 
-                                                                    <div class="form-group">
+                                                                    <div class="form-group"  layout-sm="column" layout-align-sm="center">
 
                                                                         <div class="col-sm-8">
                                                                             <label class="col-sm-3 control-label">Country</label>
@@ -170,7 +255,7 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <div class="form-group">
+                                                                    <div class="form-group"  layout-sm="column" layout-align-sm="center">
                                                                         <div class="col-sm-8">
                                                                             <label class="col-sm-11 control-label">CVR Number / Company Name</label>
 
@@ -186,11 +271,8 @@
 
                                                                         </div>
                                                                     </div>
-                                                                    <div class="form-group">
-                                                                        <div class="col-sm-9 m-t-15">
-                                                                            <!--                                                                            <button type="submit" class="btn btn-primary" ng-click="companySelectChange()">
-                                                                                                                                                            Add Customer
-                                                                                                                                                        </button>-->
+                                                                    <div class="form-group"  layout-sm="column" layout-align-sm="center center">
+                                                                        <div class="col-sm-9 m-t-15" layout-sm="column" layout-align-sm="center center">
                                                                             <md-button ng-click="companySelectChange()" class="green-button">Add Customer</md-button>   
 
                                                                             <br>
@@ -235,7 +317,7 @@
                                                                                                                                                     </tr>
                                                                                                                                                 </table>-->
                                                                     </div>
-                                                                    <div layout="row" layout-align="start start"> 
+                                                                    <div hide-xs layout="row" layout-align="start start"> 
                                                                         <div flex="50" class="crate-input" layout="column" layout-align="start start">
 
                                                                             <label>Invoice Number</label>
@@ -258,7 +340,52 @@
                                                                                 <option value="{{currencie.id}}" ng-repeat="currencie in currencies" >{{currencie.code}}/{{currencie.country.name}}</option>
                                                                             </select>
                                                                             <input ng-model="invoice.Invoice.address" data-parsley-type="number" type="text" class="form-control" required placeholder="" />
-                                                                        </div>                                                                    </div>
+                                                                        </div>    
+                                                                    </div>    
+                                                                    <div show-xs hide-gt-xs layout="column" layout-align="center"> 
+                                                                        <div layout="column" layout-align="center center">
+                                                                            <label>Invoice Number</label>
+                                                                            <input ng-model="invoice.Invoice.number" data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
+
+                                                                        </div>
+                                                                        <div layout="column" layout-align="center center">
+                                                                            <label>Invoice Date</label>
+                                                                            <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose"  data-provide="datepicker">
+
+                                                                        </div>
+                                                                        <div layout="column" layout-align="center center">
+                                                                            <label>Delivery Date</label>
+                                                                            <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose2" data-provide="datepicker">
+
+                                                                        </div>
+                                                                        <div layout="column" layout-align="center center">
+                                                                            <label>Order Ref.</label>
+                                                                            <input ng-model="invoice.Invoice.order" data-parsley-type="number" type="text" class="form-control" />
+
+                                                                        </div>
+                                                                        <div layout="column" layout-align="center center">
+                                                                            <label>Customer Ref.</label>
+                                                                            <input ng-model="invoice.Invoice.customer" data-parsley-type="number" type="text" class="form-control" />
+
+                                                                        </div>
+                                                                        <div layout="column" layout-align="center center">
+                                                                            <label>Account Number</label>
+                                                                            <input ng-model="invoice.Invoice.account" data-parsley-type="number" type="text" class="form-control" required placeholder="Enter only numbers" />
+
+                                                                        </div>
+                                                                        <div layout="column" layout-align="center center">
+                                                                            <label>Currency</label>
+                                                                            <select class="form-control select2" ng-model="invoice.Invoice.currency_id" ng-change="currenciesGet(invoice.Invoice.currency_id)">
+                                                                                <option value="{{currencie.id}}" ng-repeat="currencie in currencies" >{{currencie.code}}/{{currencie.country.name}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div layout="column" layout-align="center center">
+                                                                            <label>Address</label>
+                                                                            <input ng-model="invoice.Invoice.address" data-parsley-type="number" type="text" class="form-control" required placeholder="" />
+
+                                                                        </div>
+
+                                                                    </div> 
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -275,7 +402,7 @@
                                     <div class="panel-body">
 
                                         <div class="">
-                                            <table class="table table-striped" id="datatable-editable">
+                                            <table hide-xs hide-sm class="table table-striped" id="datatable-editable">
                                                 <thead>
                                                     <tr>
                                                         <th>ID</th>
@@ -352,10 +479,184 @@
 
                                                 </tbody>
                                             </table>
+                                            <table show-xs hide-gt-xs class="table table-striped" id="datatable-editable">
+
+                                                <tbody>
+                                                    <tr class="gradeX" ng-show="showInvoiceTable" layout="column" layout-align="center center">
+                                                        <td>ID</td>
+                                                        <td><span>{{invoiceTable.length + 1}}</span></td>
+                                                        <td>Description</td>
+                                                        <td><input ng-model="invoiceNewObject.description" data-parsley-type="number"
+                                                                   type="text" class="form-control" required/></td>
+                                                        <td>Qty</td>
+                                                        <td><input ng-model="invoiceNewObject.quantity" data-parsley-type="number" type="number"
+                                                                   class="form-control" required ng-change="invoiceChange()"/></td>
+
+                                                        <td>Price
+                                                            <h6><small>per unit excl. tax</small></h6>
+                                                        </td>
+                                                        <td><input ng-model="invoiceNewObject.price" data-parsley-type="number" type="number"
+                                                                   class="form-control" required ng-change="invoiceChange()"/></td>
+                                                        <td>VAT</td>
+
+                                                        <td class="col-sm-2">
+                                                            <select class="form-control" ng-model="invoiceNewObject.vatRates" ng-change="vatChange()">
+                                                                <option value="{{vat.id}}" ng-repeat="vat in invoiceNewObject.vatRatesArr">
+                                                                    {{ vat === 'NO' ? 'NO' : vat.rate}} {{ vat === 'NO' ? '' : '%'}}
+                                                                </option>
+                                                            </select>
+                                                        </td>
+                                                        <td>Discount</td> 
+
+                                                        <td style='display: flex;'><input ng-model="invoiceNewObject.discount" data-parsley-type="number"
+                                                                                          type="number" class="form-control" required ng-change="invoiceChange()"/>
+                                                            <span class="preInput">{{disc.discValue}}</span>
+                                                            <a ng-click="disc.discShow = true"><i class="material-icons md-18">keyboard_arrow_down</i></a>
+                                                            <div ng-if="disc.discShow" class="discSelect">
+                                                                <ul>
+                                                                    <li ng-click="discSelect('%')">Percent (%)</li>
+                                                                    <li ng-click="discSelect(valuesCur.currenciesGetValue || '$')">Flat({{valuesCur.currenciesGetValue|| '$'}})</li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                        <td>Tax %</td>
+
+                                                        <td><input ng-model="invoiceNewObject.tax" data-parsley-type="number" type="number"
+                                                                   class="form-control" required ng-change="invoiceChange()"/></td>
+                                                        <td>Total
+                                                            <h6><small>excl. tax</small></h6>
+                                                        </td>
+                                                        <td><input ng-model="invoiceNewObject.Total" data-parsley-type="number" type="text"
+                                                                   class="form-control" ng-disabled="true"/></td>
+                                                        <td class="actions">
+                                                            <a href="#" class="save-row" ng-click="invoiceAddToTable()"><i class="material-icons 5fbeaa">note_add</i></i></a>
+                                                            <a href="#" class="cancel-row" ng-click="showInvoiceTable = false"><i class="material-icons fb6d9d">delete</i></i></a>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr class="gradeX" ng-repeat="item in invoiceTable" layout="column" layout-align="center center"  style="background: aliceblue;border-style: double;">
+                                                        <!--                                                        <td>{{item.invoice_id}}</td>-->
+                                                        <td>ID</td>
+                                                        <td><span>{{$index + 1}}</span></td>
+                                                        <td>Description</td>
+                                                        <td>{{item.description}}</td>
+                                                        <td>Qty</td>
+                                                        <td>{{item.quantity}}</td>
+                                                        <td>Price
+                                                            <h6><small>per unit excl. tax</small></h6>
+                                                        </td>
+                                                        <td>{{item.price}}</td>
+                                                        <td>VAT</td>
+                                                        <td>{{item.vatRates}}</td>
+                                                        <td>Discount</td> 
+                                                        <td>{{item.discount}}</td>
+                                                        <td>Tax %</td>
+
+                                                        <td>{{item.tax}}</td>
+                                                        <td>Total
+                                                            <h6><small>excl. tax</small></h6>
+                                                        </td>
+                                                        <td>{{item.Total}}</td>
+                                                        <td class="actions">
+                                                            <a href="#" class="on-default edit-row" ng-click="editInvoce($index)"><i class="material-icons 5fbeaa">note_add</i></a>
+                                                            <a href="#" class="on-default remove-row" ng-click="deletedInvoce($index)"><i class="material-icons fb6d9d">delete</i></a>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                            <div show-sm hide-md hide-lg hide-xl hide-xs class="table table-striped" id="datatable-editable">
+
+                                                <div>
+                                                    <div layout-wrap  class="gradeX" ng-show="showInvoiceTable" layout="row"       layout-align="space-around center">
+                                                        <div flex="15">ID</div>
+                                                        <div flex="25"><span>{{invoiceTable.length + 1}}</span></div>
+                                                        <div flex="25" style="margin-left: 19px;">Description</div>
+                                                        <div flex="25" style="margin-left: 9px;"><input ng-model="invoiceNewObject.description" data-parsley-type="number"
+                                                                                                        type="text" class="form-control" required/></div><br>
+                                                        <div flex="15">Qty</div>
+                                                        <div flex="25"><input ng-model="invoiceNewObject.quantity" data-parsley-type="number" type="number"
+                                                                              class="form-control" required ng-change="invoiceChange()"/></div>
+
+                                                        <div flex="25">Price
+                                                            <h6><small>per unit excl. tax</small></h6>
+                                                        </div>
+                                                        <div flex="25"><input ng-model="invoiceNewObject.price" data-parsley-type="number" type="number"
+                                                                              class="form-control" required ng-change="invoiceChange()"/></div>
+                                                        <div flex="15">VAT</div>
+
+                                                        <div flex="25" class="col-sm-2" style="    padding: 0;">
+                                                            <select class="form-control" ng-model="invoiceNewObject.vatRates" ng-change="vatChange()">
+                                                                <option value="{{vat.id}}" ng-repeat="vat in invoiceNewObject.vatRatesArr">
+                                                                    {{ vat === 'NO' ? 'NO' : vat.rate}} {{ vat === 'NO' ? '' : '%'}}
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div flex="25">Discount</div> 
+
+                                                        <div flex="25" style='display: flex;'><input ng-model="invoiceNewObject.discount" data-parsley-type="number"
+                                                                                                     type="number" class="form-control" required ng-change="invoiceChange()"/>
+                                                            <span class="preInput">{{disc.discValue}}</span>
+                                                            <a ng-click="disc.discShow = true"><i class="material-icons md-18">keyboard_arrow_down</i></a>
+                                                            <div ng-if="disc.discShow" class="discSelect">
+                                                                <ul>
+                                                                    <li ng-click="discSelect('%')">Percent (%)</li>
+                                                                    <li ng-click="discSelect(valuesCur.currenciesGetValue || '$')">Flat({{valuesCur.currenciesGetValue|| '$'}})</li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div flex="15">Tax %</div>
+
+                                                        <div flex="25"><input ng-model="invoiceNewObject.tax" data-parsley-type="number" type="number"
+                                                                              class="form-control" required ng-change="invoiceChange()"/></div>
+                                                        <div flex="25">Total
+                                                            <h6><small>excl. tax</small></h6>
+                                                        </div>
+                                                        <div flex="25"><input ng-model="invoiceNewObject.Total" data-parsley-type="number" type="text"
+                                                                              class="form-control" ng-disabled="true"/></div>
+                                                        <div flex="25" class="actions">
+                                                            <a href="#" class="save-row" ng-click="invoiceAddToTable()"><i class="material-icons 5fbeaa">note_add</i></i></a>
+                                                            <a href="#" class="cancel-row" ng-click="showInvoiceTable = false"><i class="material-icons fb6d9d">delete</i></i></a>
+                                                        </div>
+                                                    </div>
+
+                                                    <div layout-wrap class="gradeX" ng-repeat="item in invoiceTable" layout="row"       layout-align="space-around center"  style="background: aliceblue;border-style: double;">
+                                                        <!--                                                        <td>{{item.invoice_id}}</td>-->
+                                                        <div flex="25">ID</div>
+                                                        <div flex="25"><span>{{$index + 1}}</span></div>
+                                                        <div flex="25">Description</div>
+                                                        <div flex="25">{{item.description}}</div>
+                                                        <div flex="25">Qty</div>
+                                                        <div flex="25">{{item.quantity}}</div>
+                                                        <div flex="25">Price
+                                                            <h6><small>per unit excl. tax</small></h6>
+                                                        </div>
+                                                        <div flex="25">{{item.price}}</div>
+                                                        <div flex="25">VAT</div>
+                                                        <div flex="25">{{item.vatRates}}</div>
+                                                        <div flex="25">Discount</div> 
+                                                        <div flex="25">{{item.discount}}</div>
+                                                        <div flex="25">Tax %</div>
+
+                                                        <div flex="25">{{item.tax}}</div>
+                                                        <div flex="25">Total
+                                                            <h6><small>excl. tax</small></h6>
+                                                        </div>
+                                                        <div flex="25">{{item.Total}}</div>
+                                                        <div  flex="25" class="actions">
+                                                            <a href="#" class="on-default edit-row" ng-click="editInvoce($index)"><i class="material-icons 5fbeaa">note_add</i></a>
+                                                            <a href="#" class="on-default remove-row" ng-click="deletedInvoce($index)"><i class="material-icons fb6d9d">delete</i></a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <div class="m-b-30">
+                                                <div class="m-b-30" layout-xs="column" layout-align-xs="center center">
                                                     <!--<button id="addToTable" ng-click="showInvoiceTable = true" class="btn btn-default waves-effect waves-light">Add Item <i class="fa fa-plus"></i></button>-->
                                                     <md-button id="addToTable" ng-click="showInvoiceTable = true"  class="green-button">Add Item</md-button>   
 
@@ -414,12 +715,12 @@
 
                                                 <div>
 
-                                                    <form class="form-horizontal group-border-dashed" action="#">
-                                                        <div class="col-sm-12">
+                                                    <form class="form-horizontal group-border-dashed" action="#" layout-sm="row" layout-align-sm="center">
+                                                        <div class="col-sm-12"  layout-sm="column" flex-sm="70" layout-align-sm="center" layout-xs="column" layout-align-xs="center center">
 
-                                                            <div class="row" layout="row" layout-align="center center">
-                                                                <div  flex="50">
-                                                                    <div class="form-group"  layout="column" layout-align="start start">
+                                                            <div class="row" layout="row" layout-align="center center" layout-sm="column" layout-align-sm="center" layout-xs="column" layout-align-xs="center">
+                                                                <div  flex="50" flex-xs="100" flex-sm="100">
+                                                                    <div class="form-group"  layout="column" layout-align="start start" layout-align-sm="center">
                                                                         <label class="col-md-2 control-label">Notes</label>
                                                                         <div class="col-md-10">
                                                                             <textarea class="form-control" rows="5" ng-model="invoice.InvoiceFile.notes"></textarea>
@@ -427,8 +728,8 @@
                                                                     </div> 
                                                                 </div>
 
-                                                                <div flex="50">
-                                                                    <div layout="row" layout-align="start start"> 
+                                                                <div flex="50" flex-xs="100" flex-sm="100">
+                                                                    <div hide-xs hide-sm layout="row" layout-align="start start"> 
                                                                         <div flex="50" class="crate-input" layout="column" layout-align="start start">
                                                                             <label>Payment Date</label>
                                                                             <label>Payment Method</label>
@@ -443,17 +744,32 @@
                                                                                 <option value="GBP">Select 5</option>
                                                                                 <option value="CHF">Select 6</option>
                                                                             </select>
-                                                                        </div>                                                                    </div>
+                                                                        </div>                                                                    
+                                                                    </div>
+                                                                    <div show-xs show-sm hide-md hide-lg hide-xl layout="column" layout-align="center">
+                                                                        <label>Payment Date</label>
+                                                                        <input type="text" class="form-control" placeholder="mm/dd/yyyy" id="datepicker-autoclose3"  data-provide="datepicker">
+                                                                        <label>Payment Method</label>
+                                                                        <select class="form-control select2" ng-model="invoice.InvoiceFile.payment_method">
+                                                                            <option value="DKK">Select 1</option>
+                                                                            <option value="USD">Select 2</option>
+                                                                            <option value="EUR">Select 3</option>
+                                                                            <option value="NOK">Select 4</option>
+                                                                            <option value="GBP">Select 5</option>
+                                                                            <option value="CHF">Select 6</option>
+                                                                        </select>
+                                                                        <br>
+                                                                    </div>
                                                                 </div>
                                                             </div>
 
                                                             <div  flex flow-init="{target: '/lara/public/upload.php'}"
                                                                   flow-files-submitted="$flow.upload()"
                                                                   flow-file-success="someHandlerMethodAll( $file, $message, $flow )"
-                                                                  layout="row" layout-align="start start">
-                                                                <div layout="column" layout-align="center start">
+                                                                  layout="row" layout-align="start start" layout-align-sm="center">
+                                                                <div layout="column" layout-align="center start" layout-sm="column" layout-align-sm="center center" layout-xs="column" layout-align-xs="center center">
                                                                     <div style="border: 1px solid #5fbeaa;" flow-drop flow-drag-enter="style={border:'4px solid green'}" flow-drag-leave="style={}"
-                                                                         ng-style="style" layout="column" layout-align="center center">
+                                                                         ng-style="style" layout="column" layout-align="center center" layout-sm="column" layout-align-sm="center" layout-xs="column" layout-align-xs="center">
                                                                         <div if="!$flow.files[$flow.files.length - 1]" class="alert" flow-drop>
                                                                             Drag And Drop your file here
                                                                         </div>
@@ -483,9 +799,9 @@
                                                     <hr>
                                                     <div class="col-md-12">
                                                         <div>
-                                                            <div class="row" layout="row" layout-align="end center">
+                                                            <div class="row" layout="row" layout-align="end center" layout-sm="column" layout-align-sm="center center" layout-xs="column" layout-align-xs="center">
                                                                 <div class="col-sm-4">
-                                                                    <div class="button-list">
+                                                                    <div class="button-list" layout-sm="column" layout-align-sm="center" layout-xs="column" layout-align-xs="center">
                                                                         <md-button class="green-button" data-toggle="modal" data-target="#modal-ready">Send</md-button> 
                                                                         <!--<button class="green-button" data-toggle="modal" data-target="#modal-ready">Send</button>-->   
 
@@ -574,7 +890,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody md-body>
-                                                            <tr md-row ng-repeat="invoice in invoices| filter: filter.search | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                                                            <tr md-row ng-repeat="invoice in invoices| filter: filter.search | orderBy: query.order | limitTo: query.limit : (query.page - 1) * query.limit">
                                                                 <td md-cell> № <a data-toggle="modal" data-target="#custom-width-modal"  ng-click="selectModal(invoice.id)">{{invoice.order}}</a></td>
                                                                 <td md-cell>{{invoice.invoice_dt| date:'mediumDate'}}</td>
                                                                 <td md-cell ng-if="invoice.from_company.id === user.created_companies[0].id">{{invoice.to_company.name}}</td>                                                                
@@ -1092,7 +1408,7 @@
                                 <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
                             </md-content>
                         </md-tab>
-                        <md-tab label="PRO" class='pro-tab' ng-click="createSetFalse()">
+                        <md-tab label="PRO"  md-on-select="selectPro()" class='pro-tab' ng-click="createSetFalse()">
 
                             <md-content class="md-padding">
                                 <div>

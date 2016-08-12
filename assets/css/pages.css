@@ -1747,3 +1747,20 @@ File: Pages
 .signup-signin-page {
     width: auto;
 }
+
+
+@media  screen and (min-device-width: 308px) and (min-width: 308px){
+   
+}
+
+@media screen and (min-device-width: 700px) and (min-width: 700px) {
+    
+}
+
+@media  screen and (min-device-width: 900px) and (min-width: 900px) {
+    
+}
+
+@media  screen and (min-device-width: 1280px) and (min-width: 1280px){
+    
+}

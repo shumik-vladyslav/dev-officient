@@ -97,12 +97,13 @@
 .saving{
     background: #150f29;
     height: 700px;
+    padding-bottom: 110px;
 }
 
 .saving .top-next{
     font-size: 33px;
     margin-bottom: 50px;
-    color: #fff;
+    color: #e6e1e1;
     text-align: -webkit-center;
     max-width: 45%;
 }
@@ -147,16 +148,23 @@
     color: #fff;
 
 }
+
 .hard .wrap button{
     background: #00d59c;
     color: #ffffff;
+    margin: 50px;
+    width: 250px;
+    height: 40px;
 }
 .hard .wrap button span{
     margin: 30px;
     text-transform: initial;
+    font-weight: bold;
+    font-size: 18px;
 }
+
 .hard .wrap .md-button:not([disabled]):hover {
-    background-color: #48e4ba;
+    background-color: #33a083;
 }
 .hard .wrap div div div .circl{
     background: #fff;
@@ -206,9 +214,15 @@
 }
 
 .choose{
-    height: 550px;
+    height: 670px;
     margin-top: 50px;
     color: #fff;
+     background: #0052aa; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #0052aa 51%, #00459f 52%, #00459f 52%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #0052aa 51%,#00459f 52%,#00459f 52%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #0052aa 51%,#00459f 52%,#00459f 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0052aa', endColorstr='#00459f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 }
 
 .choose .wrap{
@@ -258,7 +272,7 @@
     text-transform: initial;
 }
 .back-choise div .first-button:not([disabled]):hover {
-    background-color: #3f51b8;
+    background-color: #33a083;
 }
 
 .back-choise div .first-button span{
@@ -278,16 +292,22 @@
     font-weight: bolder;
 }
 .back-choise div .second-button:not([disabled]):hover {
-    background-color: #48e4ba;
+    background-color: #33a083;
 }
 
 
 
 .choose div .top {
+    padding-top: 85px;
     font-size: 50px;
-    margin: 20px;
+    margin: 10px;
     width: 50%;
     text-align: -webkit-center;
+}
+
+.choose div h3{
+        color: #e6e1e1;
+    padding-bottom: 40px;
 }
 
 .why {
@@ -299,15 +319,18 @@
     background: linear-gradient(45deg, #0060c6 50%,#0060c6 50%,#0053b5 52%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0060c6', endColorstr='#0053b5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     color: #fff;
+    padding: 50px;
 }
 
 .why .wrap {
-    
+
 }
 
 .why .top {
     font-size: 50px;
     margin: 20px;
+
+    margin-top: 50px;
     width: 50%;
     text-align: -webkit-center;
 }
@@ -329,13 +352,19 @@
 .why button{
     background: #00d59c;
     color: #ffffff;
+    margin: 50px;
+    width: 250px;
+    height: 40px;
 }
 .why button span{
     margin: 30px;
     text-transform: initial;
+    font-weight: bold;
+    font-size: 18px;
 }
+
 .why .md-button:not([disabled]):hover {
-    background-color: #48e4ba;
+    background-color: #33a083;
 }
 
 .list {
@@ -460,7 +489,7 @@ blockquote > p:first-child {
     text-transform: initial;
 }
 .calcul .wrap .md-button:not([disabled]):hover {
-    background-color: #48e4ba;
+    background-color: #33a083;
 }
 
 .calcul .wrap div input{
@@ -482,7 +511,275 @@ blockquote > p:first-child {
 
 .calcul h1{
     color: black;
-    position: absolute;
-    top: 72%;
-    left: 30%;
 }
+
+.nav-right a{
+    margin: 15px;
+}
+
+.img-margin-left{
+    margin-left: 120px
+}
+
+.h4-40{
+    width: 40%;
+}
+.h4-50{
+    width: 50%;
+}
+.h4-60{
+    width: 60%;
+}
+.h4-70{
+    width: 70%;
+}
+.h4-80{
+    width: 80%;
+}
+.h4-90{
+    width: 90%;
+}
+.h4-100{
+    width: 100%;
+}
+
+.h4-100-size15{
+    width: 100%;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+@media  screen and (min-device-width: 308px) and (min-width: 308px){
+
+    .saving {
+        background: #150f29;
+        height: 100%;
+    }
+    /*    .saving div div img{
+            margin: 10px;
+        }*/
+    .img-margin-left{
+        margin-left: 0;
+    }
+    .saving .top {
+        font-size: 30px;
+        text-align: -webkit-center;
+        margin: 20px;
+        color: #fff;
+    }
+    .saving .top-next {
+        font-size: 20px;
+        margin-bottom: 50px;
+        color: #e6e1e1;
+        text-align: -webkit-center;
+        max-width: 75%;
+    }
+    .saving div div .first {
+        text-align: -webkit-center;
+        color: #fff;
+        width: 90%;
+    }
+    .saving div div .second h4 {
+        font-size: 20px;
+        color: #fff;
+        text-align: -webkit-center;
+        /* width: 90%; */
+    }
+    .why .top{
+        font-size: 30px;
+        margin: 20px;
+        width: 100%; 
+        text-align: -webkit-center;
+    }
+
+    .why{
+        height: 100%;
+    }
+    .hard .top {
+        font-size: 30px;
+        text-align: -webkit-center;
+        margin: 50px;
+        color: #fff;
+    }
+    .hard .wrap {
+        background: #150f29;
+        height: 100%;
+        padding: 50px;
+    }
+    .hard div div .first-second {
+        text-align: right;
+        color: #fff;
+        width: 90%;
+    }
+    .hard div div .first-second h4{
+        text-align: -webkit-center;
+        font-size: 20px;
+    }
+
+    .hard div div .second-second {
+        color: #fff;
+        width: 90%;
+    }
+    .hard div div .second-second h4{
+        text-align: -webkit-center;
+        font-size: 20px;
+    }
+
+    .calcul h1{
+        font-size: 50px;
+        text-align: -webkit-center;
+    }
+
+    .calcul .wrap {
+        height: 400px;
+        width: 300px;
+        background: #151028;
+    }
+
+    .calcul .wrap div h4 {
+        color: white;
+        font-size: 12px;
+    }
+    .calcul .wrap div input {
+        width: 100px;
+        margin-right: 4px;
+    }
+    .calcul .wrap div span {
+        color: #00d59c;
+        font-size: 50px;
+        font-weight: 700;
+    }
+}
+
+@media screen and (min-device-width: 700px) and (min-width: 700px) {
+    .h4-40{
+        width: 40%;
+    }
+    .h4-50{
+        width: 50%;
+    }
+    .h4-60{
+        width: 60%;
+    }
+    .h4-70{
+        width: 70%;
+    }
+    .why .row div {
+        margin: 6px;
+    }
+
+
+    .calcul .wrap{
+        height: 400px;
+        width: 700px;
+        background: #151028;
+    }
+    .calcul .wrap div h4{
+        color: white;
+        font-size: 18px;
+    }
+
+    .calcul .wrap div span{
+        color: #00d59c;
+        font-size: 70px;
+        font-weight: 700;
+    }
+
+    .calcul .wrap button{
+        background: #00d59c;
+        color: #ffffff;
+    }
+    .calcul .wrap button span{
+        margin: 30px;
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: initial;
+    }
+    .calcul .wrap .md-button:not([disabled]):hover {
+        background-color: #33a083;
+    }
+
+    .calcul .wrap div input{
+        padding: 7.5px;
+        border: 0;
+        border-bottom: 2px #e8edf0 solid;
+        box-sizing: border-box;
+        background: #ECECEC;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        width: 150px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 24px;
+        height: 36px;
+        border-radius: 3px;
+        text-align: center;
+    }
+
+    .calcul h1{
+        color: black;
+    }
+    .full-body {
+        height: 3000px;
+    }
+}
+
+@media  screen and (min-device-width: 900px) and (min-width: 900px) {
+
+    .saving .top-next {
+        font-size: 33px;
+        margin-bottom: 50px;
+        color: #e6e1e1;
+        text-align: -webkit-center;
+        max-width: 45%;
+    }
+    .why .top{
+        font-size: 50px;
+        margin: 40px;
+        width: 50%;
+        text-align: -webkit-center;
+    }
+    .saving div div .second h4 {
+        font-size: 20px;
+        color: #fff;
+        text-align: -webkit-auto;
+        /* width: 90%; */
+    }
+
+    .saving div div .first h4{
+        text-align: -webkit-right;
+    }
+    .saving .top {
+        font-size: 50px;
+        text-align: -webkit-center;
+        margin: 20px;
+        color: #fff;
+    }
+    .hard .top {
+        font-size: 50px;
+        margin: 50px;
+        color: #fff;
+    }
+}
+
+@media  screen and (min-device-width: 1280px) and (min-width: 1280px){
+
+}
+@media  screen and (min-device-width: 1920px) and (min-width: 1920px){
+
+    .img-margin-left{
+        margin-left: 120px
+    }
+
+    .why .wrap {
+        position: absolute;
+    }
+    .why {
+
+        padding: 0px; 
+    }
+
+}
+
+
+

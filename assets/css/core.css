@@ -6,9 +6,48 @@ Author: CoderThemes
 Email: coderthemes@gmail.com
 File: Common
 */
-
+.md-button {
+    border-radius: 3px;
+    box-sizing: border-box;
+    color: currentColor;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    outline: 0;
+    border: 0;
+    display: inline-block;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 6px;
+    margin: 6px 8px;
+    line-height: 36px;
+    min-height: 20px;
+    background: 0 0;
+    white-space: nowrap;
+    min-width: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    font-style: inherit;
+    font-variant: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+}
 .login-button{
-
+    background: white;
+    border: none;
+    font-family: Rubik-Regular;
+    font-weight: 800;
+    width: 80px;
+    height: 26px;
+    border-radius: 0;
     box-shadow: 0 0 0 1px #015fcd inset!important;
     color: #015fcd!important;
 }
@@ -33,19 +72,27 @@ File: Common
 }
 .se-options-button h4{
     margin: 20px;
-    color: #fff;
+    color: #e6e1e1;
     text-align: -webkit-center;
 }
 .se-options-button button{
     background: #00d59c;
     color: #ffffff;
+    margin: 50px;
+    width: 250px;
+    height: 40px;
 }
 .se-options-button button span{
     margin: 30px;
     text-transform: initial;
+    font-weight: bold;
+    font-size: 18px;
+}
+.se-options-button .md-button:not([disabled]):focus {
+    background-color: #00d59c;
 }
 .se-options-button .md-button:not([disabled]):hover {
-    background-color: #48e4ba;
+    background-color: #33a083;
 }
 
 .login-button span{
@@ -82,7 +129,7 @@ File: Common
 }
 body {
     background: #ebeff2;
-    font-family: 'Noto Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Rubik-Regular;
     margin: 0;
     overflow-x: hidden;
     color: #797979;
@@ -99,7 +146,8 @@ h4,
 h5,
 h6 {
     color: #505458;
-    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Rubik-Regular;
+
     margin: 10px 0;
 }
 h1 {
@@ -232,9 +280,10 @@ md-tabs .md-tab span{
     color: #afacac;
     text-transform: capitalize;
 }
-
 md-pagination-wrapper {
     width:auto !important;
+    display: flex;
+    margin-top: 4px;
 }
 
 
@@ -963,7 +1012,8 @@ textarea.form-control {
     letter-spacing: 0.03em;
     font-weight: 600;
     text-transform: uppercase;
-    font-family: "Source Sans Pro", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Rubik-Regular;
+
 }
 .nav.nav-tabs > li > a:hover,
 .nav.tabs-vertical > li > a:hover {
@@ -1227,6 +1277,7 @@ File: Topbar,Left-sidebar,Right-sidebar
     width: 180px;
 }
 .logo {
+    margin-left: 50px;
     color: #ffffff !important;
     font-size: 20px;
     font-weight: 700;
@@ -1246,10 +1297,12 @@ File: Topbar,Left-sidebar,Right-sidebar
     display: none;
 }
 .navbar-default {
+    margin-top: 20px;
     background-color: #ffffff;
     border-radius: 0px;
     border: none;
     margin-bottom: 0px;
+    width: 100%;
 }
 .navbar-default .navbar-nav > .open > a {
     background-color: rgba(255, 255, 255, 0.1);
@@ -1260,6 +1313,11 @@ File: Topbar,Left-sidebar,Right-sidebar
 .navbar-default .navbar-nav > .open > a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
+.navbar-nav li a{
+    margin-right: 60px;
+    font-size: 13px;
+}
+
 .navbar-default .badge {
     position: absolute;
     top: 12px;
@@ -1323,7 +1381,8 @@ File: Topbar,Left-sidebar,Right-sidebar
     font-weight: 600;
     padding: 11px 20px 15px;
     color: #4c5667;
-    font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Rubik-Regular;
+
 }
 .navbar-nav {
     margin: 0px;
@@ -2764,4 +2823,212 @@ md-tabs-content-wrapper{
 }
 body{
     padding-right:0 !important;
+}
+
+.nav-right{
+    font-family: Rubik-Regular;
+
+    margin: 10px 0;
+}
+
+.md-wrap-content{
+    width: 80%;
+}
+
+@media  screen and (min-device-width: 308px) and (min-width: 308px){
+    .full-body{
+        width: 100%;
+    }
+    .se-options-button{
+        height: 100%;
+    }
+    .se-options-button h1 {
+        font-size: 30px;
+        margin: 20px;
+        color: #fff;
+    }
+
+    .phone div div div{
+        text-align: -webkit-center;
+        margin-top: 30px;
+    }
+    .menu-icon{
+        margin-top: 10px;
+        margin-left: 180px;
+    }
+
+    md-tabs .md-tab.content-5{
+        left:0;
+    }
+    .nav-right a {
+        margin: 15px;
+    }
+    a {
+        color: #337ab7;
+        text-decoration: none;
+    }
+    a:not(.md-button) {
+        color: #337ab7;
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-device-width: 700px) and (min-width: 700px) {
+    .nav-right a {
+        margin: 15px;
+    }
+    a {
+        color: #337ab7;
+        text-decoration: none;
+    }
+    a:not(.md-button) {
+        color: #337ab7;
+        text-decoration: none;
+    }
+    .topbar .topbar-left {
+        float: left;
+        position: relative;
+        width: 190px;
+        z-index: 1;
+    }
+    .coma:before {
+        margin-left: 30px !important;
+    }
+    .menu-icon{
+        margin-left: 500px;
+        margin-top: 10px;
+    }
+}
+
+@media  screen and (min-device-width: 900px) and (min-width: 900px) {
+    .coma:before {
+        margin-left: 50px !important;
+    }
+    .menu-icon{
+        margin-left: 500px;
+        margin-top: 10px;
+    }
+    .topbar .topbar-left {
+        float: left;
+        position: relative;
+        width: 250px;
+        z-index: 1;
+    }
+
+    .se-options-button h1 {
+        font-size: 60px;
+        margin: 100px;
+        color: #fff;
+    }
+    .saving .top {
+        padding-top: 50px;
+        font-size: 60px;
+        text-align: -webkit-center;
+        margin: 20px;
+        color: #fff;
+    }
+
+    .se-options-button .md-button{
+        margin-bottom: 100px;
+    }
+}
+
+@media  screen and (min-device-width: 1280px) and (min-width: 1280px){
+    .hard div div .first-second h4 {
+        text-align: -webkit-right;
+        font-size: 20px;
+        width: 90%;
+    }
+
+    .hard div div .second-second h4 {
+        text-align: -webkit-left;
+        font-size: 20px;
+    }
+}
+
+@media  screen and (min-device-width: 1920px) and (min-width: 1920px){
+    .md-wrap-content{
+        width: 50%;
+    }
+    .logo-bot{
+        padding-right: 300px;
+    }
+
+    .logo{
+        margin-left: 260%;
+
+    }
+    .saving .top-next {
+        max-width: 37%;
+    }
+    .navbar-nav li a {
+        margin-right: 40px;
+        font-size: 13px;
+    }
+
+    .saving div div .first h4 {
+        text-align: -webkit-right;
+        font-size: 18px;
+
+    }
+    .saving div div .second h4 {
+        font-size: 18px;
+        color: #fff;
+        text-align: -webkit-auto;
+        /* width: 90%; */
+    }
+
+    .hard div div .first-second h4 {
+        text-align: -webkit-right;
+        font-size: 20px;
+    }
+
+    .hard div div .second-second h4 {
+        text-align: -webkit-left;
+        font-size: 20px;
+    }
+
+    .login-button{
+        margin-right: 500px;
+    }
+
+    .se-options-button{
+
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#005fc4+27,002a62+95,002a62+95 */
+        background: #005fc4; /* Old browsers */
+        background: -moz-linear-gradient(top,  #005fc4 27%, #002a62 95%, #002a62 95%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top,  #005fc4 27%,#002a62 95%,#002a62 95%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom,  #005fc4 27%,#002a62 95%,#002a62 95%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005fc4', endColorstr='#002a62',GradientType=0 ); /* IE6-9 */
+    }
+
+    .saving div div .first h4 {
+        text-align: -webkit-right;
+    }
+
+
+
+    .se-options-button .md-button{
+        position: absolute;
+        top: 570px;
+        left: 42%;
+    }
+
+    .se-options-button h1{
+        position: absolute;
+        left: 34%;
+        font-size: 45px;
+        top: 1%;
+    }
+
+    .se-options-button .wrap{
+        position: absolute;
+        top: 210px;
+
+    }
+}
+
+@font-face {
+    font-family: Rubik-Regular;
+    src: url(Rubik-Regular.ttf);
 }
